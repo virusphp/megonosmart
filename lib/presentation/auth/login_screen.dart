@@ -20,9 +20,12 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "login",
-          style: TextStyles.title,
+        title: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Text(
+            "Login",
+            style: TextStyles.title,
+          ),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -30,15 +33,20 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.asset('assets/images/login_ui.png'),
-              const SizedBox(height: 16.0),
-              Text(
-                "login Details",
-                style: TextStyles.title.copyWith(fontSize: 20.0),
+              Image.asset('assets/images/login_ui_caffe.png', height: 150, width: 150,),
+              const SizedBox(height: 8.0),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "MEGONO POS",
+                    style: TextStyles.title.copyWith(fontSize: 20.0),
+                  ),
+                ],
               ),
               const SizedBox(height: 24.0),
               CustomTextField(
@@ -78,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Login',
                     style: TextStyles.title.copyWith(
                       fontSize: 20.0,
-                      color: Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                     ),
                   ),
                 ),
