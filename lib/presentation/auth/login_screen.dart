@@ -78,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Login',
                     style: TextStyles.title.copyWith(
                       fontSize: 20.0,
-                      color: Color(0xFFFFFFFF),
+                      color: const Color(0xFFFFFFFF),
                     ),
                   ),
                 ),
