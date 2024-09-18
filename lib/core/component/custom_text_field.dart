@@ -43,20 +43,20 @@ class CustomTextField extends StatelessWidget {
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             width: 1.0,
-            color: AppColors.darkGrey,
+            color: AppColors.lightYellow,
           ),
           borderRadius: BorderRadius.circular(5.0),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             width: 1.0,
-            color: AppColors.darkGrey,
+            color: AppColors.darkYellow,
           ),
           borderRadius: BorderRadius.circular(5.0),
         ),
         hintText: hint,
         hintStyle: TextStyles.body.copyWith(
-          color: AppColors.darkGrey,
+          color: AppColors.darkYellow,
         ),
       ),
     );
