@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:megonopos/presentation/auth/login_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:megonopos/data/datasources/auth_remote_datasource.dart';
+import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
+import 'package:megonopos/presentation/auth/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,9 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+    return BlocProvider(
+      create: (context) => LoginBloc(AuthRemoteDatasource()),
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: LoginPage(),
+      ),
     );
   }
 }
