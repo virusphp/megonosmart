@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:megonopos/core/component/buttons.dart';
 import 'package:megonopos/core/constants/colors.dart';
 
 import '../../core/component/custom_text_field.dart';
@@ -19,21 +20,10 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(2.0),
-          child: Text(
-            "Login",
-            style: TextStyles.title,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
+    
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -72,24 +62,9 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 16.0),
               Text('Forgot Password ?', style: TextStyles.body),
               const SizedBox(height: 24.0),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.darkBlue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                  ),
-                ),
+              Button.filled(
                 onPressed: () {},
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Text(
-                    'Login',
-                    style: TextStyles.title.copyWith(
-                      fontSize: 20.0,
-                      color: const Color(0xFFFFFFFF),
-                    ),
-                  ),
-                ),
+                label: 'Masuk',
               ),
               const SizedBox(height: 24.0),
               Text(
