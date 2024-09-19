@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/colors.dart';
-import '../constants/variables.dart';
+import '../constants/styles.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -56,7 +56,7 @@ class CustomTextField extends StatelessWidget {
         ),
         hintText: hint,
         hintStyle: TextStyles.body.copyWith(
-          color: AppColors.darkYellow,
+          color: const Color(0xEB703300),
         ),
       ),
     );
