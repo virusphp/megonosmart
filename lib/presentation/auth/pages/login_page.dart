@@ -4,6 +4,7 @@ import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/components/buttons.dart';
 import 'package:megonopos/core/components/custom_text_field.dart';
 import 'package:megonopos/core/components/spaces.dart';
+import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 
@@ -79,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
             state.maybeWhen(
               orElse: () {},
               success: (authResponseModel) {
+                AuthLocalDatasource().saveAuthData(authResponseModel);
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
