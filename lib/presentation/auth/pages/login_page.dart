@@ -4,7 +4,6 @@ import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/components/buttons.dart';
 import 'package:megonopos/core/components/custom_text_field.dart';
 import 'package:megonopos/core/components/spaces.dart';
-import 'package:megonopos/main.dart';
 import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 
@@ -76,50 +75,46 @@ class _LoginPageState extends State<LoginPage> {
             },
           ),
           const SpaceHeight(24.0),
-          BlocListener<LoginBloc, LoginState>(
-            listener: (context, state) {
-             state.maybeWhen(
-                orElse: () {},
-                success: (authResponseModel) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const DashboardPage(),
-                    ),
-                  );
+          BlocListener<LoginBloc, LoginState>(listener: (context, state) {
+            state.maybeWhen(
+              orElse: () {},
+              success: (authResponseModel) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DashboardPage(),
+                  ),
+                );
+              },
+              error: (message) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(message),
+                    backgroundColor: Colors.red,
+                  ),
+                );
+              },
+            );
+          }, child:
+              BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
+            return state.maybeWhen(orElse: () {
+              return Button.filled(
+                onPressed: () {
+                  context.read<LoginBloc>().add(
+                        LoginEvent.login(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
+                      );
                 },
-                error: (message) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(message),
-                      backgroundColor: Colors.red,
-                    ),
-                  );
-                },
+                label: 'Masuk',
               );
-            },
-            child:
-                BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-               return state.maybeWhen(orElse: () {
-                  return Button.filled(
-                    onPressed: () {
-                      context.read<LoginBloc>().add(
-                            LoginEvent.login(
-                              email: emailController.text,
-                              password: passwordController.text,
-                            ),
-                          );
-                    },
-                    label: 'Masuk',
-                  );
-                }, loading: () {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                });
-              }
-            )
-          )
+            }, loading: () {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            });
+          }))
         ],
       ),
     );

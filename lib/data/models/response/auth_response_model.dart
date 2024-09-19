@@ -3,7 +3,7 @@ import 'dart:convert';
 class AuthResponseModel {
     final int code;
     final String message;
-    final Result result;
+    final Result? result;
 
     AuthResponseModel({
         required this.code,
@@ -24,7 +24,7 @@ class AuthResponseModel {
     Map<String, dynamic> toMap() => {
         "code": code,
         "message": message,
-        "result": result.toMap(),
+        "result": result?.toMap(),
     };
 }
 
