@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/data/datasources/product_remote_datasource.dart';
 import 'package:megonopos/data/models/response/product_response_model.dart';
 
@@ -23,12 +24,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       );
     });
 
+    on<_FetchLocal>((event, emit) async {
+      emit(const ProductState.loading());
+      final products = await ProductLocalDatasource.instance.getAllProduct();
+      emit(ProductState.success(products));
+    });
+
     on<_FetchByCategory>((event, emit) async {
       emit(const ProductState.loading());
-      final newProduct = event.category == 'all'
+      final newProduct = event.category == 'ALL'
           ? products
           : products
-              .where((element) => element.category == event.category)
+              .where((element) => element.category.name == event.category)
               .toList();
       emit(ProductState.success(newProduct));
     });

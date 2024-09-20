@@ -59,20 +59,20 @@ class _HomePageState extends State<HomePage> {
 
   void onCategoryTap(int index) {
     searchController.clear();
-    // indexValue.value = index;
-    String category = 'all';
+    indexValue.value = index;
+    String category = 'ALL';
     switch (index) {
       case 0:
-        category = 'all';
+        category = 'ALL';
         break;
       case 1:
-        category = 'drink';
+        category = 'DRINK';
         break;
       case 2:
-        category = 'food';
+        category = 'FOOD';
         break;
       case 3:
-        category = 'snack';
+        category = 'SNACK';
         break;
     }
     context.read<ProductBloc>().add(ProductEvent.fetchByCategory(category));

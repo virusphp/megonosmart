@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
-
 
 import '../constants/colors.dart';
 
@@ -35,7 +33,7 @@ class MenuButton extends StatelessWidget {
           width: context.deviceWidth,
           padding: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
-            color: isActive ? AppColors.primary : AppColors.white,
+            color: isActive ? AppColors.darkYellow : AppColors.white,
             borderRadius: const BorderRadius.all(Radius.circular(6.0)),
             boxShadow: [
               BoxShadow(
