@@ -58,7 +58,7 @@ class Product {
   final String description;
   final int price;
   final int stock;
-  final Category category;
+  final String category;
   final String image;
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -71,8 +71,8 @@ class Product {
     required this.stock,
     required this.category,
     required this.image,
-     this.createdAt,
-     this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory Product.fromJson(String str) => Product.fromMap(json.decode(str));
@@ -85,7 +85,7 @@ class Product {
         description: json["description"] ?? '',
         price: json["price"],
         stock: json["stock"],
-        category: categoryValues.map[json["category"]]!,
+        category: json["category"],
         image: json["image"] ?? '',
         // createdAt: DateTime.parse(json["created_at"]),
         // updatedAt: DateTime.parse(json["updated_at"]),
@@ -95,24 +95,7 @@ class Product {
         "name": name,
         "price": price,
         "stock": stock,
-        "category": categoryValues.reverse[category],
+        "category": category,
         "image": image,
       };
-}
-
-enum Category { DRINK, FOOD, SNACK }
-
-final categoryValues = EnumValues(
-    {"drink": Category.DRINK, "food": Category.FOOD, "snack": Category.SNACK});
-
-class EnumValues<T> {
-  Map<String, T> map;
-  late Map<T, String> reverseMap;
-
-  EnumValues(this.map);
-
-  Map<T, String> get reverse {
-    reverseMap = map.map((k, v) => MapEntry(v, k));
-    return reverseMap;
-  }
 }

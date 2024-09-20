@@ -26,16 +26,18 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
 
     on<_FetchLocal>((event, emit) async {
       emit(const ProductState.loading());
-      final products = await ProductLocalDatasource.instance.getAllProduct();
+      final localProducts =
+          await ProductLocalDatasource.instance.getAllProduct();
+      products = localProducts;
       emit(ProductState.success(products));
     });
 
     on<_FetchByCategory>((event, emit) async {
       emit(const ProductState.loading());
-      final newProduct = event.category == 'ALL'
+      final newProduct = event.category == 'all'
           ? products
           : products
-              .where((element) => element.category.name == event.category)
+              .where((element) => element.category == event.category)
               .toList();
       emit(ProductState.success(newProduct));
     });
