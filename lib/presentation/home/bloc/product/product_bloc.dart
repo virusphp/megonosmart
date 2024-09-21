@@ -41,5 +41,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
               .toList();
       emit(ProductState.success(newProduct));
     });
+
+    on<_AddProduct>((event, emit) async {
+      emit(const ProductState.loading());
+      final newProduct =
+          await ProductLocalDatasource.instance.insertProduct(event.product);
+      products.add(newProduct);
+      emit(ProductState.success(products));
+    });
   }
 }

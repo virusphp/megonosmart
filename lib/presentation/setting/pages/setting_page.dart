@@ -1,12 +1,17 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:megonopos/core/assets/assets.gen.dart';
+import 'package:megonopos/core/components/menu_button.dart';
+import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/constants/colors.dart';
+import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -26,6 +31,26 @@ class _SettingPageState extends State<SettingPage> {
       body: ListView(
         padding: const EdgeInsets.all(16.0),
         children: [
+          Row(
+            children: [
+              MenuButton(
+                iconPath: Assets.images.manageProduct.path,
+                label: "kelola Produk",
+                onPressed: () {
+                  context.push(const ManageProductPage());
+                },
+                isImage: true,
+              ),
+              const SpaceWidth(15.0),
+              MenuButton(
+                iconPath: Assets.images.managePrinter.path,
+                label: "kelola Kategori",
+                onPressed: () {},
+                isImage: true,
+              ),
+            ],
+          ),
+          const SpaceHeight(60.0),
           BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               state.maybeMap(

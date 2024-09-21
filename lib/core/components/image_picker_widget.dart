@@ -62,7 +62,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
           padding: const EdgeInsets.all(6.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.0),
-            border: Border.all(color: AppColors.primary),
+            border: Border.all(color: AppColors.darkYellow),
           ),
           child: Row(
             children: [

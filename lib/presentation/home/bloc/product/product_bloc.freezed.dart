@@ -22,6 +22,7 @@ mixin _$ProductEvent {
     required TResult Function() fetch,
     required TResult Function(String category) fetchByCategory,
     required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ProductEvent {
     TResult? Function()? fetch,
     TResult? Function(String category)? fetchByCategory,
     TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ProductEvent {
     TResult Function()? fetch,
     TResult Function(String category)? fetchByCategory,
     TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ProductEvent {
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchByCategory value) fetchByCategory,
     required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ProductEvent {
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchByCategory value)? fetchByCategory,
     TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ProductEvent {
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchByCategory value)? fetchByCategory,
     TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$StartedImpl implements _Started {
     required TResult Function() fetch,
     required TResult Function(String category) fetchByCategory,
     required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
   }) {
     return started();
   }
@@ -139,6 +146,7 @@ class _$StartedImpl implements _Started {
     TResult? Function()? fetch,
     TResult? Function(String category)? fetchByCategory,
     TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
   }) {
     return started?.call();
   }
@@ -150,6 +158,7 @@ class _$StartedImpl implements _Started {
     TResult Function()? fetch,
     TResult Function(String category)? fetchByCategory,
     TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -165,6 +174,7 @@ class _$StartedImpl implements _Started {
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchByCategory value) fetchByCategory,
     required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
   }) {
     return started(this);
   }
@@ -176,6 +186,7 @@ class _$StartedImpl implements _Started {
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchByCategory value)? fetchByCategory,
     TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
   }) {
     return started?.call(this);
   }
@@ -187,6 +198,7 @@ class _$StartedImpl implements _Started {
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchByCategory value)? fetchByCategory,
     TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -242,6 +254,7 @@ class _$FetchImpl implements _Fetch {
     required TResult Function() fetch,
     required TResult Function(String category) fetchByCategory,
     required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
   }) {
     return fetch();
   }
@@ -253,6 +266,7 @@ class _$FetchImpl implements _Fetch {
     TResult? Function()? fetch,
     TResult? Function(String category)? fetchByCategory,
     TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
   }) {
     return fetch?.call();
   }
@@ -264,6 +278,7 @@ class _$FetchImpl implements _Fetch {
     TResult Function()? fetch,
     TResult Function(String category)? fetchByCategory,
     TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -279,6 +294,7 @@ class _$FetchImpl implements _Fetch {
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchByCategory value) fetchByCategory,
     required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
   }) {
     return fetch(this);
   }
@@ -290,6 +306,7 @@ class _$FetchImpl implements _Fetch {
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchByCategory value)? fetchByCategory,
     TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
   }) {
     return fetch?.call(this);
   }
@@ -301,6 +318,7 @@ class _$FetchImpl implements _Fetch {
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchByCategory value)? fetchByCategory,
     TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -384,6 +402,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     required TResult Function() fetch,
     required TResult Function(String category) fetchByCategory,
     required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
   }) {
     return fetchByCategory(category);
   }
@@ -395,6 +414,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     TResult? Function()? fetch,
     TResult? Function(String category)? fetchByCategory,
     TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
   }) {
     return fetchByCategory?.call(category);
   }
@@ -406,6 +426,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     TResult Function()? fetch,
     TResult Function(String category)? fetchByCategory,
     TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
     required TResult orElse(),
   }) {
     if (fetchByCategory != null) {
@@ -421,6 +442,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchByCategory value) fetchByCategory,
     required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
   }) {
     return fetchByCategory(this);
   }
@@ -432,6 +454,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchByCategory value)? fetchByCategory,
     TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
   }) {
     return fetchByCategory?.call(this);
   }
@@ -443,6 +466,7 @@ class _$FetchByCategoryImpl implements _FetchByCategory {
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchByCategory value)? fetchByCategory,
     TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
     required TResult orElse(),
   }) {
     if (fetchByCategory != null) {
@@ -503,6 +527,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     required TResult Function() fetch,
     required TResult Function(String category) fetchByCategory,
     required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
   }) {
     return fetchLocal();
   }
@@ -514,6 +539,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     TResult? Function()? fetch,
     TResult? Function(String category)? fetchByCategory,
     TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
   }) {
     return fetchLocal?.call();
   }
@@ -525,6 +551,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     TResult Function()? fetch,
     TResult Function(String category)? fetchByCategory,
     TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
     required TResult orElse(),
   }) {
     if (fetchLocal != null) {
@@ -540,6 +567,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     required TResult Function(_Fetch value) fetch,
     required TResult Function(_FetchByCategory value) fetchByCategory,
     required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
   }) {
     return fetchLocal(this);
   }
@@ -551,6 +579,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     TResult? Function(_Fetch value)? fetch,
     TResult? Function(_FetchByCategory value)? fetchByCategory,
     TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
   }) {
     return fetchLocal?.call(this);
   }
@@ -562,6 +591,7 @@ class _$FetchLocalImpl implements _FetchLocal {
     TResult Function(_Fetch value)? fetch,
     TResult Function(_FetchByCategory value)? fetchByCategory,
     TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
     required TResult orElse(),
   }) {
     if (fetchLocal != null) {
@@ -573,6 +603,157 @@ class _$FetchLocalImpl implements _FetchLocal {
 
 abstract class _FetchLocal implements ProductEvent {
   const factory _FetchLocal() = _$FetchLocalImpl;
+}
+
+/// @nodoc
+abstract class _$$AddProductImplCopyWith<$Res> {
+  factory _$$AddProductImplCopyWith(
+          _$AddProductImpl value, $Res Function(_$AddProductImpl) then) =
+      __$$AddProductImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Product product});
+}
+
+/// @nodoc
+class __$$AddProductImplCopyWithImpl<$Res>
+    extends _$ProductEventCopyWithImpl<$Res, _$AddProductImpl>
+    implements _$$AddProductImplCopyWith<$Res> {
+  __$$AddProductImplCopyWithImpl(
+      _$AddProductImpl _value, $Res Function(_$AddProductImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? product = null,
+  }) {
+    return _then(_$AddProductImpl(
+      null == product
+          ? _value.product
+          : product // ignore: cast_nullable_to_non_nullable
+              as Product,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddProductImpl implements _AddProduct {
+  const _$AddProductImpl(this.product);
+
+  @override
+  final Product product;
+
+  @override
+  String toString() {
+    return 'ProductEvent.addProduct(product: $product)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddProductImpl &&
+            (identical(other.product, product) || other.product == product));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, product);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddProductImplCopyWith<_$AddProductImpl> get copyWith =>
+      __$$AddProductImplCopyWithImpl<_$AddProductImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetch,
+    required TResult Function(String category) fetchByCategory,
+    required TResult Function() fetchLocal,
+    required TResult Function(Product product) addProduct,
+  }) {
+    return addProduct(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetch,
+    TResult? Function(String category)? fetchByCategory,
+    TResult? Function()? fetchLocal,
+    TResult? Function(Product product)? addProduct,
+  }) {
+    return addProduct?.call(product);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetch,
+    TResult Function(String category)? fetchByCategory,
+    TResult Function()? fetchLocal,
+    TResult Function(Product product)? addProduct,
+    required TResult orElse(),
+  }) {
+    if (addProduct != null) {
+      return addProduct(product);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_FetchByCategory value) fetchByCategory,
+    required TResult Function(_FetchLocal value) fetchLocal,
+    required TResult Function(_AddProduct value) addProduct,
+  }) {
+    return addProduct(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_FetchByCategory value)? fetchByCategory,
+    TResult? Function(_FetchLocal value)? fetchLocal,
+    TResult? Function(_AddProduct value)? addProduct,
+  }) {
+    return addProduct?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_FetchByCategory value)? fetchByCategory,
+    TResult Function(_FetchLocal value)? fetchLocal,
+    TResult Function(_AddProduct value)? addProduct,
+    required TResult orElse(),
+  }) {
+    if (addProduct != null) {
+      return addProduct(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddProduct implements ProductEvent {
+  const factory _AddProduct(final Product product) = _$AddProductImpl;
+
+  Product get product;
+  @JsonKey(ignore: true)
+  _$$AddProductImplCopyWith<_$AddProductImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
