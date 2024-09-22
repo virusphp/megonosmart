@@ -63,10 +63,14 @@ class ProductRemoteDatasource {
 
     var response = await request.send();
 
-    // final String body = await response.stream
+    // var responseBody = await http.Response.fromStream(response);
+    // print(responseBody);
+    final String body = await response.stream.bytesToString();
+    // print(body);
 
     if (response.statusCode == 201) {
-      return Right(response.stream.bytesToString();
+      // print(body);
+      return Right(AddProductResponseModel.fromJson(body));
     } else {
       return Left('Gagal besama');
     }
