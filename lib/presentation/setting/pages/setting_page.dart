@@ -54,7 +54,11 @@ class _SettingPageState extends State<SettingPage> {
           BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               state.maybeMap(
-                orElse: () {},
+                orElse: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
                 success: (_) async {
                   await ProductLocalDatasource.instance.removeAllProduct();
                   await ProductLocalDatasource.instance

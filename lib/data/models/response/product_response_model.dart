@@ -103,29 +103,28 @@ class Product {
         "is_best_seller": isBestSeller ? 1 : 0,
       };
 
-  Product copyWith({
-    int? id,
-    String? name,
-    String? description,
-    int? price,
-    int? stock,
-    String? category,
-    String? image,
-    bool? isBestSeller,
-    DateTime? createdAt,
-    DateTime? updatedAt,
-  }) {
-    return Product(
-      id: id ?? this.id,
-      name: name ?? this.name,
-      description: description ?? this.description,
-      price: price ?? this.price,
-      stock: stock ?? this.stock,
-      category: category ?? this.category,
-      image: image ?? this.image,
-      isBestSeller: isBestSeller ?? this.isBestSeller,
-      createdAt: createdAt ?? this.createdAt,
-      updatedAt: updatedAt ?? this.updatedAt,
-    );
-  }
+ Product copyWith({
+        int? id,
+        String? name,
+        String? description,
+        int? price,
+        int? stock,
+        String? category,
+        String? image,
+        DateTime? createdAt,
+        DateTime? updatedAt,
+        bool? isBestSeller,
+    }) => 
+        Product(
+            id: id ?? this.id,
+            name: name ?? this.name,
+            description: description ?? this.description,
+            price: price ?? this.price,
+            stock: stock ?? this.stock,
+            category: category ?? this.category,
+            image: image ?? this.image,
+            createdAt: createdAt ?? this.createdAt,
+            updatedAt: updatedAt ?? this.updatedAt,
+            isBestSeller: isBestSeller ?? this.isBestSeller,
+        );
 }

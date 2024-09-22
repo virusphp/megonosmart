@@ -123,7 +123,11 @@ class _AddProductPageState extends State<AddProductPage> {
           BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               state.maybeMap(
-                orElse: () {},
+                orElse: () {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
                 success: (_) {
                   Navigator.pop(context);
                 },

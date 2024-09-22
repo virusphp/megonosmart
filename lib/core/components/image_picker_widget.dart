@@ -34,7 +34,7 @@ class _ImagePickerWidgetState extends State<ImagePickerWidget> {
 
     setState(() {
       if (pickedFile != null) {
-        // imagePath = pickedFile.path;
+        imagePath = pickedFile.path;
         widget.onChanged(pickedFile);
       } else {
         debugPrint('No image selected.');

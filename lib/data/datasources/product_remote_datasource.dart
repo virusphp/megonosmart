@@ -1,7 +1,8 @@
-
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:megonopos/core/constants/variables.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
@@ -29,10 +30,30 @@ class ProductRemoteDatasource {
   Future<Either<String, AddProductResponseModel>> addProduct(
       ProductRequestModel productRequestModel) async {
     final authData = await AuthLocalDatasource().getAuthData();
+    // final bytes = await rootBundle.load(productRequestModel.image.path);
+    // final buffer = bytes.buffer;
+    // final imageBytes =
+    //     buffer.asUint8List(bytes.offsetInBytes, bytes.lengthInBytes);
+
+    // // encode the byte
+    // final base64Image = base64Encode(imageBytes);
+
+    // final response = await http
+    //     .post(Uri.parse('${Variables.baseUrl}/api/products'), headers: {
+    //   'Authorization': 'Bearer ${authData.result?.token.toString()}',
+    // }, body: {
+    //   'name': productRequestModel.name,
+    //   'category': productRequestModel.category,
+    //   'price': productRequestModel.price.toString(),
+    //   'stock': productRequestModel.stock.toString(),
+    //   'image': base64Image,
+    //   'is_best_seller': productRequestModel.isBestSeller.toString(),
+    // });
+
     final Map<String, String> headers = {
       'Authorization': 'Bearer ${authData.result?.token.toString()}',
+      'Accept': 'Application/json'
     };
-
     var request = http.MultipartRequest(
         'POST', Uri.parse('${Variables.baseUrl}/api/products'));
     request.fields.addAll(productRequestModel.toMap());
@@ -40,14 +61,14 @@ class ProductRemoteDatasource {
         'image', productRequestModel.image.path));
     request.headers.addAll(headers);
 
-    http.StreamedResponse response = await request.send();
+    var response = await request.send();
 
-    final String body = await response.stream.bytesToString();
+    // final String body = await response.stream
 
     if (response.statusCode == 201) {
-      return Right(AddProductResponseModel.fromJson(body));
+      return Right(response.stream.bytesToString();
     } else {
-      return Left(body);
+      return Left('Gagal besama');
     }
   }
 }

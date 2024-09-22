@@ -24,6 +24,6 @@ class ProductRequestModel {
         "price": price.toString(),
         "stock": stock.toString(),
         "category": category,
-        "isBestSeller": isBestSeller.toString(),
+        'isBestSeller': isBestSeller.toString(),
       };
 }
