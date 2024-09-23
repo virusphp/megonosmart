@@ -1,5 +1,6 @@
 import 'package:meta/meta.dart';
 import 'dart:convert';
+import 'package:equatable/equatable.dart';
 
 class ProductResponseModel {
   final int code;
@@ -103,28 +104,59 @@ class Product {
         "is_best_seller": isBestSeller ? 1 : 0,
       };
 
- Product copyWith({
-        int? id,
-        String? name,
-        String? description,
-        int? price,
-        int? stock,
-        String? category,
-        String? image,
-        DateTime? createdAt,
-        DateTime? updatedAt,
-        bool? isBestSeller,
-    }) => 
-        Product(
-            id: id ?? this.id,
-            name: name ?? this.name,
-            description: description ?? this.description,
-            price: price ?? this.price,
-            stock: stock ?? this.stock,
-            category: category ?? this.category,
-            image: image ?? this.image,
-            createdAt: createdAt ?? this.createdAt,
-            updatedAt: updatedAt ?? this.updatedAt,
-            isBestSeller: isBestSeller ?? this.isBestSeller,
-        );
+  Product copyWith({
+    int? id,
+    String? name,
+    String? description,
+    int? price,
+    int? stock,
+    String? category,
+    String? image,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    bool? isBestSeller,
+  }) =>
+      Product(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        description: description ?? this.description,
+        price: price ?? this.price,
+        stock: stock ?? this.stock,
+        category: category ?? this.category,
+        image: image ?? this.image,
+        createdAt: createdAt ?? this.createdAt,
+        updatedAt: updatedAt ?? this.updatedAt,
+        isBestSeller: isBestSeller ?? this.isBestSeller,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Product &&
+        other.id == id &&
+        other.name == name &&
+        other.description == description &&
+        other.price == price &&
+        other.stock == stock &&
+        other.category == category &&
+        other.image == image &&
+        other.isBestSeller == isBestSeller &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        name.hashCode ^
+        description.hashCode ^
+        price.hashCode ^
+        stock.hashCode ^
+        category.hashCode ^
+        image.hashCode ^
+        isBestSeller.hashCode ^
+        createdAt.hashCode ^
+        updatedAt.hashCode;
+  }
 }
