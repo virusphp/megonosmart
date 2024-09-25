@@ -7,6 +7,7 @@ import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/pages/home_page.dart';
 import 'package:megonopos/presentation/home/widgets/nav_item.dart';
+import 'package:megonopos/presentation/order/pages/order_page.dart';
 import 'package:megonopos/presentation/setting/pages/setting_page.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -21,9 +22,7 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(
-      child: Text("Order"),
-    ),
+    const OrderPage(),
     const Center(
       child: Text("History"),
     ),
