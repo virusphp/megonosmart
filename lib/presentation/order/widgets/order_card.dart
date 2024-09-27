@@ -107,7 +107,7 @@ class OrderCard extends StatelessWidget {
                               context
                                   .read<CheckoutBloc>()
                                   .add(CheckoutEvent.addCheckout(data.product));
-                              data.quantity++;
+                              // data.quantity++;
                               // setState(() {});
                             },
                             child: Container(

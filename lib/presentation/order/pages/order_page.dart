@@ -6,7 +6,6 @@ import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/models/order_item.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
-import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:megonopos/presentation/order/widgets/order_card.dart';
 import 'package:megonopos/presentation/order/widgets/payment_cash_dialog.dart';
 import 'package:megonopos/presentation/order/widgets/process_button.dart';
@@ -34,7 +33,7 @@ class _OrderPageState extends State<OrderPage> {
   //   ),
   // ];
 
-  final List<OrderItem> orders = [];
+  List<OrderItem> orders = [];
   int totalPrice = 0;
   int calculateTotalPrice(List<OrderItem> orders) {
     // for (final order in orders) {
@@ -75,6 +74,8 @@ class _OrderPageState extends State<OrderPage> {
                   child: Text("No data"),
                 );
               }
+              // orders = data;
+              totalPrice = total;
               return ListView.separated(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),
                 itemCount: data.length,
@@ -83,8 +84,8 @@ class _OrderPageState extends State<OrderPage> {
                   padding: paddingHorizontal,
                   data: data[index],
                   onDeleteTap: () {
-                    orders.removeAt(index);
-                    setState(() {});
+                    // orders.removeAt(index);
+                    // setState(() {});
                   },
                 ),
               );

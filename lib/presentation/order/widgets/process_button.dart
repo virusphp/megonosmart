@@ -24,7 +24,7 @@ class ProcessButton extends StatelessWidget {
         padding: const EdgeInsets.all(20.0),
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(6.0)),
-          color: AppColors.primary,
+          color: AppColors.darkYellow,
         ),
         child: Row(
           children: [

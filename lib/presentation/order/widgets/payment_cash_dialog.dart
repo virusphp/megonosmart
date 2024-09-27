@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/core/extentions/int_ext.dart';
 import 'package:megonopos/core/extentions/string_ext.dart';
-
+import 'package:megonopos/data/datasources/product_local_datasource.dart';
+import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
+import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:megonopos/presentation/order/widgets/payment_success_dialog.dart';
 
 import '../../../core/components/buttons.dart';
@@ -100,65 +102,52 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
             ],
           ),
           const SpaceHeight(30.0),
-          Button.filled(
-            onPressed: () {
-              // context.read<OrderBloc>().add(OrderEvent.addNominalBayar(
-              //       priceController!.text.toIntegerFromText,
-              //     ));
-              context.pop();
-              showDialog(
-                context: context,
-                builder: (context) => const PaymentSuccessDialog(),
+          BlocConsumer<OrderBloc, OrderState>(
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () {},
+                success:
+                    (data, qty, total, payment, nominal, idKasir, namaKasir) {
+                  final orderModel = OrderModel(
+                      paymentMethod: payment,
+                      nominalBayar: nominal,
+                      orders: data,
+                      totalQuantity: qty,
+                      totalPrice: total,
+                      idKasir: idKasir,
+                      namaKasir: namaKasir,
+                      isSync: false);
+                  ProductLocalDatasource.instance.saveOrder(orderModel);
+                  context.pop();
+                  showDialog(
+                    context: context,
+                    builder: (context) => const PaymentSuccessDialog(),
+                  );
+                },
               );
             },
-            label: 'Proses',
+            builder: (context, state) {
+              return state.maybeWhen(orElse: () {
+                return const SizedBox();
+              }, success: (data, qty, total, payment, _, idKasir, mameKasir) {
+                return Button.filled(
+                  onPressed: () {
+                    context.read<OrderBloc>().add(OrderEvent.addNominalBayar(
+                          priceController!.text.toIntegerFromText,
+                        ));
+                    // context.pop();
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (context) => const PaymentSuccessDialog(),
+                    // );
+                  },
+                  label: 'Proses',
+                );
+              }, error: (message) {
+                return const SizedBox();
+              });
+            },
           ),
-          // BlocConsumer<OrderBloc, OrderState>(
-          //   listener: (context, state) {
-          //     state.maybeWhen(
-          //       orElse: () {},
-          //       success:
-          //           (data, qty, total, payment, nominal, idKasir, namaKasir) {
-          //         final orderModel = OrderModel(
-          //             paymentMethod: payment,
-          //             nominalBayar: nominal,
-          //             orders: data,
-          //             totalQuantity: qty,
-          //             totalPrice: total,
-          //             idKasir: idKasir,
-          //             namaKasir: namaKasir,
-          //             isSync: false);
-          //         ProductLocalDatasource.instance.saveOrder(orderModel);
-          //         context.pop();
-          //         showDialog(
-          //           context: context,
-          //           builder: (context) => const PaymentSuccessDialog(),
-          //         );
-          //       },
-          //     );
-          //   },
-          //   builder: (context, state) {
-          //     return state.maybeWhen(orElse: () {
-          //       return const SizedBox();
-          //     }, success: (data, qty, total, payment, _, idKasir, mameKasir) {
-          //       return Button.filled(
-          //         onPressed: () {
-          //           context.read<OrderBloc>().add(OrderEvent.addNominalBayar(
-          //                 priceController!.text.toIntegerFromText,
-          //               ));
-          //           // context.pop();
-          //           // showDialog(
-          //           //   context: context,
-          //           //   builder: (context) => const PaymentSuccessDialog(),
-          //           // );
-          //         },
-          //         label: 'Proses',
-          //       );
-          //     }, error: (message) {
-          //       return const SizedBox();
-          //     });
-          //   },
-          // ),
         ],
       ),
     );

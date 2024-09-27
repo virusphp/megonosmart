@@ -7,7 +7,7 @@ part 'order_state.dart';
 part 'order_bloc.freezed.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
-  OrderBloc() : super(const _Success([], 0, 0, '', 0)) {
+  OrderBloc() : super(const _Success([], 0, 0, '', 0, 0, '')) {
     on<_AddPaymentMethod>((event, emit) {
       emit(const _Loading());
       emit(_Success(
@@ -19,18 +19,23 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
               (previousValue, element) =>
                   previousValue + element.product.price),
           event.paymentMethod,
-          0));
+          0,
+          0,
+          ''));
     });
 
     on<_AddNominalBayar>((event, emit) {
       var currentStates = state as _Success;
       emit(const _Loading());
+
       emit(_Success(
         currentStates.products,
         currentStates.totalQuantity,
-        currentStates.totalPrice,
+        event.nominal,
         currentStates.paymentMethod,
         event.nominal,
+        currentStates.idKasir,
+        currentStates.namaKasir,
       ));
     });
   }
