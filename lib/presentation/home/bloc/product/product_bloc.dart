@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
@@ -65,6 +66,22 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           emit(ProductState.success(products));
         },
       );
+      emit(ProductState.success(products));
+    });
+
+    on<_SearhProduct>((event, emit) async {
+      emit(const ProductState.loading());
+      final newProduct = products
+          .where((element) =>
+              element.name.toLowerCase().contains(event.query.toLowerCase()))
+          .toList();
+      
+      emit(ProductState.success(newProduct));
+    });
+
+    on<_FetchAllFromState>((event, emit) async {
+      emit(const ProductState.loading());
+      
       emit(ProductState.success(products));
     });
   }

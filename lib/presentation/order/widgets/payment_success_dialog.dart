@@ -13,7 +13,9 @@ import '../../../core/components/buttons.dart';
 import '../../../core/components/spaces.dart';
 
 class PaymentSuccessDialog extends StatelessWidget {
-  const PaymentSuccessDialog({super.key});
+  const PaymentSuccessDialog({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +42,15 @@ class PaymentSuccessDialog extends StatelessWidget {
             success:
                 (data, qty, total, paymenType, nominal, idKasir, namaKasir) {
               context.read<CheckoutBloc>().add(const CheckoutEvent.started());
+              // context.read<OrderBloc>().add(const OrderEvent.started());
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SpaceHeight(12.0),
-                  const _LabelValue(
+                  _LabelValue(
                     label: 'METODE PEMBAYARAN',
-                    value: 'Tunai',
+                    value: paymenType,
                   ),
                   const Divider(height: 36.0),
                   _LabelValue(
@@ -57,7 +60,9 @@ class PaymentSuccessDialog extends StatelessWidget {
                   const Divider(height: 36.0),
                   _LabelValue(
                     label: 'NOMINAL BAYAR',
-                    value: nominal.currencyFormatRp,
+                    value: paymenType == 'Tunai'
+                        ? nominal.currencyFormatRp
+                        : total.currencyFormatRp,
                   ),
                   const Divider(height: 36.0),
                   _LabelValue(

@@ -78,6 +78,12 @@ class ProductLocalDatasource {
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
   }
 
+   Future<List<OrderModel>> getAllOrder() async {
+    final db = await instance.database;
+    final result = await db.query(tableOrders, orderBy: 'id DESC');
+    return result.map((e) => OrderModel.fromLocalMap(e)).toList();
+  }
+
   //getOrderItemByOrderId
   Future<List<OrderItem>> getOrderItemByOrderId(int idOrder) async {
     final db = await instance.database;
@@ -94,7 +100,7 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos3.db');
+    _database = await _initDB('pos4.db');
     return _database!;
   }
 

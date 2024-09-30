@@ -23,4 +23,15 @@ class AuthLocalDatasource {
     final authData = prefs.getString('auth_data');
     return authData != null;
   }
+
+  Future<void> saveMidtransServerKey(String serverKey) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('server_key', serverKey);
+  }
+
+  Future<String> getMidtransServerKey() async {
+    final prefs = await SharedPreferences.getInstance();
+    final serverKey = prefs.getString('server_key');
+    return serverKey ?? '';
+  }
 }

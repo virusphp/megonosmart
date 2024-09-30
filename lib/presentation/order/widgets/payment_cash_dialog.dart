@@ -129,7 +129,7 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
             builder: (context, state) {
               return state.maybeWhen(orElse: () {
                 return const SizedBox();
-              }, success: (data, qty, total, payment, _, idKasir, mameKasir) {
+              }, success: (data, qty, total, payment, _, idKasir, mamaKasir) {
                 return Button.filled(
                   onPressed: () {
                     context.read<OrderBloc>().add(OrderEvent.addNominalBayar(

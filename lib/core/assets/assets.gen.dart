@@ -126,8 +126,9 @@ class $AssetsImagesGen {
   AssetGenImage get loginUiCaffe =>
       const AssetGenImage('assets/images/login_ui_caffe.png');
 
-  /// File path: assets/images/logo.png
-  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
+  /// File path: assets/images/manage_diskon.png
+  AssetGenImage get manageDiskon =>
+      const AssetGenImage('assets/images/manage_diskon.png');
 
   /// File path: assets/images/manage_printer.png
   AssetGenImage get managePrinter =>
@@ -141,6 +142,10 @@ class $AssetsImagesGen {
   AssetGenImage get manageProduct =>
       const AssetGenImage('assets/images/manage_product.png');
 
+  /// File path: assets/images/manage_server_key.jpg
+  AssetGenImage get manageServerKey =>
+      const AssetGenImage('assets/images/manage_server_key.jpg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         f1,
@@ -152,10 +157,11 @@ class $AssetsImagesGen {
         f7,
         f8,
         loginUiCaffe,
-        logo,
+        manageDiskon,
         managePrinter,
         managePrinterx,
-        manageProduct
+        manageProduct,
+        manageServerKey
       ];
 }
 

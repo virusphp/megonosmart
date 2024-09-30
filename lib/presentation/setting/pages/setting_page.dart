@@ -11,7 +11,9 @@ import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
+import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
+import 'package:megonopos/presentation/setting/pages/save_server_key_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -28,29 +30,53 @@ class _SettingPageState extends State<SettingPage> {
         title: const Text('Setting'),
         // centerTitle: true,
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(16.0),
+      body: Column(
         children: [
-          Row(
-            children: [
-              MenuButton(
-                iconPath: Assets.images.manageProduct.path,
-                label: "kelola Produk",
-                onPressed: () {
-                  context.push(const ManageProductPage());
-                },
-                isImage: true,
-              ),
-              const SpaceWidth(15.0),
-              MenuButton(
-                iconPath: Assets.images.managePrinter.path,
-                label: "kelola Kategori",
-                onPressed: () {},
-                isImage: true,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                MenuButton(
+                  iconPath: Assets.images.manageProduct.path,
+                  label: "kelola Produk",
+                  onPressed: () {
+                    context.push(const ManageProductPage());
+                  },
+                  isImage: true,
+                ),
+                const SpaceWidth(15.0),
+                MenuButton(
+                  iconPath: Assets.images.managePrinter.path,
+                  label: "kelola Kategori",
+                  onPressed: () {},
+                  isImage: true,
+                ),
+              ],
+            ),
           ),
-          const SpaceHeight(60.0),
+          const SpaceHeight(1.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                MenuButton(
+                  iconPath: Assets.images.manageServerKey.path,
+                  label: "Kelola QRIS Server key",
+                  onPressed: () {
+                    context.push(const SaveServerKeyPage());
+                  },
+                  isImage: true,
+                ),
+                const SpaceWidth(15.0),
+                MenuButton(
+                  iconPath: Assets.images.manageDiskon.path,
+                  label: "Kelola Diskon",
+                  onPressed: () {},
+                  isImage: true,
+                ),
+              ],
+            ),
+          ),
           BlocConsumer<ProductBloc, ProductState>(
             listener: (context, state) {
               state.maybeMap(
@@ -113,7 +139,6 @@ class _SettingPageState extends State<SettingPage> {
               );
             },
           ),
-          const Divider(),
         ],
       ),
     );

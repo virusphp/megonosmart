@@ -4,6 +4,7 @@ import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/constants/colors.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
+import 'package:megonopos/presentation/history/pages/history_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/pages/home_page.dart';
 import 'package:megonopos/presentation/home/widgets/nav_item.dart';
@@ -23,9 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
   final List<Widget> _pages = [
     const HomePage(),
     const OrderPage(),
-    const Center(
-      child: Text("History"),
-    ),
+    const HistoryPage(),
     const SettingPage(),
     // const SettingPage(),
     // const HomePage(),
