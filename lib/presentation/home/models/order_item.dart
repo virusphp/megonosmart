@@ -1,6 +1,8 @@
 import 'dart:convert';
 
+import 'package:megonopos/data/models/request/order_request_model.dart';
 import 'package:megonopos/data/models/response/product_response_model.dart';
+import 'package:megonopos/presentation/order/models/order_model.dart';
 
 class OrderItem {
   final Product product;
@@ -17,11 +19,11 @@ class OrderItem {
     };
   }
 
-    // id INTEGER PRIMARY KEY AUTOINCREMENT,
-    //     id_order INTEGER,
-    //     id_product INTEGER,
-    //     quantity INTEGER,
-    //     price INTEGER
+  // id INTEGER PRIMARY KEY AUTOINCREMENT,
+  //     id_order INTEGER,
+  //     id_product INTEGER,
+  //     quantity INTEGER,
+  //     price INTEGER
 
   Map<String, dynamic> toMapForLocal(int orderId) {
     return {
@@ -30,6 +32,14 @@ class OrderItem {
       'quantity': quantity,
       'price': product.price,
     };
+  }
+
+  static OrderItemModel fromMapLocal(Map<String, dynamic> map) {
+    return OrderItemModel(
+      productId: map['id_product']?.toInt() ?? 0,
+      quantity: map['quantity']?.toInt() ?? 0,
+      totalPrice: map['price']?.toInt() ?? 0 * map['quantity']?.toInt() ?? 0,
+    );
   }
 
   factory OrderItem.fromMap(Map<String, dynamic> map) {
@@ -41,5 +51,6 @@ class OrderItem {
 
   String toJson() => json.encode(toMap());
 
-  factory OrderItem.fromJson(String source) => OrderItem.fromMap(json.decode(source));
+  factory OrderItem.fromJson(String source) =>
+      OrderItem.fromMap(json.decode(source));
 }

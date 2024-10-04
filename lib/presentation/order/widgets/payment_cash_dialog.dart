@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/core/extentions/int_ext.dart';
 import 'package:megonopos/core/extentions/string_ext.dart';
@@ -116,6 +117,8 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
                       totalPrice: total,
                       idKasir: idKasir,
                       namaKasir: namaKasir,
+                      transactionTime: DateFormat('yyyy-MM-ddTHH:mm:ss')
+                          .format(DateTime.now()),
                       isSync: false);
                   ProductLocalDatasource.instance.saveOrder(orderModel);
                   context.pop();

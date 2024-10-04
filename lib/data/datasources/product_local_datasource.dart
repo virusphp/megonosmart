@@ -1,7 +1,9 @@
 import 'package:megonopos/data/models/response/product_response_model.dart';
-import 'package:megonopos/presentation/home/models/order_item.dart';
 import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:sqflite/sqflite.dart';
+
+import '../../presentation/home/models/order_item.dart';
+import '../models/request/order_request_model.dart';
 
 class ProductLocalDatasource {
   ProductLocalDatasource._init();
@@ -28,6 +30,7 @@ class ProductLocalDatasource {
     await db.execute('''
     CREATE TABLE $tableProducts (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
+      product_id INTEGER,
       name TEXT,
       price INTEGER,
       stock INTEGER,
@@ -46,12 +49,13 @@ class ProductLocalDatasource {
       total_item INTEGER,
       id_kasir INTEGER,
       nama_kasir TEXT,
+      transaction_time TEXT,
       is_sync INTEGER DEFAULT 0
       )
       ''');
 
     await db.execute('''
-    CREATE TABLE order_details (
+    CREATE TABLE order_items (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       id_order INTEGER,
       id_product INTEGER,
@@ -78,7 +82,20 @@ class ProductLocalDatasource {
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
   }
 
-   Future<List<OrderModel>> getAllOrder() async {
+  //get order item by id order
+  Future<List<OrderItemModel>> getOrderItemByIdOrderLocal(int idOrder) async {
+    final db = await instance.database;
+    final result = await db.query('order_items', where: 'id_order = $idOrder');
+    return result.map((e) => OrderItem.fromMapLocal(e)).toList();
+  }
+
+  //update isSync order by id
+  Future<int> updateIsSyncOrderById(int id) async {
+    final db = await instance.database;
+    return await db.update(tableOrders, {'is_sync': 1}, where: 'id = $id');
+  }
+
+  Future<List<OrderModel>> getAllOrder() async {
     final db = await instance.database;
     final result = await db.query(tableOrders, orderBy: 'id DESC');
     return result.map((e) => OrderModel.fromLocalMap(e)).toList();
@@ -100,7 +117,7 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos4.db');
+    _database = await _initDB('pos12.db');
     return _database!;
   }
 
@@ -113,7 +130,9 @@ class ProductLocalDatasource {
   Future<void> insertAllProduct(List<Product> products) async {
     final db = await instance.database;
     for (var product in products) {
-      await db.insert(tableProducts, product.toMap());
+      final productKu = product.toLocalMap();
+      print(productKu);
+      await db.insert(tableProducts, product.toLocalMap());
     }
   }
 

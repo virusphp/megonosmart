@@ -6,7 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/data/datasources/product_remote_datasource.dart';
-import 'package:megonopos/data/models/request/product_request_modal.dart';
+import 'package:megonopos/data/models/request/product_request_model.dart';
 import 'package:megonopos/data/models/response/product_response_model.dart';
 
 part 'product_event.dart';

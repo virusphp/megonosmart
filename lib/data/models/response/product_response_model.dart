@@ -55,6 +55,7 @@ class Result {
 
 class Product {
   final int? id;
+  final int? productId;
   final String name;
   final String? description;
   final int price;
@@ -67,6 +68,7 @@ class Product {
 
   Product({
     this.id,
+    this.productId,
     required this.name,
     this.description,
     required this.price,
@@ -84,6 +86,7 @@ class Product {
 
   factory Product.fromMap(Map<String, dynamic> json) => Product(
         id: json["id"],
+        productId: json["product_id"],
         name: json["name"],
         description: json["description"] ?? '',
         price: json["price"],
@@ -102,10 +105,21 @@ class Product {
         "category": category,
         "image": image,
         "is_best_seller": isBestSeller ? 1 : 0,
+        "product_id": productId,
+      };
+  Map<String, dynamic> toLocalMap() => {
+        "name": name,
+        "price": price,
+        "stock": stock,
+        "category": category,
+        "image": image,
+        "is_best_seller": isBestSeller ? 1 : 0,
+        "product_id": id,
       };
 
   Product copyWith({
     int? id,
+    int? productId,
     String? name,
     String? description,
     int? price,
@@ -118,6 +132,7 @@ class Product {
   }) =>
       Product(
         id: id ?? this.id,
+        productId: productId ?? this.productId,
         name: name ?? this.name,
         description: description ?? this.description,
         price: price ?? this.price,

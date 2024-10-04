@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/data/datasources/auth_remote_datasource.dart';
 import 'package:megonopos/data/datasources/midtrans_remote_datasource.dart';
+import 'package:megonopos/data/datasources/order_remote_datasource.dart';
 import 'package:megonopos/data/datasources/product_remote_datasource.dart';
 import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
@@ -13,6 +14,7 @@ import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/order/bloc/qris/qris_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,6 +51,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HistoryBloc(),
+        ),
+        BlocProvider(
+          create: (context) => SyncOrderBloc(OrderRemoteDatasource()),
         ),
       ],
       child: MaterialApp(

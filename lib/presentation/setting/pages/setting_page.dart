@@ -14,6 +14,7 @@ import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
 import 'package:megonopos/presentation/setting/pages/save_server_key_page.dart';
+import 'package:megonopos/presentation/setting/pages/sync_data_page.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -70,52 +71,19 @@ class _SettingPageState extends State<SettingPage> {
                 const SpaceWidth(15.0),
                 MenuButton(
                   iconPath: Assets.images.manageDiskon.path,
-                  label: "Kelola Diskon",
-                  onPressed: () {},
+                  label: "Kelola Sync Data",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SyncDataPage(),
+                      ),
+                    );
+                  },
                   isImage: true,
                 ),
               ],
             ),
-          ),
-          BlocConsumer<ProductBloc, ProductState>(
-            listener: (context, state) {
-              state.maybeMap(
-                orElse: () {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-                success: (_) async {
-                  await ProductLocalDatasource.instance.removeAllProduct();
-                  await ProductLocalDatasource.instance
-                      .insertAllProduct(_.products.toList());
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      backgroundColor: AppColors.green,
-                      content: Text('Sync Data Success'),
-                    ),
-                  );
-                },
-              );
-            },
-            builder: (context, state) {
-              return state.maybeWhen(
-                orElse: () {
-                  return ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<ProductBloc>()
-                            .add(const ProductEvent.fetch());
-                      },
-                      child: const Text('Sync Data'));
-                },
-                loading: () {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                },
-              );
-            },
           ),
           BlocConsumer<LogoutBloc, LogoutState>(
             listener: (context, state) {
