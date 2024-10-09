@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
   equatable: ^2.0.5
+  esc_pos_utils_plus: ^2.0.4
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6

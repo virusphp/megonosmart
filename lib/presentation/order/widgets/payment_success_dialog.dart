@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/core/extentions/date_time_ext.dart';
 import 'package:megonopos/core/extentions/int_ext.dart';
+import 'package:megonopos/data/dataoutputs/cwb_print.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
@@ -89,6 +90,16 @@ class PaymentSuccessDialog extends StatelessWidget {
                             // final ticket = await CwbPrint.instance.bluetoothStart();
                             // final result =
                             //     await PrintBluetoothThermal.writeBytes(ticket);
+                            final printValue =
+                                await CwbPrint.instance.printOrder(
+                              data,
+                              qty,
+                              total,
+                              paymenType,
+                              nominal,
+                              namaKasir,
+                            );
+                            await PrintBluetoothThermal.writeBytes(printValue);
                           },
                           label: 'Print',
                           icon: Assets.icons.print.svg(),

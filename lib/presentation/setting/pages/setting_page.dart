@@ -12,6 +12,7 @@ import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/order/models/order_model.dart';
+import 'package:megonopos/presentation/setting/pages/manage_print_page.dart';
 import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
 import 'package:megonopos/presentation/setting/pages/save_server_key_page.dart';
 import 'package:megonopos/presentation/setting/pages/sync_data_page.dart';
@@ -48,8 +49,10 @@ class _SettingPageState extends State<SettingPage> {
                 const SpaceWidth(15.0),
                 MenuButton(
                   iconPath: Assets.images.managePrinter.path,
-                  label: "kelola Kategori",
-                  onPressed: () {},
+                  label: "kelola Printer",
+                  onPressed: () {
+                    context.push(const ManagePrinterPage());
+                  },
                   isImage: true,
                 ),
               ],
