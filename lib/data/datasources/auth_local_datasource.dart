@@ -34,4 +34,15 @@ class AuthLocalDatasource {
     final serverKey = prefs.getString('server_key');
     return serverKey ?? '';
   }
+
+  Future<void> savePrinter(String printer) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('printer', printer);
+  }
+
+  Future<String> getPrinter() async {
+    final prefs = await SharedPreferences.getInstance();
+    final printer = prefs.getString('printer');
+    return printer ?? '';
+  }
 }

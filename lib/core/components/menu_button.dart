@@ -25,49 +25,48 @@ class MenuButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-        child: Container(
-          width: context.deviceWidth,
-          padding: const EdgeInsets.all(8.0),
-          decoration: BoxDecoration(
-            color: isActive ? AppColors.darkYellow : AppColors.white,
-            borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-            boxShadow: [
-              BoxShadow(
-                offset: const Offset(0, 4),
-                blurRadius: 20.0,
-                blurStyle: BlurStyle.outer,
-                spreadRadius: 0,
-                color: AppColors.black.withOpacity(0.1),
-              ),
-            ],
-          ),
-          child: Column(
-            children: [
-              isImage
-                  ? Image.asset(iconPath,
-                      width: size, height: size, fit: BoxFit.contain)
-                  : SvgPicture.asset(
-                      iconPath,
-                      colorFilter: ColorFilter.mode(
-                        isActive ? AppColors.white : AppColors.darkYellow,
-                        BlendMode.srcIn,
-                      ),
+    return InkWell(
+      onTap: onPressed,
+      borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+      child: Container(
+        width: context.deviceWidth,
+        padding: const EdgeInsets.all(8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 4),
+        decoration: BoxDecoration(
+          color: isActive ? AppColors.darkYellow : AppColors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(6.0)),
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 4),
+              blurRadius: 20.0,
+              blurStyle: BlurStyle.outer,
+              spreadRadius: 0,
+              color: AppColors.black.withOpacity(0.1),
+            ),
+          ],
+        ),
+        child: Column(
+          children: [
+            isImage
+                ? Image.asset(iconPath,
+                    width: size, height: size, fit: BoxFit.contain)
+                : SvgPicture.asset(
+                    iconPath,
+                    colorFilter: ColorFilter.mode(
+                      isActive ? AppColors.white : AppColors.darkYellow,
+                      BlendMode.srcIn,
                     ),
-              const SpaceHeight(10.0),
-              Text(
-                label,
-                style: TextStyle(
-                  color: isActive ? AppColors.white : AppColors.darkYellow,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                ),
+                  ),
+            const SpaceHeight(10.0),
+            Text(
+              label,
+              style: TextStyle(
+                color: isActive ? AppColors.white : AppColors.darkYellow,
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

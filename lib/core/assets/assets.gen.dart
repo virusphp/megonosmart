@@ -119,32 +119,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/f7.jpeg
   AssetGenImage get f7 => const AssetGenImage('assets/images/f7.jpeg');
 
-  /// File path: assets/images/f8.jpeg
-  AssetGenImage get f8 => const AssetGenImage('assets/images/f8.jpeg');
-
   /// File path: assets/images/login_ui_caffe.png
   AssetGenImage get loginUiCaffe =>
       const AssetGenImage('assets/images/login_ui_caffe.png');
-
-  /// File path: assets/images/manage_diskon.png
-  AssetGenImage get manageDiskon =>
-      const AssetGenImage('assets/images/manage_diskon.png');
 
   /// File path: assets/images/manage_printer.png
   AssetGenImage get managePrinter =>
       const AssetGenImage('assets/images/manage_printer.png');
 
-  /// File path: assets/images/manage_printerx.png
-  AssetGenImage get managePrinterx =>
-      const AssetGenImage('assets/images/manage_printerx.png');
-
   /// File path: assets/images/manage_product.png
   AssetGenImage get manageProduct =>
       const AssetGenImage('assets/images/manage_product.png');
 
-  /// File path: assets/images/manage_server_key.jpg
-  AssetGenImage get manageServerKey =>
-      const AssetGenImage('assets/images/manage_server_key.jpg');
+  /// File path: assets/images/manage_qr.png
+  AssetGenImage get manageQr =>
+      const AssetGenImage('assets/images/manage_qr.png');
+
+  /// File path: assets/images/sync.png
+  AssetGenImage get sync => const AssetGenImage('assets/images/sync.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -155,14 +147,23 @@ class $AssetsImagesGen {
         f5,
         f6,
         f7,
-        f8,
         loginUiCaffe,
-        manageDiskon,
         managePrinter,
-        managePrinterx,
         manageProduct,
-        manageServerKey
+        manageQr,
+        sync
       ];
+}
+
+class $AssetsLogoGen {
+  const $AssetsLogoGen();
+
+  /// File path: assets/logo/logo-megono.png
+  AssetGenImage get logoMegono =>
+      const AssetGenImage('assets/logo/logo-megono.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [logoMegono];
 }
 
 class Assets {
@@ -171,6 +172,7 @@ class Assets {
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLogoGen logo = $AssetsLogoGen();
 }
 
 class AssetGenImage {

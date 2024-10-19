@@ -56,6 +56,27 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
       emit(_Success(newCheckout, totalQuantity, totalPrice));
     });
 
+    //remove product
+    on<_RemoveProduct>((event, emit) {
+      var currentState = state as _Success;
+      List<OrderItem> newCheckout = [...currentState.products];
+      emit(const _Loading());
+      if (newCheckout.any((element) => element.product == event.product)) {
+        var index = newCheckout
+            .indexWhere((element) => element.product == event.product);
+        newCheckout.removeAt(index);
+      }
+
+      int totalQuantity = 0;
+      int totalPrice = 0;
+      for (var element in newCheckout) {
+        totalQuantity += element.quantity;
+        totalPrice += (element.product.price * element.quantity);
+      }
+
+      emit(_Success(newCheckout, totalQuantity, totalPrice));
+    });
+
     on<_Started>((event, emit) {
       emit(const _Loading());
       emit(const _Success([], 0, 0));

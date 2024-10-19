@@ -3,8 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/components/menu_button.dart';
 import 'package:megonopos/core/components/spaces.dart';
+import 'package:megonopos/core/constants/colors.dart';
+import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/models/order_item.dart';
+import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/order/widgets/order_card.dart';
 import 'package:megonopos/presentation/order/widgets/payment_cash_dialog.dart';
@@ -20,27 +23,12 @@ class OrderPage extends StatefulWidget {
 
 class _OrderPageState extends State<OrderPage> {
   final indexValue = ValueNotifier(0);
-
-  // final List<OrderModel> orders = [
-  //   OrderModel(
-  //     image: Assets.images.f1.path,
-  //     name: 'Nutty Oat Latte',
-  //     price: 39000,
-  //   ),
-  //   OrderModel(
-  //     image: Assets.images.f2.path,
-  //     name: 'Iced Latte',
-  //     price: 24000,
-  //   ),
-  // ];
+  final TextEditingController orderNameController = TextEditingController();
+  final TextEditingController tableNumberController = TextEditingController();
 
   List<OrderItem> orders = [];
   int totalPrice = 0;
   int calculateTotalPrice(List<OrderItem> orders) {
-    // for (final order in orders) {
-    //   totalPrice += order.price;
-    // }
-    // return totalPrice;
     return orders.fold(
         0,
         (previousValue, element) =>
@@ -52,12 +40,77 @@ class _OrderPageState extends State<OrderPage> {
     const paddingHorizontal = EdgeInsets.symmetric(horizontal: 16.0);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Order Detail'),
+        leading: IconButton(
+          onPressed: () {
+            context.push(const DashboardPage());
+          },
+          icon: const Icon(Icons.arrow_back_ios),
+        ),
+        title: const Text(
+          'Order Detail',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: Assets.icons.delete.svg(),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return AlertDialog(
+                    title: const Text("Open Bill"),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Table Number',
+                          ),
+                          keyboardType: TextInputType.number,
+                          controller: tableNumberController,
+                        ),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            hintText: 'Order Number',
+                          ),
+                          controller: orderNameController,
+                          textCapitalization: TextCapitalization.words,
+                        ),
+                      ],
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text("Cancel"),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          context
+                              .read<CheckoutBloc>()
+                              .add(const CheckoutEvent.started());
+
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Open bill success"),
+                              backgroundColor: AppColors.darkYellow,
+                            ),
+                          );
+
+                          context.pushReplacement(const DashboardPage());
+                        },
+                        child: const Text("Save"),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            icon: const Icon(Icons.save_as_outlined),
           ),
         ],
       ),
@@ -85,6 +138,9 @@ class _OrderPageState extends State<OrderPage> {
                   padding: paddingHorizontal,
                   data: data[index],
                   onDeleteTap: () {
+                    context
+                        .read<CheckoutBloc>()
+                        .add(CheckoutEvent.removeProduct(data[index].product));
                     // indexValue = 0;
                     // orders.removeAt(index);
                     // setState(() {});
@@ -113,26 +169,40 @@ class _OrderPageState extends State<OrderPage> {
                       builder: (context, value, _) => Row(
                         children: [
                           const SpaceWidth(10.0),
-                          MenuButton(
-                            iconPath: Assets.icons.cash.path,
-                            label: 'Tunai',
-                            isActive: value == 1,
-                            onPressed: () {
-                              indexValue.value = 1;
-                              context.read<OrderBloc>().add(
-                                  OrderEvent.addPaymentMethod('Tunai', data));
-                            },
+                          Flexible(
+                            child: MenuButton(
+                              iconPath: Assets.icons.cash.path,
+                              label: 'TUNAI',
+                              isActive: value == 1,
+                              onPressed: () {
+                                indexValue.value = 1;
+                                context.read<OrderBloc>().add(
+                                    OrderEvent.addPaymentMethod('Tunai', data));
+                              },
+                            ),
                           ),
                           const SpaceWidth(10.0),
-                          MenuButton(
-                              iconPath: Assets.icons.qrCode.path,
-                              label: 'QRIS',
-                              isActive: value == 2,
-                              onPressed: () {
-                                indexValue.value = 2;
-                                context.read<OrderBloc>().add(
-                                    OrderEvent.addPaymentMethod('QRIS', data));
-                              }),
+                          Flexible(
+                            child: MenuButton(
+                                iconPath: Assets.icons.qrCode.path,
+                                label: 'QRIS',
+                                isActive: value == 2,
+                                onPressed: () {
+                                  indexValue.value = 2;
+                                  context.read<OrderBloc>().add(
+                                      OrderEvent.addPaymentMethod(
+                                          'QRIS', data));
+                                }),
+                          ),
+                          Flexible(
+                            child: MenuButton(
+                                iconPath: Assets.icons.debit.path,
+                                label: 'TRANSFER',
+                                isActive: value == 3,
+                                onPressed: () {
+                                  indexValue.value = 3;
+                                }),
+                          ),
                           const SpaceWidth(10.0),
                         ],
                       ),

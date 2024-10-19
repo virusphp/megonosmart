@@ -8,6 +8,7 @@ import 'package:megonopos/data/datasources/product_remote_datasource.dart';
 import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/history/bloc/history/history_bloc.dart';
+import 'package:megonopos/presentation/home/bloc/category/category_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
@@ -54,6 +55,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SyncOrderBloc(OrderRemoteDatasource()),
+        ),
+        BlocProvider(
+          create: (context) => CategoryBloc(ProductRemoteDatasource()),
         ),
       ],
       child: MaterialApp(

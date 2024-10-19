@@ -1,6 +1,4 @@
-import 'package:meta/meta.dart';
 import 'dart:convert';
-import 'package:equatable/equatable.dart';
 
 class ProductResponseModel {
   final int code;
@@ -61,6 +59,7 @@ class Product {
   final int price;
   final int stock;
   final String category;
+  final int? categoryId;
   final String image;
   final bool isBestSeller;
   final DateTime? createdAt;
@@ -74,6 +73,7 @@ class Product {
     required this.price,
     required this.stock,
     required this.category,
+    required this.categoryId,
     required this.image,
     this.isBestSeller = false,
     this.createdAt,
@@ -92,10 +92,11 @@ class Product {
         price: json["price"],
         stock: json["stock"],
         category: json["category"],
+        categoryId: json["category_id"] is String
+            ? int.parse(json["category_id"])
+            : json['category_id'],
         image: json["image"] ?? '',
         isBestSeller: json["is_best_seller"] == 1 ? true : false,
-        // createdAt: DateTime.parse(json["created_at"]),
-        // updatedAt: DateTime.parse(json["updated_at"]),
       );
 
   Map<String, dynamic> toMap() => {
@@ -103,6 +104,7 @@ class Product {
         "price": price,
         "stock": stock,
         "category": category,
+        "category_id": categoryId,
         "image": image,
         "is_best_seller": isBestSeller ? 1 : 0,
         "product_id": productId,
@@ -112,6 +114,7 @@ class Product {
         "price": price,
         "stock": stock,
         "category": category,
+        "category_id": categoryId,
         "image": image,
         "is_best_seller": isBestSeller ? 1 : 0,
         "product_id": id,
@@ -125,6 +128,7 @@ class Product {
     int? price,
     int? stock,
     String? category,
+    int? categoryId,
     String? image,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -138,6 +142,7 @@ class Product {
         price: price ?? this.price,
         stock: stock ?? this.stock,
         category: category ?? this.category,
+        categoryId: categoryId ?? this.categoryId,
         image: image ?? this.image,
         createdAt: createdAt ?? this.createdAt,
         updatedAt: updatedAt ?? this.updatedAt,

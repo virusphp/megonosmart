@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/components/spaces.dart';
-import 'package:megonopos/data/models/response/product_response_model.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
-import 'package:megonopos/presentation/home/models/product_category.dart';
-import 'package:megonopos/presentation/home/models/product_model.dart';
 import 'package:megonopos/presentation/setting/pages/add_product_page.dart';
 import 'package:megonopos/presentation/setting/widgets/menu_product_item.dart';
 

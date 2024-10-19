@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/presentation/history/bloc/history/history_bloc.dart';
-import 'package:megonopos/presentation/history/models/history_transaction_model.dart';
 
 import '../../../core/components/spaces.dart';
 
@@ -25,30 +24,6 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     const paddingHorizontal = EdgeInsets.symmetric(horizontal: 16.0);
     final indeValue = ValueNotifier(0);
-
-    // final List<HistoryModel> histories = [
-    //   HistoryModel(
-    //     paymentMethod: 'Credit Card',
-    //     totalBill: 150000,
-    //     nominalPayment: 150000,
-    //     paymentTime: DateTime.now().subtract(const Duration(days: 2)),
-    //     status: 'Success',
-    //   ),
-    //   HistoryModel(
-    //     paymentMethod: 'Bank Transfer',
-    //     totalBill: 120000,
-    //     nominalPayment: 120000,
-    //     paymentTime: DateTime.now().subtract(const Duration(days: 1)),
-    //     status: 'Pending',
-    //   ),
-    //   HistoryModel(
-    //     paymentMethod: 'E-wallet',
-    //     totalBill: 200000,
-    //     nominalPayment: 200000,
-    //     paymentTime: DateTime.now(),
-    //     status: 'Success',
-    //   ),
-    // ];
 
     return Scaffold(
         appBar: AppBar(

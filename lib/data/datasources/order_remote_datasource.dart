@@ -1,7 +1,6 @@
 import 'package:megonopos/core/constants/variables.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 import 'package:megonopos/data/models/request/order_request_model.dart';
 

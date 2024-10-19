@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,7 +7,9 @@ import 'package:megonopos/core/components/custom_text_field.dart';
 import 'package:megonopos/core/components/image_picker_widget.dart';
 import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/extentions/string_ext.dart';
+import 'package:megonopos/data/models/response/category_response_model.dart';
 import 'package:megonopos/data/models/response/product_response_model.dart';
+import 'package:megonopos/presentation/home/bloc/category/category_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/setting/models/category_model.dart';
 
@@ -25,7 +25,7 @@ class _AddProductPageState extends State<AddProductPage> {
   TextEditingController? priceController;
   TextEditingController? stockController;
 
-  String category = 'food';
+  Category? category;
 
   XFile? imageFile;
 
@@ -111,12 +111,23 @@ class _AddProductPageState extends State<AddProductPage> {
             ],
           ),
           const SpaceHeight(20.0),
-          CustomDropdown<CategoryModel>(
-            value: categories.first,
-            items: categories,
-            label: 'Kategori',
-            onChanged: (value) {
-              category = value!.value;
+          BlocBuilder<CategoryBloc, CategoryState>(
+            builder: (context, state) {
+              List<Category> categories = [];
+              state.maybeWhen(
+                orElse: () {},
+                loadedLocal: (data) {
+                  categories = data;
+                },
+              );
+              return CustomDropdown<Category>(
+                value: categories.first,
+                items: categories,
+                label: 'Kategori',
+                onChanged: (value) {
+                  category = value;
+                },
+              );
             },
           ),
           const SpaceHeight(24.0),
@@ -153,7 +164,8 @@ class _AddProductPageState extends State<AddProductPage> {
                       name: name,
                       price: price,
                       stock: stock,
-                      category: category,
+                      category: category!.name!,
+                      categoryId: category!.id,
                       isBestSeller: isBestSeller,
                       image: imageFile!.path,
                     );

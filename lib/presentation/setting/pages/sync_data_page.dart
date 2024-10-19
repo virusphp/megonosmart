@@ -3,10 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/constants/colors.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
-import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
+import 'package:megonopos/presentation/home/bloc/category/category_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
-import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 
 class SyncDataPage extends StatefulWidget {
@@ -107,6 +106,53 @@ class _SyncDataPageState extends State<SyncDataPage> {
                               .add(const SyncOrderEvent.sendOrder());
                         },
                         child: const Text('Sync Data Order'));
+                  },
+                  loading: () {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                );
+              },
+            ),
+            const SpaceHeight(20),
+            //button sync categories
+            BlocConsumer<CategoryBloc, CategoryState>(
+              listener: (context, state) {
+                state.maybeMap(
+                  orElse: () {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  },
+                  loaded: (data) async {
+                    await ProductLocalDatasource.instance.deleteAllCategories();
+                    await ProductLocalDatasource.instance
+                        .insertAllCategories(data.categories);
+
+                    context
+                        .read<CategoryBloc>()
+                        .add(const CategoryEvent.getCategoriesLocal());
+                    context.pop();
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: AppColors.green,
+                        content: Text('Sync Data Category Success'),
+                      ),
+                    );
+                  },
+                );
+              },
+              builder: (context, state) {
+                return state.maybeWhen(
+                  orElse: () {
+                    return ElevatedButton(
+                        onPressed: () {
+                          context
+                              .read<CategoryBloc>()
+                              .add(const CategoryEvent.getCategories());
+                        },
+                        child: const Text('Sync Data Category'));
                   },
                   loading: () {
                     return const Center(

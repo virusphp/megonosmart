@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -54,6 +52,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
         price: event.product.price,
         stock: event.product.stock,
         category: event.product.category,
+        categoryId: event.product.categoryId!,
         isBestSeller: event.product.isBestSeller ? 1 : 0,
         image: event.image,
       );
@@ -75,13 +74,13 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
           .where((element) =>
               element.name.toLowerCase().contains(event.query.toLowerCase()))
           .toList();
-      
+
       emit(ProductState.success(newProduct));
     });
 
     on<_FetchAllFromState>((event, emit) async {
       emit(const ProductState.loading());
-      
+
       emit(ProductState.success(products));
     });
   }

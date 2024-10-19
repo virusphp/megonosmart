@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:image_picker/image_picker.dart';
 
 class ProductRequestModel {
@@ -7,6 +5,7 @@ class ProductRequestModel {
   final int price;
   final int stock;
   final String category;
+  final int categoryId;
   final int isBestSeller;
   final XFile image;
 
@@ -15,6 +14,7 @@ class ProductRequestModel {
     required this.price,
     required this.stock,
     required this.category,
+    required this.categoryId,
     required this.isBestSeller,
     required this.image,
   });
@@ -24,6 +24,7 @@ class ProductRequestModel {
         "price": price.toString(),
         "stock": stock.toString(),
         "category": category,
+        "category_id": categoryId.toString(),
         'isBestSeller': isBestSeller.toString(),
       };
 }

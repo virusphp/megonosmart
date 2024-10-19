@@ -45,7 +45,7 @@ class _ManagePrinterPageState extends State<ManagePrinterPage> {
     "update info"
   ];
 
-  String _selectSize = "2";
+  final String _selectSize = "2";
   final _txtText = TextEditingController(text: "Hello developer");
   bool _progress = false;
   String _msjprogress = "";
@@ -297,11 +297,11 @@ class _Body extends StatelessWidget {
   final Function(String) clickHandler;
 
   const _Body({
-    Key? key,
+    super.key,
     required this.macName,
     required this.datas,
     required this.clickHandler,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

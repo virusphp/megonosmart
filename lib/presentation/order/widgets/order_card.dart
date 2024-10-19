@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/extentions/int_ext.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/models/order_item.dart';
-import 'package:megonopos/presentation/order/models/order_model.dart';
 
 import '../../../core/components/spaces.dart';
 import '../../../core/constants/colors.dart';
@@ -81,13 +80,10 @@ class OrderCard extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              if (data.quantity > 1) {
-                                context.read<CheckoutBloc>().add(
-                                    CheckoutEvent.removeCheckout(data.product));
-                                onDeleteTap();
-                                // data.quantity--;
-                                // setState(() {});
-                              }
+                              context.read<CheckoutBloc>().add(
+                                  CheckoutEvent.removeCheckout(data.product));
+                              // data.quantity--;
+                              // setState(() {});
                             },
                             child: Container(
                               color: AppColors.white,
@@ -108,7 +104,6 @@ class OrderCard extends StatelessWidget {
                               context
                                   .read<CheckoutBloc>()
                                   .add(CheckoutEvent.addCheckout(data.product));
-                              onDeleteTap();
                               // data.quantity++;
                               // setState(() {});
                             },
