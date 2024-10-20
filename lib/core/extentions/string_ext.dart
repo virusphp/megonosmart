@@ -30,4 +30,8 @@ extension StringExt on String {
       decimalDigits: 0,
     ).format(parsedValue);
   }
+
+  int get toInt{
+    return int.tryParse(this) ?? 0;
+  }
 }

@@ -8,6 +8,9 @@ class CheckoutState with _$CheckoutState {
     List<OrderItem> products,
     int totalQuantity,
     int totalPrice,
+    String draftName
   ) = _Success;
   const factory CheckoutState.error(String message) = _Error;
+
+  const factory CheckoutState.savedDraftOrder() = _SavedDraftOrder;
 }

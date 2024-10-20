@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/assets/assets.gen.dart';
+import 'package:megonopos/core/components/buttons.dart';
 import 'package:megonopos/core/components/menu_button.dart';
 import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/constants/colors.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
+import 'package:megonopos/core/extentions/string_ext.dart';
+import 'package:megonopos/data/dataoutputs/cwb_print.dart';
+import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/models/order_item.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
@@ -88,22 +92,53 @@ class _OrderPageState extends State<OrderPage> {
                         },
                         child: const Text("Cancel"),
                       ),
-                      TextButton(
-                        onPressed: () {
-                          context
-                              .read<CheckoutBloc>()
-                              .add(const CheckoutEvent.started());
+                      BlocBuilder<CheckoutBloc, CheckoutState>(
+                        builder: (context, state) {
+                          return state.maybeWhen(
+                            orElse: () {
+                              return SizedBox.shrink();
+                            },
+                            success: (data, qty, total, draftName) {
+                              return Button.outlined(
+                                onPressed: ()  async {
+                                  final authData = await AuthLocalDatasource().getAuthData();
 
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Open bill success"),
-                              backgroundColor: AppColors.darkYellow,
-                            ),
+                                  context
+                                      .read<CheckoutBloc>()
+                                      .add(CheckoutEvent.saveDraftOrder(
+                                        tableNumberController.text.toIntegerFromText,
+                                        orderNameController.text
+                                      ),);
+
+                                  final printInt = 
+                                  await CwbPrint.instance.printChecker(
+                                    data, 
+                                    tableNumberController.text.toInt, 
+                                    orderNameController.text, 
+                                    authData.result!.user.name,
+                                  );
+
+                                  CwbPrint.instance.printReceipt(printInt);
+                                  
+                                  context.read<CheckoutBloc>().add(const CheckoutEvent.started());
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text("Save draft app"),
+                                      backgroundColor: AppColors.darkYellow,
+                                    ),
+                                  );
+
+                                  context.pushReplacement(const DashboardPage());
+                                },
+                                label: 'Save & Print',
+                                fontSize: 14,
+                                height: 40,
+                                width: 140,
+                              );
+                            }
                           );
-
-                          context.pushReplacement(const DashboardPage());
                         },
-                        child: const Text("Save"),
                       ),
                     ],
                   );
@@ -122,7 +157,7 @@ class _OrderPageState extends State<OrderPage> {
                 child: Text("No data"),
               );
             },
-            success: (data, qty, total) {
+            success: (data, qty, total, customer) {
               if (data.isEmpty) {
                 return const Center(
                   child: Text("No data"),
@@ -163,7 +198,7 @@ class _OrderPageState extends State<OrderPage> {
                   orElse: () {
                     return const SizedBox.shrink();
                   },
-                  success: (data, qty, total) {
+                  success: (data, qty, total, customer) {
                     return ValueListenableBuilder(
                       valueListenable: indexValue,
                       builder: (context, value, _) => Row(

@@ -47,7 +47,7 @@ class NavItem extends StatelessWidget {
                           ),
                         ),
                       );
-                    }, success: (data, qty, total) {
+                    }, success: (data, qty, total, customer) {
                       if (data.isEmpty) {
                         return SizedBox(
                           width: 25.0,
