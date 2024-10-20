@@ -297,7 +297,6 @@ class _Body extends StatelessWidget {
   final Function(String) clickHandler;
 
   const _Body({
-    super.key,
     required this.macName,
     required this.datas,
     required this.clickHandler,
