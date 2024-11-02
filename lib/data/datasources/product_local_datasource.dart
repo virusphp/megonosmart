@@ -78,7 +78,7 @@ class ProductLocalDatasource {
     ''');
 
     await db.execute('''
-    CREATE TABLE draft_order (
+    CREATE TABLE draft_orders (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       total_item INTEGER,
       nominal INTEGER,
@@ -89,7 +89,7 @@ class ProductLocalDatasource {
     ''');
 
     await db.execute('''
-    CREATE TABLE draft_order_item (
+    CREATE TABLE draft_order_items (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       id_draft_order INTEGER,
       id_product INTEGER,
@@ -134,8 +134,11 @@ class ProductLocalDatasource {
   //save draft order
   Future<int> saveDraftOrder(DraftOrderModel order) async {
     final db = await instance.database;
+    print(order.toMapForLocal());
     int id = await db.insert('draft_orders', order.toMapForLocal());
+
     for (var orderItem in order.orders) {
+      // print(orderItem.toMapForLocal(id));
       await db.insert('draft_order_items', orderItem.toMapForLocal(id));
     }
     return id;
@@ -145,9 +148,10 @@ class ProductLocalDatasource {
   Future<List<DraftOrderModel>> getAllDraftOrder() async {
     final db = await instance.database;
     final result = await db.query('draft_orders', orderBy: 'id DESC');
-
+    print(result);
     List<DraftOrderModel> results = await Future.wait(result.map((item) async {
       final draftOderItem = await getDraftOrderItemByOrderId(item['id'] as int);
+
       return DraftOrderModel.newFromLocalMap(item, draftOderItem);
     }));
     return results;
@@ -158,10 +162,11 @@ class ProductLocalDatasource {
     final db = await instance.database;
     final result =
         await db.query('draft_order_items', where: 'id_draft_order = $idOrder');
-
+    // print(result);
     List<DraftOrderItem> results = await Future.wait(result.map((item) async {
       // Your asynchronous operation here
       final product = await getProductById(item['id_product'] as int);
+      print(product);
       return DraftOrderItem(
           product: product!, quantity: item['quantity'] as int);
     }));
@@ -172,7 +177,7 @@ class ProductLocalDatasource {
   Future<void> removeDraftOrderById(int id) async {
     final db = await instance.database;
     await db.delete('draft_orders', where: 'id = $id');
-    await db.delete('draft_order_item',
+    await db.delete('draft_order_items',
         where: 'id_draft_order = ?', whereArgs: [id]);
   }
 
@@ -218,7 +223,8 @@ class ProductLocalDatasource {
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('pos14.db');
+    _database = await _initDB('pos17s.db');
+    // print(_database);
     return _database!;
   }
 
@@ -245,6 +251,7 @@ class ProductLocalDatasource {
   Future<List<Product>> getAllProduct() async {
     final db = await instance.database;
     final result = await db.query(tableProducts);
+    // print(result);
     return result.map((e) => Product.fromMap(e)).toList();
   }
 
@@ -253,7 +260,8 @@ class ProductLocalDatasource {
     final db = await instance.database;
     final result =
         await db.query(tableProducts, where: 'product_id = ?', whereArgs: [id]);
-
+    // print(result);
+    // print(id);
     if (result.isEmpty) {
       return null;
     }

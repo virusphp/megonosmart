@@ -77,9 +77,6 @@ class _$QrisEventCopyWithImpl<$Res, $Val extends QrisEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -96,9 +93,6 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -216,8 +210,6 @@ class __$$GenerateQRCodeImplCopyWithImpl<$Res>
       _$GenerateQRCodeImpl _value, $Res Function(_$GenerateQRCodeImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -276,9 +268,7 @@ class _$GenerateQRCodeImpl
   @override
   int get hashCode => Object.hash(runtimeType, orderId, grossAmount);
 
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GenerateQRCodeImplCopyWith<_$GenerateQRCodeImpl> get copyWith =>
@@ -360,10 +350,7 @@ abstract class _GenerateQRCode implements QrisEvent {
 
   String get orderId;
   int get grossAmount;
-
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$GenerateQRCodeImplCopyWith<_$GenerateQRCodeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -385,8 +372,6 @@ class __$$CheckPaymentStatusImplCopyWithImpl<$Res>
       $Res Function(_$CheckPaymentStatusImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -435,9 +420,7 @@ class _$CheckPaymentStatusImpl
   @override
   int get hashCode => Object.hash(runtimeType, orderId);
 
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$CheckPaymentStatusImplCopyWith<_$CheckPaymentStatusImpl> get copyWith =>
@@ -518,10 +501,7 @@ abstract class _CheckPaymentStatus implements QrisEvent {
       _$CheckPaymentStatusImpl;
 
   String get orderId;
-
-  /// Create a copy of QrisEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$CheckPaymentStatusImplCopyWith<_$CheckPaymentStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -608,9 +588,6 @@ class _$QrisStateCopyWithImpl<$Res, $Val extends QrisState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -627,9 +604,6 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -763,9 +737,6 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -902,8 +873,6 @@ class __$$QrisResponseImplCopyWithImpl<$Res>
       _$QrisResponseImpl _value, $Res Function(_$QrisResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -951,9 +920,7 @@ class _$QrisResponseImpl with DiagnosticableTreeMixin implements _QrisResponse {
   @override
   int get hashCode => Object.hash(runtimeType, qrisResponseModel);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$QrisResponseImplCopyWith<_$QrisResponseImpl> get copyWith =>
@@ -1052,10 +1019,7 @@ abstract class _QrisResponse implements QrisState {
       _$QrisResponseImpl;
 
   QrisResponseModel get qrisResponseModel;
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$QrisResponseImplCopyWith<_$QrisResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1077,8 +1041,6 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1125,9 +1087,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1225,10 +1185,7 @@ abstract class _Error implements QrisState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1250,8 +1207,6 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1298,9 +1253,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1398,10 +1351,7 @@ abstract class _Success implements QrisState {
   const factory _Success(final String message) = _$SuccessImpl;
 
   String get message;
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1423,8 +1373,6 @@ class __$$StatusCheckImplCopyWithImpl<$Res>
       _$StatusCheckImpl _value, $Res Function(_$StatusCheckImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1472,9 +1420,7 @@ class _$StatusCheckImpl with DiagnosticableTreeMixin implements _StatusCheck {
   @override
   int get hashCode => Object.hash(runtimeType, qrisStatusRequest);
 
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$StatusCheckImplCopyWith<_$StatusCheckImpl> get copyWith =>
@@ -1573,10 +1519,7 @@ abstract class _StatusCheck implements QrisState {
       _$StatusCheckImpl;
 
   QrisStatusResponseModel get qrisStatusRequest;
-
-  /// Create a copy of QrisState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$StatusCheckImplCopyWith<_$StatusCheckImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

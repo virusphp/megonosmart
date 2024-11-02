@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'logout_bloc.dart';
+part of 'draft_order_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,58 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$LogoutEvent {
+mixin _$DraftOrderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() logout,
+    required TResult Function() getAllDraftOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? logout,
+    TResult? Function()? getAllDraftOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? logout,
+    TResult Function()? getAllDraftOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Logout value) logout,
+    required TResult Function(_GetAllDraftOrder value) getAllDraftOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Logout value)? logout,
+    TResult? Function(_GetAllDraftOrder value)? getAllDraftOrder,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Logout value)? logout,
+    TResult Function(_GetAllDraftOrder value)? getAllDraftOrder,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LogoutEventCopyWith<$Res> {
-  factory $LogoutEventCopyWith(
-          LogoutEvent value, $Res Function(LogoutEvent) then) =
-      _$LogoutEventCopyWithImpl<$Res, LogoutEvent>;
+abstract class $DraftOrderEventCopyWith<$Res> {
+  factory $DraftOrderEventCopyWith(
+          DraftOrderEvent value, $Res Function(DraftOrderEvent) then) =
+      _$DraftOrderEventCopyWithImpl<$Res, DraftOrderEvent>;
 }
 
 /// @nodoc
-class _$LogoutEventCopyWithImpl<$Res, $Val extends LogoutEvent>
-    implements $LogoutEventCopyWith<$Res> {
-  _$LogoutEventCopyWithImpl(this._value, this._then);
+class _$DraftOrderEventCopyWithImpl<$Res, $Val extends DraftOrderEvent>
+    implements $DraftOrderEventCopyWith<$Res> {
+  _$DraftOrderEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,7 +83,7 @@ abstract class _$$StartedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$StartedImplCopyWithImpl<$Res>
-    extends _$LogoutEventCopyWithImpl<$Res, _$StartedImpl>
+    extends _$DraftOrderEventCopyWithImpl<$Res, _$StartedImpl>
     implements _$$StartedImplCopyWith<$Res> {
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
@@ -97,7 +97,7 @@ class _$StartedImpl implements _Started {
 
   @override
   String toString() {
-    return 'LogoutEvent.started()';
+    return 'DraftOrderEvent.started()';
   }
 
   @override
@@ -113,7 +113,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() logout,
+    required TResult Function() getAllDraftOrder,
   }) {
     return started();
   }
@@ -122,7 +122,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? logout,
+    TResult? Function()? getAllDraftOrder,
   }) {
     return started?.call();
   }
@@ -131,7 +131,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? logout,
+    TResult Function()? getAllDraftOrder,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,7 +144,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Logout value) logout,
+    required TResult Function(_GetAllDraftOrder value) getAllDraftOrder,
   }) {
     return started(this);
   }
@@ -153,7 +153,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Logout value)? logout,
+    TResult? Function(_GetAllDraftOrder value)? getAllDraftOrder,
   }) {
     return started?.call(this);
   }
@@ -162,7 +162,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Logout value)? logout,
+    TResult Function(_GetAllDraftOrder value)? getAllDraftOrder,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -172,40 +172,40 @@ class _$StartedImpl implements _Started {
   }
 }
 
-abstract class _Started implements LogoutEvent {
+abstract class _Started implements DraftOrderEvent {
   const factory _Started() = _$StartedImpl;
 }
 
 /// @nodoc
-abstract class _$$LogoutImplCopyWith<$Res> {
-  factory _$$LogoutImplCopyWith(
-          _$LogoutImpl value, $Res Function(_$LogoutImpl) then) =
-      __$$LogoutImplCopyWithImpl<$Res>;
+abstract class _$$GetAllDraftOrderImplCopyWith<$Res> {
+  factory _$$GetAllDraftOrderImplCopyWith(_$GetAllDraftOrderImpl value,
+          $Res Function(_$GetAllDraftOrderImpl) then) =
+      __$$GetAllDraftOrderImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LogoutImplCopyWithImpl<$Res>
-    extends _$LogoutEventCopyWithImpl<$Res, _$LogoutImpl>
-    implements _$$LogoutImplCopyWith<$Res> {
-  __$$LogoutImplCopyWithImpl(
-      _$LogoutImpl _value, $Res Function(_$LogoutImpl) _then)
+class __$$GetAllDraftOrderImplCopyWithImpl<$Res>
+    extends _$DraftOrderEventCopyWithImpl<$Res, _$GetAllDraftOrderImpl>
+    implements _$$GetAllDraftOrderImplCopyWith<$Res> {
+  __$$GetAllDraftOrderImplCopyWithImpl(_$GetAllDraftOrderImpl _value,
+      $Res Function(_$GetAllDraftOrderImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$LogoutImpl implements _Logout {
-  const _$LogoutImpl();
+class _$GetAllDraftOrderImpl implements _GetAllDraftOrder {
+  const _$GetAllDraftOrderImpl();
 
   @override
   String toString() {
-    return 'LogoutEvent.logout()';
+    return 'DraftOrderEvent.getAllDraftOrder()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LogoutImpl);
+        (other.runtimeType == runtimeType && other is _$GetAllDraftOrderImpl);
   }
 
   @override
@@ -215,29 +215,29 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function() logout,
+    required TResult Function() getAllDraftOrder,
   }) {
-    return logout();
+    return getAllDraftOrder();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function()? logout,
+    TResult? Function()? getAllDraftOrder,
   }) {
-    return logout?.call();
+    return getAllDraftOrder?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function()? logout,
+    TResult Function()? getAllDraftOrder,
     required TResult orElse(),
   }) {
-    if (logout != null) {
-      return logout();
+    if (getAllDraftOrder != null) {
+      return getAllDraftOrder();
     }
     return orElse();
   }
@@ -246,45 +246,45 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
-    required TResult Function(_Logout value) logout,
+    required TResult Function(_GetAllDraftOrder value) getAllDraftOrder,
   }) {
-    return logout(this);
+    return getAllDraftOrder(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
-    TResult? Function(_Logout value)? logout,
+    TResult? Function(_GetAllDraftOrder value)? getAllDraftOrder,
   }) {
-    return logout?.call(this);
+    return getAllDraftOrder?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
-    TResult Function(_Logout value)? logout,
+    TResult Function(_GetAllDraftOrder value)? getAllDraftOrder,
     required TResult orElse(),
   }) {
-    if (logout != null) {
-      return logout(this);
+    if (getAllDraftOrder != null) {
+      return getAllDraftOrder(this);
     }
     return orElse();
   }
 }
 
-abstract class _Logout implements LogoutEvent {
-  const factory _Logout() = _$LogoutImpl;
+abstract class _GetAllDraftOrder implements DraftOrderEvent {
+  const factory _GetAllDraftOrder() = _$GetAllDraftOrderImpl;
 }
 
 /// @nodoc
-mixin _$LogoutState {
+mixin _$DraftOrderState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(List<DraftOrderModel> draftOrders) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -292,7 +292,7 @@ mixin _$LogoutState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(List<DraftOrderModel> draftOrders)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -300,7 +300,7 @@ mixin _$LogoutState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(List<DraftOrderModel> draftOrders)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -333,16 +333,16 @@ mixin _$LogoutState {
 }
 
 /// @nodoc
-abstract class $LogoutStateCopyWith<$Res> {
-  factory $LogoutStateCopyWith(
-          LogoutState value, $Res Function(LogoutState) then) =
-      _$LogoutStateCopyWithImpl<$Res, LogoutState>;
+abstract class $DraftOrderStateCopyWith<$Res> {
+  factory $DraftOrderStateCopyWith(
+          DraftOrderState value, $Res Function(DraftOrderState) then) =
+      _$DraftOrderStateCopyWithImpl<$Res, DraftOrderState>;
 }
 
 /// @nodoc
-class _$LogoutStateCopyWithImpl<$Res, $Val extends LogoutState>
-    implements $LogoutStateCopyWith<$Res> {
-  _$LogoutStateCopyWithImpl(this._value, this._then);
+class _$DraftOrderStateCopyWithImpl<$Res, $Val extends DraftOrderState>
+    implements $DraftOrderStateCopyWith<$Res> {
+  _$DraftOrderStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -359,7 +359,7 @@ abstract class _$$InitialImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$InitialImplCopyWithImpl<$Res>
-    extends _$LogoutStateCopyWithImpl<$Res, _$InitialImpl>
+    extends _$DraftOrderStateCopyWithImpl<$Res, _$InitialImpl>
     implements _$$InitialImplCopyWith<$Res> {
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
@@ -373,7 +373,7 @@ class _$InitialImpl implements _Initial {
 
   @override
   String toString() {
-    return 'LogoutState.initial()';
+    return 'DraftOrderState.initial()';
   }
 
   @override
@@ -390,7 +390,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(List<DraftOrderModel> draftOrders) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -401,7 +401,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(List<DraftOrderModel> draftOrders)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -412,7 +412,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(List<DraftOrderModel> draftOrders)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -460,7 +460,7 @@ class _$InitialImpl implements _Initial {
   }
 }
 
-abstract class _Initial implements LogoutState {
+abstract class _Initial implements DraftOrderState {
   const factory _Initial() = _$InitialImpl;
 }
 
@@ -473,7 +473,7 @@ abstract class _$$LoadingImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$LoadingImplCopyWithImpl<$Res>
-    extends _$LogoutStateCopyWithImpl<$Res, _$LoadingImpl>
+    extends _$DraftOrderStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
@@ -487,7 +487,7 @@ class _$LoadingImpl implements _Loading {
 
   @override
   String toString() {
-    return 'LogoutState.loading()';
+    return 'DraftOrderState.loading()';
   }
 
   @override
@@ -504,7 +504,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(List<DraftOrderModel> draftOrders) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -515,7 +515,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(List<DraftOrderModel> draftOrders)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -526,7 +526,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(List<DraftOrderModel> draftOrders)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -574,7 +574,7 @@ class _$LoadingImpl implements _Loading {
   }
 }
 
-abstract class _Loading implements LogoutState {
+abstract class _Loading implements DraftOrderState {
   const factory _Loading() = _$LoadingImpl;
 }
 
@@ -584,12 +584,12 @@ abstract class _$$SuccessImplCopyWith<$Res> {
           _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
       __$$SuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({List<DraftOrderModel> draftOrders});
 }
 
 /// @nodoc
 class __$$SuccessImplCopyWithImpl<$Res>
-    extends _$LogoutStateCopyWithImpl<$Res, _$SuccessImpl>
+    extends _$DraftOrderStateCopyWithImpl<$Res, _$SuccessImpl>
     implements _$$SuccessImplCopyWith<$Res> {
   __$$SuccessImplCopyWithImpl(
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
@@ -598,13 +598,13 @@ class __$$SuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? draftOrders = null,
   }) {
     return _then(_$SuccessImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == draftOrders
+          ? _value._draftOrders
+          : draftOrders // ignore: cast_nullable_to_non_nullable
+              as List<DraftOrderModel>,
     ));
   }
 }
@@ -612,14 +612,20 @@ class __$$SuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SuccessImpl implements _Success {
-  const _$SuccessImpl(this.message);
+  const _$SuccessImpl(final List<DraftOrderModel> draftOrders)
+      : _draftOrders = draftOrders;
 
+  final List<DraftOrderModel> _draftOrders;
   @override
-  final String message;
+  List<DraftOrderModel> get draftOrders {
+    if (_draftOrders is EqualUnmodifiableListView) return _draftOrders;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_draftOrders);
+  }
 
   @override
   String toString() {
-    return 'LogoutState.success(message: $message)';
+    return 'DraftOrderState.success(draftOrders: $draftOrders)';
   }
 
   @override
@@ -627,11 +633,13 @@ class _$SuccessImpl implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuccessImpl &&
-            (identical(other.message, message) || other.message == message));
+            const DeepCollectionEquality()
+                .equals(other._draftOrders, _draftOrders));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_draftOrders));
 
   @JsonKey(ignore: true)
   @override
@@ -644,10 +652,10 @@ class _$SuccessImpl implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(List<DraftOrderModel> draftOrders) success,
     required TResult Function(String message) error,
   }) {
-    return success(message);
+    return success(draftOrders);
   }
 
   @override
@@ -655,10 +663,10 @@ class _$SuccessImpl implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(List<DraftOrderModel> draftOrders)? success,
     TResult? Function(String message)? error,
   }) {
-    return success?.call(message);
+    return success?.call(draftOrders);
   }
 
   @override
@@ -666,12 +674,12 @@ class _$SuccessImpl implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(List<DraftOrderModel> draftOrders)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(message);
+      return success(draftOrders);
     }
     return orElse();
   }
@@ -714,10 +722,11 @@ class _$SuccessImpl implements _Success {
   }
 }
 
-abstract class _Success implements LogoutState {
-  const factory _Success(final String message) = _$SuccessImpl;
+abstract class _Success implements DraftOrderState {
+  const factory _Success(final List<DraftOrderModel> draftOrders) =
+      _$SuccessImpl;
 
-  String get message;
+  List<DraftOrderModel> get draftOrders;
   @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -734,7 +743,7 @@ abstract class _$$ErrorImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$ErrorImplCopyWithImpl<$Res>
-    extends _$LogoutStateCopyWithImpl<$Res, _$ErrorImpl>
+    extends _$DraftOrderStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
@@ -764,7 +773,7 @@ class _$ErrorImpl implements _Error {
 
   @override
   String toString() {
-    return 'LogoutState.error(message: $message)';
+    return 'DraftOrderState.error(message: $message)';
   }
 
   @override
@@ -789,7 +798,7 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(String message) success,
+    required TResult Function(List<DraftOrderModel> draftOrders) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -800,7 +809,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(String message)? success,
+    TResult? Function(List<DraftOrderModel> draftOrders)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -811,7 +820,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(String message)? success,
+    TResult Function(List<DraftOrderModel> draftOrders)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -859,7 +868,7 @@ class _$ErrorImpl implements _Error {
   }
 }
 
-abstract class _Error implements LogoutState {
+abstract class _Error implements DraftOrderState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;

@@ -33,7 +33,8 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
           (previousValue, element) =>
               previousValue + (element.product.price * element.quantity));
 
-      emit(_Success(newCheckout, totalQuantity, totalPrice, currentStates.draftName));
+      emit(_Success(
+          newCheckout, totalQuantity, totalPrice, currentStates.draftName));
     });
 
     on<_RemoveCheckout>((event, emit) {
@@ -57,7 +58,8 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         totalPrice += (element.product.price * element.quantity);
       }
 
-      emit(_Success(newCheckout, totalQuantity, totalPrice , currentStates.draftName));
+      emit(_Success(
+          newCheckout, totalQuantity, totalPrice, currentStates.draftName));
     });
 
     //remove product
@@ -78,33 +80,36 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         totalPrice += (element.product.price * element.quantity);
       }
 
-      emit(_Success(newCheckout, totalQuantity, totalPrice, currentState.draftName));
+      emit(_Success(
+          newCheckout, totalQuantity, totalPrice, currentState.draftName));
     });
 
     on<_Started>((event, emit) {
       emit(const _Loading());
       emit(const _Success([], 0, 0, "customer"));
     });
-    
+
     on<_SaveDraftOrder>((event, emit) {
       var currentState = state as _Success;
       emit(const _Loading());
 
       final draftOrder = DraftOrderModel(
-        orders: currentState.products.map((e) => 
-              DraftOrderItem(
-                product: e.product, 
-                quantity: e.quantity,
-                )).toList(),
-        totalQuantity: currentState.totalQuantity, 
-        totalPrice: currentState.totalPrice, 
-        transactionTime: DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
-        tableNumber: event.tableNumber, 
+        orders: currentState.products
+            .map((e) => DraftOrderItem(
+                  product: e.product,
+                  quantity: e.quantity,
+                ))
+            .toList(),
+        totalQuantity: currentState.totalQuantity,
+        totalPrice: currentState.totalPrice,
+        transactionTime:
+            DateFormat('yyyy-MM-dd HH:mm:ss').format(DateTime.now()),
+        tableNumber: event.tableNumber,
         draftName: event.draftName,
       );
+      print(draftOrder);
       ProductLocalDatasource.instance.saveDraftOrder(draftOrder);
       emit(const _SavedDraftOrder());
-
     });
   }
 }

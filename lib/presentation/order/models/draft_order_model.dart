@@ -47,7 +47,7 @@ class DraftOrderModel {
         totalPrice: map['nominal']?.toInt() ?? 0,
         id: map['id']?.toInt() ?? 0,
         transactionTime: map['transaction_time'] ?? '',
-        tableNumber: map['id_kasir']?.toInt() ?? 0,
+        tableNumber: map['table_number']?.toInt() ?? 0,
         draftName: map['draft_name'] ?? '');
   }
 
@@ -55,12 +55,12 @@ class DraftOrderModel {
       Map<String, dynamic> map, List<DraftOrderItem> orders) {
     return DraftOrderModel(
       orders: orders,
-      totalQuantity: map['totalQuantity']?.toInt() ?? 0,
-      totalPrice: map['totalPrice']?.toInt() ?? 0,
+      totalQuantity: map['total_item']?.toInt() ?? 0,
+      totalPrice: map['nominal']?.toInt() ?? 0,
       id: map['id']?.toInt() ?? 0,
       transactionTime: map['transaction_time'] ?? '',
-      tableNumber: map['tableNumber']?.toInt() ?? 0,
-      draftName: map['draftName'] ?? false,
+      tableNumber: map['table_number']?.toInt() ?? 0,
+      draftName: map['draft_name'] ?? '',
     );
   }
 

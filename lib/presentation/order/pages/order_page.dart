@@ -78,7 +78,7 @@ class _OrderPageState extends State<OrderPage> {
                         ),
                         TextFormField(
                           decoration: const InputDecoration(
-                            hintText: 'Order Number',
+                            hintText: 'Order Name',
                           ),
                           controller: orderNameController,
                           textCapitalization: TextCapitalization.words,
@@ -94,50 +94,50 @@ class _OrderPageState extends State<OrderPage> {
                       ),
                       BlocBuilder<CheckoutBloc, CheckoutState>(
                         builder: (context, state) {
-                          return state.maybeWhen(
-                            orElse: () {
-                              return SizedBox.shrink();
-                            },
-                            success: (data, qty, total, draftName) {
-                              return Button.outlined(
-                                onPressed: ()  async {
-                                  final authData = await AuthLocalDatasource().getAuthData();
+                          return state.maybeWhen(orElse: () {
+                            return SizedBox.shrink();
+                          }, success: (data, qty, total, draftName) {
+                            return Button.outlined(
+                              onPressed: () async {
+                                final authData =
+                                    await AuthLocalDatasource().getAuthData();
 
-                                  context
-                                      .read<CheckoutBloc>()
-                                      .add(CheckoutEvent.saveDraftOrder(
-                                        tableNumberController.text.toIntegerFromText,
-                                        orderNameController.text
-                                      ),);
+                                context.read<CheckoutBloc>().add(
+                                      CheckoutEvent.saveDraftOrder(
+                                          tableNumberController
+                                              .text.toIntegerFromText,
+                                          orderNameController.text),
+                                    );
 
-                                  final printInt = 
-                                  await CwbPrint.instance.printChecker(
-                                    data, 
-                                    tableNumberController.text.toInt, 
-                                    orderNameController.text, 
-                                    authData.result!.user.name,
-                                  );
+                                final printInt =
+                                    await CwbPrint.instance.printChecker(
+                                  data,
+                                  tableNumberController.text.toInt,
+                                  orderNameController.text,
+                                  authData.result!.user.name,
+                                );
 
-                                  CwbPrint.instance.printReceipt(printInt);
-                                  
-                                  context.read<CheckoutBloc>().add(const CheckoutEvent.started());
+                                // CwbPrint.instance.printReceipt(printInt);
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text("Save draft app"),
-                                      backgroundColor: AppColors.darkYellow,
-                                    ),
-                                  );
+                                context
+                                    .read<CheckoutBloc>()
+                                    .add(const CheckoutEvent.started());
 
-                                  context.pushReplacement(const DashboardPage());
-                                },
-                                label: 'Save & Print',
-                                fontSize: 14,
-                                height: 40,
-                                width: 140,
-                              );
-                            }
-                          );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Save draft app"),
+                                    backgroundColor: AppColors.darkYellow,
+                                  ),
+                                );
+
+                                context.pushReplacement(const DashboardPage());
+                              },
+                              label: 'Save & Print',
+                              fontSize: 14,
+                              height: 40,
+                              width: 140,
+                            );
+                          });
                         },
                       ),
                     ],

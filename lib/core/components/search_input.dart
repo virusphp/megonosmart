@@ -32,6 +32,15 @@ class SearchInput extends StatelessWidget {
             Icons.search,
             color: AppColors.darkYellow,
           ),
+          suffixIcon: InkWell(
+            onTap: () {
+              //j
+            },
+            child: const Icon(
+              Icons.qr_code_2,
+              color: AppColors.darkYellow,
+            ),
+          ),
           contentPadding: const EdgeInsets.all(16.0),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.0),
