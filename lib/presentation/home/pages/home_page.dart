@@ -61,14 +61,25 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Menu',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+        automaticallyImplyLeading: false,
+        title: const Text(
+          'Menu Cafe',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
           ),
-          centerTitle: true,
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // context.push(const DraftOrderPage());
+            },
+            icon: const Icon(Icons.note_alt_rounded),
+          ),
+          const SpaceWidth(8)
+        ],
+        centerTitle: true,
+      ),
         body: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [

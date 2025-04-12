@@ -102,7 +102,6 @@ class _OrderPageState extends State<OrderPage> {
                               return Button.outlined(
                                 onPressed: ()  async {
                                   final authData = await AuthLocalDatasource().getAuthData();
-
                                   context
                                       .read<CheckoutBloc>()
                                       .add(CheckoutEvent.saveDraftOrder(
