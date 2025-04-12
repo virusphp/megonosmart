@@ -5,11 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:megonopos/core/components/spaces.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
+import 'package:megonopos/data/dataoutputs/cwb_print.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/order/bloc/qris/qris_bloc.dart';
 import 'package:megonopos/presentation/order/models/order_model.dart';
 import 'package:megonopos/presentation/order/widgets/payment_success_dialog.dart';
+import 'package:widgets_to_image/widgets_to_image.dart';
 import '../../../core/constants/colors.dart';
 
 class PaymentQrisDialog extends StatefulWidget {
@@ -26,6 +28,9 @@ class PaymentQrisDialog extends StatefulWidget {
 class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
   String orderId = '';
   Timer? timer;
+
+  WidgetsToImageController controller = WidgetsToImageController();
+
   @override
   void initState() {
     orderId = DateTime.now().millisecondsSinceEpoch.toString();
@@ -66,7 +71,7 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                   child: CircularProgressIndicator(),
                 );
               }, success: (data, qty, total, paymentMethod, nominal, idKasir,
-                  namaKasir) {
+                  namaKasir, customerName) {
                 return Container(
                   width: context.deviceWidth,
                   padding: const EdgeInsets.all(14.0),
@@ -101,8 +106,9 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                                   totalPrice: total,
                                   idKasir: idKasir,
                                   namaKasir: namaKasir,
-                                  transactionTime:  DateFormat('yyyy-MM-ddTHH:mm:ss')
-                          .format(DateTime.now()),
+                                  transactionTime:
+                                      DateFormat('yyyy-MM-ddTHH:mm:ss')
+                                          .format(DateTime.now()),
                                   isSync: false);
                               ProductLocalDatasource.instance
                                   .saveOrder(orderModel);
@@ -122,16 +128,19 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                                 return const SizedBox();
                               },
                               qrisResponse: (data) {
-                                return Container(
-                                  width: 256.0,
-                                  height: 256.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    color: Colors.white,
-                                  ),
-                                  child: Center(
-                                    child: Image.network(
-                                      data.actions!.first.url!,
+                                return WidgetsToImage(
+                                  controller: controller,
+                                  child: Container(
+                                    width: 256.0,
+                                    height: 256.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      color: Colors.white,
+                                    ),
+                                    child: Center(
+                                      child: Image.network(
+                                        data.actions!.first.url!,
+                                      ),
                                     ),
                                   ),
                                 );
@@ -161,6 +170,27 @@ class _PaymentQrisDialogState extends State<PaymentQrisDialog> {
                           fontSize: 16,
                         ),
                       ),
+                      const SpaceHeight(16),
+                      ElevatedButton(
+                          onPressed: () async {
+                            final bytes = await controller.capture();
+                            final listInt = await CwbPrint.instance
+                                .printQRIS(total, bytes!);
+                            CwbPrint.instance.printReceipt(listInt);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.primary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),  
+                          ),
+                          child: const Text(
+                            'Print QRIS',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                          ))
                     ],
                   ),
                 );

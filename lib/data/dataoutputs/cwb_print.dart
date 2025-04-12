@@ -34,7 +34,8 @@ class CwbPrint {
     final profile = await CapabilityProfile.load();
     final generator = Generator(PaperSize.mm58, profile);
 
-    final ByteData data = await rootBundle.load('assets/logo/logo-megono.png');
+    final ByteData data =
+        await rootBundle.load('assets/logo/logo_print_caffe.png');
     final Uint8List bytesData = data.buffer.asUint8List();
     final img.Image? orginalImage = img.decodeImage(bytesData);
     bytes += generator.reset();
@@ -224,7 +225,8 @@ class CwbPrint {
     final profile = await CapabilityProfile.load();
     final generator = Generator(PaperSize.mm58, profile);
 
-    final ByteData data = await rootBundle.load('assets/logo/mylogo.png');
+    final ByteData data =
+        await rootBundle.load('assets/logo/logo_print_caffe.png');
     final Uint8List bytesData = data.buffer.asUint8List();
     final img.Image? orginalImage = img.decodeImage(bytesData);
     bytes += generator.reset();
@@ -245,13 +247,13 @@ class CwbPrint {
           width: PosTextSize.size1,
         ));
 
-    bytes += generator.text('Jl. Palagan Tentara Pelajar No.2',
+    bytes += generator.text('Jl. Kanfer 2 no 24',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('Kab. Sleman, DI Yogyakarta',
+    bytes += generator.text('Kota Pekalongan',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('coffeewithbahri@gmail.com',
+    bytes += generator.text('coffeeandfriends@gmail.com',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('085640899224',
+    bytes += generator.text('082220801333',
         styles: const PosStyles(bold: false, align: PosAlign.center));
 
     bytes += generator.feed(1);
@@ -402,10 +404,10 @@ class CwbPrint {
     ]);
     bytes += generator.text('================================',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('Password: fic11jilid2',
+    bytes += generator.text('Password: smartmesem23',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.feed(1);
-    bytes += generator.text('instagram: @codewithbahri',
+    bytes += generator.text('instagram: @coffeeandfriend',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.feed(1);
     bytes += generator.text(

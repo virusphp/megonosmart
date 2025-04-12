@@ -4,6 +4,6 @@ part of 'order_bloc.dart';
 class OrderEvent with _$OrderEvent {
   const factory OrderEvent.started() = _Started;
   const factory OrderEvent.addPaymentMethod(
-      String paymentMethod, List<OrderItem> orders) = _AddPaymentMethod;
+      String paymentMethod, List<OrderItem> orders, String customerName) = _AddPaymentMethod;
   const factory OrderEvent.addNominalBayar(int nominal) = _AddNominalBayar;
 }

@@ -40,8 +40,8 @@ class PaymentSuccessDialog extends StatelessWidget {
         builder: (context, state) {
           return state.maybeWhen(
             orElse: () => const SizedBox.shrink(),
-            success:
-                (data, qty, total, paymenType, nominal, idKasir, namaKasir) {
+            success: (data, qty, total, paymenType, nominal, idKasir, namaKasir,
+                customerName) {
               context.read<CheckoutBloc>().add(const CheckoutEvent.started());
               // context.read<OrderBloc>().add(const OrderEvent.started());
               return Column(
@@ -90,15 +90,9 @@ class PaymentSuccessDialog extends StatelessWidget {
                             // final ticket = await CwbPrint.instance.bluetoothStart();
                             // final result =
                             //     await PrintBluetoothThermal.writeBytes(ticket);
-                            final printValue =
-                                await CwbPrint.instance.printOrder(
-                              data,
-                              qty,
-                              total,
-                              paymenType,
-                              nominal,
-                              namaKasir,
-                            );
+                            final printValue = await CwbPrint.instance
+                                .printOrderV2(data, qty, total, paymenType,
+                                    nominal, namaKasir, customerName);
                             await PrintBluetoothThermal.writeBytes(printValue);
                           },
                           label: 'Print',

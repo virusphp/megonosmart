@@ -12,6 +12,7 @@ class OrderState with _$OrderState {
     int nominalBayar,
     int idKasir,
     String namaKasir,
+    String customerName,
   ) = _Success;
   const factory OrderState.error(String message) = _Error;
 }

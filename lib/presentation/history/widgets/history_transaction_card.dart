@@ -66,26 +66,6 @@ class HistoryTransactionCard extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             itemCount: data.orders.length + 1,
             itemBuilder: (context, index) {
-              if (index == data.orders.length) {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                      top: 4.0, left: 16, right: 16, bottom: 16),
-                  child: Button.filled(
-                    onPressed: () async {
-                      final printInt = await CwbPrint.instance.printOrder(
-                        data.orders,
-                        data.totalQuantity,
-                        data.totalPrice,
-                        data.paymentMethod,
-                        data.nominalBayar,
-                        'Customer',
-                      );
-                      CwbPrint.instance.printReceipt(printInt);
-                    },
-                    label: 'Print Receipt',
-                  ),
-                );
-              }
               final item = data.orders[index];
               return ListTile(
                 leading: Assets.icons.payments.svg(),
@@ -102,6 +82,27 @@ class HistoryTransactionCard extends StatelessWidget {
                   ),
                 ),
               );
+              // if (index == data.orders.length) {
+              //   return Padding(
+              //     padding: const EdgeInsets.only(
+              //         top: 4.0, left: 16, right: 16, bottom: 16),
+              //     child: Button.filled(
+              //       onPressed: () async {
+              //         final printInt = await CwbPrint.instance.printOrder(
+              //           data.orders,
+              //           data.totalQuantity,
+              //           data.totalPrice,
+              //           data.paymentMethod,
+              //           data.nominalBayar,
+              //           'Customer',
+              //         );
+              //         CwbPrint.instance.printReceipt(printInt);
+              //       },
+              //       label: 'Print Receipt',
+              //     ),
+              //   );
+              // }
+              
             },
           ),
         ],

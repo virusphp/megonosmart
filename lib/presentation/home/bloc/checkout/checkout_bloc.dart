@@ -107,9 +107,21 @@ class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
         tableNumber: event.tableNumber,
         draftName: event.draftName,
       );
-      print(draftOrder);
       ProductLocalDatasource.instance.saveDraftOrder(draftOrder);
       emit(const _SavedDraftOrder());
+    });
+
+    //load draft order
+    on<_LoadDraftOrder>((event, emit) async {
+      emit(const _Loading());
+      // final result = await ProductLocalDatasource.instance.getAllDraftOrder();
+      final draftOrder = event.data;
+      emit(_Success(
+        draftOrder.orders.map((e) => OrderItem(product: e.product, quantity: e.quantity)).toList(),
+        draftOrder.totalQuantity,
+        draftOrder.totalPrice,
+        draftOrder.draftName,
+       ));
     });
   }
 }

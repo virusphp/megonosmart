@@ -198,7 +198,7 @@ class _OrderPageState extends State<OrderPage> {
                   orElse: () {
                     return const SizedBox.shrink();
                   },
-                  success: (data, qty, total, customer) {
+                  success: (data, qty, total, draftName) {
                     return ValueListenableBuilder(
                       valueListenable: indexValue,
                       builder: (context, value, _) => Row(
@@ -212,7 +212,8 @@ class _OrderPageState extends State<OrderPage> {
                               onPressed: () {
                                 indexValue.value = 1;
                                 context.read<OrderBloc>().add(
-                                    OrderEvent.addPaymentMethod('Tunai', data));
+                                    OrderEvent.addPaymentMethod(
+                                        'Tunai', data, draftName));
                               },
                             ),
                           ),
@@ -226,7 +227,7 @@ class _OrderPageState extends State<OrderPage> {
                                   indexValue.value = 2;
                                   context.read<OrderBloc>().add(
                                       OrderEvent.addPaymentMethod(
-                                          'QRIS', data));
+                                          'QRIS', data, draftName));
                                 }),
                           ),
                           Flexible(

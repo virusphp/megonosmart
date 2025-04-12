@@ -8,22 +8,24 @@ part 'order_state.dart';
 part 'order_bloc.freezed.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {
-  OrderBloc() : super(const _Success([], 0, 0, '', 0, 0, '')) {
+  OrderBloc() : super(const _Success([], 0, 0, '', 0, 0, '', '')) {
     on<_AddPaymentMethod>((event, emit) async {
       emit(const _Loading());
       final userData = await AuthLocalDatasource().getAuthData();
       emit(_Success(
-          event.orders,
-          event.orders.fold(
-              0, (previousValue, element) => previousValue + element.quantity),
-          event.orders.fold(
-              0,
-              (previousValue, element) =>
-                  previousValue + (element.quantity * element.product.price)),
-          event.paymentMethod,
-          0,
-          userData.result!.user.id,
-          userData.result!.user.name));
+        event.orders,
+        event.orders.fold(
+            0, (previousValue, element) => previousValue + element.quantity),
+        event.orders.fold(
+            0,
+            (previousValue, element) =>
+                previousValue + (element.quantity * element.product.price)),
+        event.paymentMethod,
+        0,
+        userData.result!.user.id,
+        userData.result!.user.name,
+        event.customerName,
+      ));
     });
 
     on<_AddNominalBayar>((event, emit) {
@@ -38,12 +40,13 @@ class OrderBloc extends Bloc<OrderEvent, OrderState> {
         event.nominal,
         currentStates.idKasir,
         currentStates.namaKasir,
+        currentStates.customerName,
       ));
     });
 
     on<_Started>((event, emit) {
       emit(const _Loading());
-      emit(const _Success([], 0, 0, '', 0, 0, ''));
+      emit(const _Success([], 0, 0, '', 0, 0, '', ''));
     });
   }
 }
