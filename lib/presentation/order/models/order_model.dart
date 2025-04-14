@@ -21,8 +21,8 @@ class OrderModel {
     required this.totalPrice,
     required this.idKasir,
     required this.namaKasir,
-    required this.transactionTime,
     required this.isSync,
+    required this.transactionTime,
   });
 
   Map<String, dynamic> toMap() {
@@ -35,9 +35,15 @@ class OrderModel {
       'idKasir': idKasir,
       'namaKasir': namaKasir,
       'isSync': isSync,
-      // 'id': id
     };
   }
+
+  //  mominal INTEGER,
+  //       payment_method TEXT
+  //       total_item INTEGER,
+  //       id_kasir INTEGER,
+  //       nama_kasir TEXT,
+  //       is_sync INTEGER DEFAULT 0
 
   Map<String, dynamic> toMapForLocal() {
     return {
@@ -66,6 +72,22 @@ class OrderModel {
     );
   }
 
+  factory OrderModel.newFromLocalMap(
+    Map<String, dynamic> map, List<OrderItem> orders) {
+    return OrderModel(
+      paymentMethod: map['payment_method'] ?? '',
+      nominalBayar: map['nominal']?.toInt() ?? 0,
+      orders: orders,
+      totalQuantity: map['total_item']?.toInt() ?? 0,
+      totalPrice: map['nominal']?.toInt() ?? 0,
+      idKasir: map['id_kasir']?.toInt() ?? 0,
+      isSync: map['is_sync'] == 1 ? true : false,
+      namaKasir: map['nama_kasir'] ?? '',
+      id: map['id']?.toInt() ?? 0,
+      transactionTime: map['transaction_time'] ?? '',
+    );
+  }
+
   factory OrderModel.fromMap(Map<String, dynamic> map) {
     return OrderModel(
       paymentMethod: map['paymentMethod'] ?? '',
@@ -78,7 +100,7 @@ class OrderModel {
       isSync: map['isSync'] ?? false,
       namaKasir: map['namaKasir'] ?? '',
       id: map['id']?.toInt() ?? 0,
-      transactionTime: map['transaction_time'] ?? '',
+      transactionTime: map['transactionTime'] ?? '',
     );
   }
 

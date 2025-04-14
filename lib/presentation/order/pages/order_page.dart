@@ -78,7 +78,7 @@ class _OrderPageState extends State<OrderPage> {
                         ),
                         TextFormField(
                           decoration: const InputDecoration(
-                            hintText: 'Order Number',
+                            hintText: 'Order Name',
                           ),
                           controller: orderNameController,
                           textCapitalization: TextCapitalization.words,
@@ -94,49 +94,50 @@ class _OrderPageState extends State<OrderPage> {
                       ),
                       BlocBuilder<CheckoutBloc, CheckoutState>(
                         builder: (context, state) {
-                          return state.maybeWhen(
-                            orElse: () {
-                              return SizedBox.shrink();
-                            },
-                            success: (data, qty, total, draftName) {
-                              return Button.outlined(
-                                onPressed: ()  async {
-                                  final authData = await AuthLocalDatasource().getAuthData();
-                                  context
-                                      .read<CheckoutBloc>()
-                                      .add(CheckoutEvent.saveDraftOrder(
-                                        tableNumberController.text.toIntegerFromText,
-                                        orderNameController.text
-                                      ),);
+                          return state.maybeWhen(orElse: () {
+                            return SizedBox.shrink();
+                          }, success: (data, qty, total, draftName) {
+                            return Button.outlined(
+                              onPressed: () async {
+                                final authData =
+                                    await AuthLocalDatasource().getAuthData();
 
-                                  final printInt = 
-                                  await CwbPrint.instance.printChecker(
-                                    data, 
-                                    tableNumberController.text.toInt, 
-                                    orderNameController.text, 
-                                    authData.result!.user.name,
-                                  );
+                                context.read<CheckoutBloc>().add(
+                                      CheckoutEvent.saveDraftOrder(
+                                          tableNumberController
+                                              .text.toIntegerFromText,
+                                          orderNameController.text),
+                                    );
 
-                                  CwbPrint.instance.printReceipt(printInt);
-                                  
-                                  context.read<CheckoutBloc>().add(const CheckoutEvent.started());
+                                final printInt =
+                                    await CwbPrint.instance.printChecker(
+                                  data,
+                                  tableNumberController.text.toInt,
+                                  orderNameController.text,
+                                  authData.result!.user.name,
+                                );
 
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text("Save draft app"),
-                                      backgroundColor: AppColors.darkYellow,
-                                    ),
-                                  );
+                                CwbPrint.instance.printReceipt(printInt);
 
-                                  context.pushReplacement(const DashboardPage());
-                                },
-                                label: 'Save & Print',
-                                fontSize: 14,
-                                height: 40,
-                                width: 140,
-                              );
-                            }
-                          );
+                                context
+                                    .read<CheckoutBloc>()
+                                    .add(const CheckoutEvent.started());
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text("Save draft app"),
+                                    backgroundColor: AppColors.darkYellow,
+                                  ),
+                                );
+
+                                context.pushReplacement(const DashboardPage());
+                              },
+                              label: 'Save & Print',
+                              fontSize: 14,
+                              height: 40,
+                              width: 140,
+                            );
+                          });
                         },
                       ),
                     ],
@@ -197,7 +198,7 @@ class _OrderPageState extends State<OrderPage> {
                   orElse: () {
                     return const SizedBox.shrink();
                   },
-                  success: (data, qty, total, customer) {
+                  success: (data, qty, total, draftName) {
                     return ValueListenableBuilder(
                       valueListenable: indexValue,
                       builder: (context, value, _) => Row(
@@ -211,7 +212,8 @@ class _OrderPageState extends State<OrderPage> {
                               onPressed: () {
                                 indexValue.value = 1;
                                 context.read<OrderBloc>().add(
-                                    OrderEvent.addPaymentMethod('Tunai', data));
+                                    OrderEvent.addPaymentMethod(
+                                        'Tunai', data, draftName));
                               },
                             ),
                           ),
@@ -225,7 +227,7 @@ class _OrderPageState extends State<OrderPage> {
                                   indexValue.value = 2;
                                   context.read<OrderBloc>().add(
                                       OrderEvent.addPaymentMethod(
-                                          'QRIS', data));
+                                          'QRIS', data, draftName));
                                 }),
                           ),
                           Flexible(

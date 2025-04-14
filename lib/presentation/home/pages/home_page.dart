@@ -4,7 +4,9 @@ import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/components/menu_button.dart';
 import 'package:megonopos/core/components/search_input.dart';
 import 'package:megonopos/core/components/spaces.dart';
+import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
+import 'package:megonopos/presentation/draft_order/pages/draft_order_page.dart';
 import 'package:megonopos/presentation/home/bloc/category/category_bloc.dart';
 import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/home/widgets/product_card.dart';
@@ -72,7 +74,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              // context.push(const DraftOrderPage());
+              context.push(const DraftOrderPage());
             },
             icon: const Icon(Icons.note_alt_rounded),
           ),
@@ -133,23 +135,20 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         const SpaceWidth(10.0),
-                        ...categories
-                            .map((e) => SizedBox(
-                                  height: 80,
-                                  width: 90,
-                                  child: MenuButton(
-                                    iconPath: Assets.icons.allCategories.path,
-                                    label: e.name!,
-                                    isActive: currentIndex == e.id,
-                                    onPressed: () {
-                                      onCategoryTap(e.id!);
-                                      context.read<ProductBloc>().add(
-                                          ProductEvent.fetchByCategory(
-                                              e.name!));
-                                    },
-                                  ),
-                                ))
-                            ,
+                        ...categories.map((e) => SizedBox(
+                              height: 80,
+                              width: 90,
+                              child: MenuButton(
+                                iconPath: Assets.icons.allCategories.path,
+                                label: e.name!,
+                                isActive: currentIndex == e.id,
+                                onPressed: () {
+                                  onCategoryTap(e.id!);
+                                  context.read<ProductBloc>().add(
+                                      ProductEvent.fetchByCategory(e.name!));
+                                },
+                              ),
+                            )),
                       ],
                     ),
                   );
@@ -211,7 +210,7 @@ class _HomePageState extends State<HomePage> {
                     itemCount: products.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 0.65,
+                      childAspectRatio: 0.75,
                       crossAxisCount: 2,
                       crossAxisSpacing: 16.0,
                       mainAxisSpacing: 16.0,

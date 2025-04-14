@@ -15,9 +15,9 @@ class DraftOrderModel {
     required this.orders,
     required this.totalQuantity,
     required this.totalPrice,
-    required this.transactionTime,
     required this.tableNumber,
     required this.draftName,
+    required this.transactionTime,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,8 +30,16 @@ class DraftOrderModel {
     };
   }
 
+  //  mominal INTEGER,
+  //       payment_method TEXT
+  //       total_item INTEGER,
+  //       id_kasir INTEGER,
+  //       nama_kasir TEXT,
+  //       is_sync INTEGER DEFAULT 0
+
   Map<String, dynamic> toMapForLocal() {
     return {
+   
       'total_item': totalQuantity,
       'nominal': totalPrice,
       'table_number': tableNumber,
@@ -42,32 +50,33 @@ class DraftOrderModel {
 
   factory DraftOrderModel.fromLocalMap(Map<String, dynamic> map) {
     return DraftOrderModel(
-        orders: [],
+      orders: [],
+      totalQuantity: map['total_item']?.toInt() ?? 0,
+      totalPrice: map['nominal']?.toInt() ?? 0,
+      id: map['id']?.toInt() ?? 0,
+      transactionTime: map['transaction_time'] ?? '',
+      tableNumber: map['table_number']?.toInt() ?? 0,
+      draftName: map['draft_name'] ?? '',
+    );
+  }
+
+  factory DraftOrderModel.newFromLocalMap(
+    Map<String, dynamic> map, List<DraftOrderItem> orders) {
+      return DraftOrderModel(
+        orders: orders,
         totalQuantity: map['total_item']?.toInt() ?? 0,
         totalPrice: map['nominal']?.toInt() ?? 0,
         id: map['id']?.toInt() ?? 0,
         transactionTime: map['transaction_time'] ?? '',
-        tableNumber: map['id_kasir']?.toInt() ?? 0,
-        draftName: map['draft_name'] ?? '');
-  }
-
-  factory DraftOrderModel.newFromLocalMap(
-      Map<String, dynamic> map, List<DraftOrderItem> orders) {
-    return DraftOrderModel(
-      orders: orders,
-      totalQuantity: map['totalQuantity']?.toInt() ?? 0,
-      totalPrice: map['totalPrice']?.toInt() ?? 0,
-      id: map['id']?.toInt() ?? 0,
-      transactionTime: map['transaction_time'] ?? '',
-      tableNumber: map['tableNumber']?.toInt() ?? 0,
-      draftName: map['draftName'] ?? false,
-    );
+        tableNumber: map['table_number']?.toInt() ?? 0,
+        draftName: map['draft_name'] ?? '',
+      );
   }
 
   factory DraftOrderModel.fromMap(Map<String, dynamic> map) {
     return DraftOrderModel(
-      orders: List<DraftOrderItem>.from(
-          map['orders']?.map((x) => OrderItem.fromMap(x))),
+      orders:
+          List<DraftOrderItem>.from(map['orders']?.map((x) => OrderItem.fromMap(x))),
       totalQuantity: map['totalQuantity']?.toInt() ?? 0,
       totalPrice: map['totalPrice']?.toInt() ?? 0,
       id: map['id']?.toInt() ?? 0,

@@ -27,7 +27,7 @@ class OrderItem {
   Map<String, dynamic> toMapForLocal(int orderId) {
     return {
       'id_order': orderId,
-      'id_product': product.id,
+      'id_product': product.productId,
       'quantity': quantity,
       'price': product.price,
     };

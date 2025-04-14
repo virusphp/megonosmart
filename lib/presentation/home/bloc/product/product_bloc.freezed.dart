@@ -102,9 +102,6 @@ class _$ProductEventCopyWithImpl<$Res, $Val extends ProductEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -121,9 +118,6 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -262,9 +256,6 @@ class __$$FetchImplCopyWithImpl<$Res>
   __$$FetchImplCopyWithImpl(
       _$FetchImpl _value, $Res Function(_$FetchImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -406,8 +397,6 @@ class __$$FetchByCategoryImplCopyWithImpl<$Res>
       _$FetchByCategoryImpl _value, $Res Function(_$FetchByCategoryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -457,9 +446,7 @@ class _$FetchByCategoryImpl
   @override
   int get hashCode => Object.hash(runtimeType, category);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$FetchByCategoryImplCopyWith<_$FetchByCategoryImpl> get copyWith =>
@@ -563,10 +550,7 @@ abstract class _FetchByCategory implements ProductEvent {
   const factory _FetchByCategory(final String category) = _$FetchByCategoryImpl;
 
   String get category;
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$FetchByCategoryImplCopyWith<_$FetchByCategoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -585,9 +569,6 @@ class __$$FetchLocalImplCopyWithImpl<$Res>
   __$$FetchLocalImplCopyWithImpl(
       _$FetchLocalImpl _value, $Res Function(_$FetchLocalImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -729,8 +710,6 @@ class __$$AddProductImplCopyWithImpl<$Res>
       _$AddProductImpl _value, $Res Function(_$AddProductImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -786,9 +765,7 @@ class _$AddProductImpl with DiagnosticableTreeMixin implements _AddProduct {
   @override
   int get hashCode => Object.hash(runtimeType, product, image);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddProductImplCopyWith<_$AddProductImpl> get copyWith =>
@@ -893,10 +870,7 @@ abstract class _AddProduct implements ProductEvent {
 
   Product get product;
   XFile get image;
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddProductImplCopyWith<_$AddProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -918,8 +892,6 @@ class __$$SearhProductImplCopyWithImpl<$Res>
       _$SearhProductImpl _value, $Res Function(_$SearhProductImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -966,9 +938,7 @@ class _$SearhProductImpl with DiagnosticableTreeMixin implements _SearhProduct {
   @override
   int get hashCode => Object.hash(runtimeType, query);
 
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SearhProductImplCopyWith<_$SearhProductImpl> get copyWith =>
@@ -1071,10 +1041,7 @@ abstract class _SearhProduct implements ProductEvent {
   const factory _SearhProduct(final String query) = _$SearhProductImpl;
 
   String get query;
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SearhProductImplCopyWith<_$SearhProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1093,9 +1060,6 @@ class __$$FetchAllFromStateImplCopyWithImpl<$Res>
   __$$FetchAllFromStateImplCopyWithImpl(_$FetchAllFromStateImpl _value,
       $Res Function(_$FetchAllFromStateImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1293,9 +1257,6 @@ class _$ProductStateCopyWithImpl<$Res, $Val extends ProductState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1312,9 +1273,6 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1435,9 +1393,6 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1561,8 +1516,6 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1615,9 +1568,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_products));
 
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1702,10 +1653,7 @@ abstract class _Success implements ProductState {
   const factory _Success(final List<Product> products) = _$SuccessImpl;
 
   List<Product> get products;
-
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1727,8 +1675,6 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1775,9 +1721,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1862,10 +1806,7 @@ abstract class _Error implements ProductState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-
-  /// Create a copy of ProductState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -19,7 +19,8 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String paymentMethod, List<OrderItem> orders)
+    required TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)
         addPaymentMethod,
     required TResult Function(int nominal) addNominalBayar,
   }) =>
@@ -27,7 +28,8 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String paymentMethod, List<OrderItem> orders)?
+    TResult? Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult? Function(int nominal)? addNominalBayar,
   }) =>
@@ -35,7 +37,8 @@ mixin _$OrderEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String paymentMethod, List<OrderItem> orders)?
+    TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult Function(int nominal)? addNominalBayar,
     required TResult orElse(),
@@ -81,9 +84,6 @@ class _$OrderEventCopyWithImpl<$Res, $Val extends OrderEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,9 +100,6 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -128,7 +125,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String paymentMethod, List<OrderItem> orders)
+    required TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)
         addPaymentMethod,
     required TResult Function(int nominal) addNominalBayar,
   }) {
@@ -139,7 +137,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String paymentMethod, List<OrderItem> orders)?
+    TResult? Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult? Function(int nominal)? addNominalBayar,
   }) {
@@ -150,7 +149,8 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String paymentMethod, List<OrderItem> orders)?
+    TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult Function(int nominal)? addNominalBayar,
     required TResult orElse(),
@@ -206,7 +206,8 @@ abstract class _$$AddPaymentMethodImplCopyWith<$Res> {
           $Res Function(_$AddPaymentMethodImpl) then) =
       __$$AddPaymentMethodImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String paymentMethod, List<OrderItem> orders});
+  $Res call(
+      {String paymentMethod, List<OrderItem> orders, String customerName});
 }
 
 /// @nodoc
@@ -217,13 +218,12 @@ class __$$AddPaymentMethodImplCopyWithImpl<$Res>
       $Res Function(_$AddPaymentMethodImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? paymentMethod = null,
     Object? orders = null,
+    Object? customerName = null,
   }) {
     return _then(_$AddPaymentMethodImpl(
       null == paymentMethod
@@ -234,6 +234,10 @@ class __$$AddPaymentMethodImplCopyWithImpl<$Res>
           ? _value._orders
           : orders // ignore: cast_nullable_to_non_nullable
               as List<OrderItem>,
+      null == customerName
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -241,7 +245,8 @@ class __$$AddPaymentMethodImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddPaymentMethodImpl implements _AddPaymentMethod {
-  const _$AddPaymentMethodImpl(this.paymentMethod, final List<OrderItem> orders)
+  const _$AddPaymentMethodImpl(
+      this.paymentMethod, final List<OrderItem> orders, this.customerName)
       : _orders = orders;
 
   @override
@@ -255,8 +260,11 @@ class _$AddPaymentMethodImpl implements _AddPaymentMethod {
   }
 
   @override
+  final String customerName;
+
+  @override
   String toString() {
-    return 'OrderEvent.addPaymentMethod(paymentMethod: $paymentMethod, orders: $orders)';
+    return 'OrderEvent.addPaymentMethod(paymentMethod: $paymentMethod, orders: $orders, customerName: $customerName)';
   }
 
   @override
@@ -266,16 +274,16 @@ class _$AddPaymentMethodImpl implements _AddPaymentMethod {
             other is _$AddPaymentMethodImpl &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
-            const DeepCollectionEquality().equals(other._orders, _orders));
+            const DeepCollectionEquality().equals(other._orders, _orders) &&
+            (identical(other.customerName, customerName) ||
+                other.customerName == customerName));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, paymentMethod, const DeepCollectionEquality().hash(_orders));
+  int get hashCode => Object.hash(runtimeType, paymentMethod,
+      const DeepCollectionEquality().hash(_orders), customerName);
 
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddPaymentMethodImplCopyWith<_$AddPaymentMethodImpl> get copyWith =>
@@ -286,35 +294,38 @@ class _$AddPaymentMethodImpl implements _AddPaymentMethod {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String paymentMethod, List<OrderItem> orders)
+    required TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)
         addPaymentMethod,
     required TResult Function(int nominal) addNominalBayar,
   }) {
-    return addPaymentMethod(paymentMethod, orders);
+    return addPaymentMethod(paymentMethod, orders, customerName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String paymentMethod, List<OrderItem> orders)?
+    TResult? Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult? Function(int nominal)? addNominalBayar,
   }) {
-    return addPaymentMethod?.call(paymentMethod, orders);
+    return addPaymentMethod?.call(paymentMethod, orders, customerName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String paymentMethod, List<OrderItem> orders)?
+    TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult Function(int nominal)? addNominalBayar,
     required TResult orElse(),
   }) {
     if (addPaymentMethod != null) {
-      return addPaymentMethod(paymentMethod, orders);
+      return addPaymentMethod(paymentMethod, orders, customerName);
     }
     return orElse();
   }
@@ -356,15 +367,14 @@ class _$AddPaymentMethodImpl implements _AddPaymentMethod {
 
 abstract class _AddPaymentMethod implements OrderEvent {
   const factory _AddPaymentMethod(
-          final String paymentMethod, final List<OrderItem> orders) =
-      _$AddPaymentMethodImpl;
+      final String paymentMethod,
+      final List<OrderItem> orders,
+      final String customerName) = _$AddPaymentMethodImpl;
 
   String get paymentMethod;
   List<OrderItem> get orders;
-
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  String get customerName;
+  @JsonKey(ignore: true)
   _$$AddPaymentMethodImplCopyWith<_$AddPaymentMethodImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -386,8 +396,6 @@ class __$$AddNominalBayarImplCopyWithImpl<$Res>
       _$AddNominalBayarImpl _value, $Res Function(_$AddNominalBayarImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -426,9 +434,7 @@ class _$AddNominalBayarImpl implements _AddNominalBayar {
   @override
   int get hashCode => Object.hash(runtimeType, nominal);
 
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AddNominalBayarImplCopyWith<_$AddNominalBayarImpl> get copyWith =>
@@ -439,7 +445,8 @@ class _$AddNominalBayarImpl implements _AddNominalBayar {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(String paymentMethod, List<OrderItem> orders)
+    required TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)
         addPaymentMethod,
     required TResult Function(int nominal) addNominalBayar,
   }) {
@@ -450,7 +457,8 @@ class _$AddNominalBayarImpl implements _AddNominalBayar {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(String paymentMethod, List<OrderItem> orders)?
+    TResult? Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult? Function(int nominal)? addNominalBayar,
   }) {
@@ -461,7 +469,8 @@ class _$AddNominalBayarImpl implements _AddNominalBayar {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(String paymentMethod, List<OrderItem> orders)?
+    TResult Function(
+            String paymentMethod, List<OrderItem> orders, String customerName)?
         addPaymentMethod,
     TResult Function(int nominal)? addNominalBayar,
     required TResult orElse(),
@@ -511,10 +520,7 @@ abstract class _AddNominalBayar implements OrderEvent {
   const factory _AddNominalBayar(final int nominal) = _$AddNominalBayarImpl;
 
   int get nominal;
-
-  /// Create a copy of OrderEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AddNominalBayarImplCopyWith<_$AddNominalBayarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -532,7 +538,8 @@ mixin _$OrderState {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)
+            String namaKasir,
+            String customerName)
         success,
     required TResult Function(String message) error,
   }) =>
@@ -548,7 +555,8 @@ mixin _$OrderState {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult? Function(String message)? error,
   }) =>
@@ -564,7 +572,8 @@ mixin _$OrderState {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -613,9 +622,6 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -632,9 +638,6 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -668,7 +671,8 @@ class _$InitialImpl implements _Initial {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)
+            String namaKasir,
+            String customerName)
         success,
     required TResult Function(String message) error,
   }) {
@@ -687,7 +691,8 @@ class _$InitialImpl implements _Initial {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -706,7 +711,8 @@ class _$InitialImpl implements _Initial {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -773,9 +779,6 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -809,7 +812,8 @@ class _$LoadingImpl implements _Loading {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)
+            String namaKasir,
+            String customerName)
         success,
     required TResult Function(String message) error,
   }) {
@@ -828,7 +832,8 @@ class _$LoadingImpl implements _Loading {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -847,7 +852,8 @@ class _$LoadingImpl implements _Loading {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -913,7 +919,8 @@ abstract class _$$SuccessImplCopyWith<$Res> {
       String paymentMethod,
       int nominalBayar,
       int idKasir,
-      String namaKasir});
+      String namaKasir,
+      String customerName});
 }
 
 /// @nodoc
@@ -924,8 +931,6 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -936,6 +941,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
     Object? nominalBayar = null,
     Object? idKasir = null,
     Object? namaKasir = null,
+    Object? customerName = null,
   }) {
     return _then(_$SuccessImpl(
       null == products
@@ -966,6 +972,10 @@ class __$$SuccessImplCopyWithImpl<$Res>
           ? _value.namaKasir
           : namaKasir // ignore: cast_nullable_to_non_nullable
               as String,
+      null == customerName
+          ? _value.customerName
+          : customerName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -980,7 +990,8 @@ class _$SuccessImpl implements _Success {
       this.paymentMethod,
       this.nominalBayar,
       this.idKasir,
-      this.namaKasir)
+      this.namaKasir,
+      this.customerName)
       : _products = products;
 
   final List<OrderItem> _products;
@@ -1003,10 +1014,12 @@ class _$SuccessImpl implements _Success {
   final int idKasir;
   @override
   final String namaKasir;
+  @override
+  final String customerName;
 
   @override
   String toString() {
-    return 'OrderState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice, paymentMethod: $paymentMethod, nominalBayar: $nominalBayar, idKasir: $idKasir, namaKasir: $namaKasir)';
+    return 'OrderState.success(products: $products, totalQuantity: $totalQuantity, totalPrice: $totalPrice, paymentMethod: $paymentMethod, nominalBayar: $nominalBayar, idKasir: $idKasir, namaKasir: $namaKasir, customerName: $customerName)';
   }
 
   @override
@@ -1025,7 +1038,9 @@ class _$SuccessImpl implements _Success {
                 other.nominalBayar == nominalBayar) &&
             (identical(other.idKasir, idKasir) || other.idKasir == idKasir) &&
             (identical(other.namaKasir, namaKasir) ||
-                other.namaKasir == namaKasir));
+                other.namaKasir == namaKasir) &&
+            (identical(other.customerName, customerName) ||
+                other.customerName == customerName));
   }
 
   @override
@@ -1037,11 +1052,10 @@ class _$SuccessImpl implements _Success {
       paymentMethod,
       nominalBayar,
       idKasir,
-      namaKasir);
+      namaKasir,
+      customerName);
 
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1059,12 +1073,13 @@ class _$SuccessImpl implements _Success {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)
+            String namaKasir,
+            String customerName)
         success,
     required TResult Function(String message) error,
   }) {
     return success(products, totalQuantity, totalPrice, paymentMethod,
-        nominalBayar, idKasir, namaKasir);
+        nominalBayar, idKasir, namaKasir, customerName);
   }
 
   @override
@@ -1079,12 +1094,13 @@ class _$SuccessImpl implements _Success {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult? Function(String message)? error,
   }) {
     return success?.call(products, totalQuantity, totalPrice, paymentMethod,
-        nominalBayar, idKasir, namaKasir);
+        nominalBayar, idKasir, namaKasir, customerName);
   }
 
   @override
@@ -1099,14 +1115,15 @@ class _$SuccessImpl implements _Success {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
       return success(products, totalQuantity, totalPrice, paymentMethod,
-          nominalBayar, idKasir, namaKasir);
+          nominalBayar, idKasir, namaKasir, customerName);
     }
     return orElse();
   }
@@ -1157,7 +1174,8 @@ abstract class _Success implements OrderState {
       final String paymentMethod,
       final int nominalBayar,
       final int idKasir,
-      final String namaKasir) = _$SuccessImpl;
+      final String namaKasir,
+      final String customerName) = _$SuccessImpl;
 
   List<OrderItem> get products;
   int get totalQuantity;
@@ -1166,10 +1184,8 @@ abstract class _Success implements OrderState {
   int get nominalBayar;
   int get idKasir;
   String get namaKasir;
-
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  String get customerName;
+  @JsonKey(ignore: true)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1191,8 +1207,6 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1231,9 +1245,7 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1251,7 +1263,8 @@ class _$ErrorImpl implements _Error {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)
+            String namaKasir,
+            String customerName)
         success,
     required TResult Function(String message) error,
   }) {
@@ -1270,7 +1283,8 @@ class _$ErrorImpl implements _Error {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult? Function(String message)? error,
   }) {
@@ -1289,7 +1303,8 @@ class _$ErrorImpl implements _Error {
             String paymentMethod,
             int nominalBayar,
             int idKasir,
-            String namaKasir)?
+            String namaKasir,
+            String customerName)?
         success,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -1342,10 +1357,7 @@ abstract class _Error implements OrderState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-
-  /// Create a copy of OrderState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -61,50 +61,52 @@ class HistoryTransactionCard extends StatelessWidget {
           ],
         ),
         children: [
-          ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: data.orders.length + 1,
-            itemBuilder: (context, index) {
-              if (index == data.orders.length) {
-                return Padding(
-                  padding: const EdgeInsets.only(
-                      top: 4.0, left: 16, right: 16, bottom: 16),
-                  child: Button.filled(
-                    onPressed: () async {
-                      final printInt = await CwbPrint.instance.printOrder(
-                        data.orders,
-                        data.totalQuantity,
-                        data.totalPrice,
-                        data.paymentMethod,
-                        data.nominalBayar,
-                        'Customer',
-                      );
-                      CwbPrint.instance.printReceipt(printInt);
-                    },
-                    label: 'Print Receipt',
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: data.orders.length + 1,
+              itemBuilder: (context, index) {
+                if (index == data.orders.length) {
+                  return Padding(
+                    padding: const EdgeInsets.only(
+                        top: 4.0),
+                    child: Button.filled(
+                      onPressed: () async {
+                        // print receipt
+                        final printInt = await CwbPrint.instance.printOrderV2(
+                          data.orders,
+                          data.totalQuantity,
+                          data.totalPrice,
+                          data.paymentMethod,
+                          data.nominalBayar,
+                          data.namaKasir,
+                          'Customer',
+                        );
+                        CwbPrint.instance.printReceipt(printInt);
+                      },
+                      label: 'Print Receipt',
+                    ),
+                  );
+                }
+                final item = data.orders[index];
+                return ListTile(
+                  title: Text(item.product.name),
+                  subtitle: Text(
+                    '${item.quantity} x ${item.product.price.currencyFormatRp}',
+                  ),
+                  trailing: Text(
+                    '${item.quantity * item.product.price}'.currencyFormatRp,
+                    style: const TextStyle(
+                      color: AppColors.green,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 );
-              }
-              final item = data.orders[index];
-              return ListTile(
-                leading: Assets.icons.payments.svg(),
-                title: Text(item.product.name),
-                // subtitle: Text(data.totalQuantity.toString() + ' items'),
-                subtitle: Text(
-                    '${item.quantity} x ${item.product.price.currencyFormatRp}'),
-                trailing: Text(
-                  '${item.quantity * item.product.price}'.currencyFormatRp,
-                  style: const TextStyle(
-                    color: AppColors.green,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
+                //button print
+              },
+            ),
+          ],
       ),
     );
   }

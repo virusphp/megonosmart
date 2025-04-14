@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/presentation/history/bloc/history/history_bloc.dart';
+import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 
 import '../../../core/components/spaces.dart';
 
@@ -23,13 +25,20 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   Widget build(BuildContext context) {
     const paddingHorizontal = EdgeInsets.symmetric(horizontal: 16.0);
-    final indeValue = ValueNotifier(0);
-
+  
     return Scaffold(
         appBar: AppBar(
-          title: const Text('History Orders',
-              style: TextStyle(fontWeight: FontWeight.bold)),
-          // backgroundColor: AppColors.primary,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios),
+            onPressed: () {
+              context.push(const DashboardPage());
+            },
+          ),
+          title: const Text('History',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
           elevation: 0,
           centerTitle: true,
         ),
