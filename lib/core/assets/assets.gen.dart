@@ -98,6 +98,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/close.png
+  AssetGenImage get close => const AssetGenImage('assets/images/close.png');
+
   /// File path: assets/images/f1.jpeg
   AssetGenImage get f1 => const AssetGenImage('assets/images/f1.jpeg');
 
@@ -135,11 +138,19 @@ class $AssetsImagesGen {
   AssetGenImage get manageQr =>
       const AssetGenImage('assets/images/manage_qr.png');
 
+  /// File path: assets/images/report.png
+  AssetGenImage get report => const AssetGenImage('assets/images/report.png');
+
   /// File path: assets/images/sync.png
   AssetGenImage get sync => const AssetGenImage('assets/images/sync.png');
 
+  /// File path: assets/images/sync_old.png
+  AssetGenImage get syncOld =>
+      const AssetGenImage('assets/images/sync_old.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        close,
         f1,
         f2,
         f3,
@@ -151,27 +162,37 @@ class $AssetsImagesGen {
         managePrinter,
         manageProduct,
         manageQr,
-        sync
+        report,
+        sync,
+        syncOld
       ];
 }
 
 class $AssetsLogoGen {
   const $AssetsLogoGen();
 
-  /// File path: assets/logo/logo-megono.png
-  AssetGenImage get logoMegono =>
-      const AssetGenImage('assets/logo/logo-megono.png');
+  /// File path: assets/logo/login_ui_caffe.png
+  AssetGenImage get loginUiCaffe =>
+      const AssetGenImage('assets/logo/login_ui_caffe.png');
 
-  /// File path: assets/logo/logo-print.png
+  /// File path: assets/logo/logo_pos.png
+  AssetGenImage get logoPos => const AssetGenImage('assets/logo/logo_pos.png');
+
+  /// File path: assets/logo/logo_print.png
   AssetGenImage get logoPrint =>
-      const AssetGenImage('assets/logo/logo-print.png');
+      const AssetGenImage('assets/logo/logo_print.png');
 
   /// File path: assets/logo/logo_print_caffe.png
   AssetGenImage get logoPrintCaffe =>
       const AssetGenImage('assets/logo/logo_print_caffe.png');
 
+  /// File path: assets/logo/logo_print_old.png
+  AssetGenImage get logoPrintOld =>
+      const AssetGenImage('assets/logo/logo_print_old.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [logoMegono, logoPrint, logoPrintCaffe];
+  List<AssetGenImage> get values =>
+      [loginUiCaffe, logoPos, logoPrint, logoPrintCaffe, logoPrintOld];
 }
 
 class Assets {

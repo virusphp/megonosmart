@@ -91,6 +91,40 @@ class _SettingPageState extends State<SettingPage> {
               ],
             ),
           ),
+          const SpaceHeight(1.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              children: [
+                Flexible(
+                  child: MenuButton(
+                    iconPath: Assets.images.report.path,
+                    label: "Kelola Laporan Penjualan",
+                    onPressed: () {
+                      context.push(const SaveServerKeyPage());
+                    },
+                    isImage: true,
+                  ),
+                ),
+                const SpaceWidth(15.0),
+                Flexible(
+                  child: MenuButton(
+                    iconPath: Assets.images.close.path,
+                    label: "Tutup Kasir Hari ini..",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SyncDataPage(),
+                        ),
+                      );
+                    },
+                    isImage: true,
+                  ),
+                ),
+              ],
+            ),
+          ),
           BlocConsumer<LogoutBloc, LogoutState>(
             listener: (context, state) {
               state.maybeWhen(
