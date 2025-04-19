@@ -47,7 +47,8 @@ dependencies:
   open_file_plus: ^3.4.1+1
   pdf: ^3.11.3
   permission_handler: ^11.3.1
-  print_bluetooth_thermal: ^1.1.1
+  print_bluetooth_thermal:
+    path: plugins/print_bluetooth_thermal
   shared_preferences: ^2.3.2
   sqflite: ^2.3.3+1
   widgets_to_image: ^1.0.0
@@ -64,7 +65,6 @@ dev_dependencies:
 # platforms:
 #   windows:
 #     default_package: PrintBluetoothThermalPlugin
-
 flutter_icons:
   android: true
   ios: true
@@ -115,4 +115,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
