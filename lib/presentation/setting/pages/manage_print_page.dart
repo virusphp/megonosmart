@@ -164,11 +164,11 @@ class _Body extends StatelessWidget {
   final Function(String) clickHandler;
 
   const _Body({
-    Key? key,
+    super.key,
     required this.macName,
     required this.datas,
     required this.clickHandler,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

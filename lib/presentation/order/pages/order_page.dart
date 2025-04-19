@@ -95,7 +95,7 @@ class _OrderPageState extends State<OrderPage> {
                       BlocBuilder<CheckoutBloc, CheckoutState>(
                         builder: (context, state) {
                           return state.maybeWhen(orElse: () {
-                            return SizedBox.shrink();
+                            return const SizedBox.shrink();
                           }, success: (data, qty, total, draftName) {
                             return Button.outlined(
                               onPressed: () async {

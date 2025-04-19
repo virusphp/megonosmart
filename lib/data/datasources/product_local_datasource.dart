@@ -227,7 +227,7 @@ class ProductLocalDatasource {
     }
       print(product.toString());
       return OrderItem(
-          product: product!, quantity: item['quantity'] as int);
+          product: product, quantity: item['quantity'] as int);
     }));
     // print(results);
     print(results.toString());

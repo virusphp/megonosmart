@@ -109,6 +109,7 @@ class Product {
         "is_best_seller": isBestSeller ? 1 : 0,
         "product_id": productId,
       };
+      
   Map<String, dynamic> toLocalMap() => {
         "name": name,
         "price": price,

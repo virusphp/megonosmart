@@ -9,6 +9,7 @@ import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:megonopos/presentation/setting/pages/manage_print_page.dart';
 import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
+import 'package:megonopos/presentation/setting/pages/report/report_page.dart';
 import 'package:megonopos/presentation/setting/pages/save_server_key_page.dart';
 import 'package:megonopos/presentation/setting/pages/sync_data_page.dart';
 
@@ -101,7 +102,7 @@ class _SettingPageState extends State<SettingPage> {
                     iconPath: Assets.images.report.path,
                     label: "Kelola Laporan Penjualan",
                     onPressed: () {
-                      context.push(const SaveServerKeyPage());
+                      context.push(const ReportPage());
                     },
                     isImage: true,
                   ),

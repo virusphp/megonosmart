@@ -84,6 +84,9 @@ class _$OrderEventCopyWithImpl<$Res, $Val extends OrderEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -100,6 +103,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -218,6 +224,8 @@ class __$$AddPaymentMethodImplCopyWithImpl<$Res>
       $Res Function(_$AddPaymentMethodImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -283,7 +291,9 @@ class _$AddPaymentMethodImpl implements _AddPaymentMethod {
   int get hashCode => Object.hash(runtimeType, paymentMethod,
       const DeepCollectionEquality().hash(_orders), customerName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddPaymentMethodImplCopyWith<_$AddPaymentMethodImpl> get copyWith =>
@@ -374,7 +384,10 @@ abstract class _AddPaymentMethod implements OrderEvent {
   String get paymentMethod;
   List<OrderItem> get orders;
   String get customerName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddPaymentMethodImplCopyWith<_$AddPaymentMethodImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -396,6 +409,8 @@ class __$$AddNominalBayarImplCopyWithImpl<$Res>
       _$AddNominalBayarImpl _value, $Res Function(_$AddNominalBayarImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -434,7 +449,9 @@ class _$AddNominalBayarImpl implements _AddNominalBayar {
   @override
   int get hashCode => Object.hash(runtimeType, nominal);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddNominalBayarImplCopyWith<_$AddNominalBayarImpl> get copyWith =>
@@ -520,7 +537,10 @@ abstract class _AddNominalBayar implements OrderEvent {
   const factory _AddNominalBayar(final int nominal) = _$AddNominalBayarImpl;
 
   int get nominal;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddNominalBayarImplCopyWith<_$AddNominalBayarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -622,6 +642,9 @@ class _$OrderStateCopyWithImpl<$Res, $Val extends OrderState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -638,6 +661,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -779,6 +805,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -931,6 +960,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1055,7 +1086,9 @@ class _$SuccessImpl implements _Success {
       namaKasir,
       customerName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1185,7 +1218,10 @@ abstract class _Success implements OrderState {
   int get idKasir;
   String get namaKasir;
   String get customerName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1207,6 +1243,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1245,7 +1283,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1357,7 +1397,10 @@ abstract class _Error implements OrderState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of OrderState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

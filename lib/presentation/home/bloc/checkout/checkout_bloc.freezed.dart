@@ -96,6 +96,9 @@ class _$CheckoutEventCopyWithImpl<$Res, $Val extends CheckoutEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -112,6 +115,9 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -241,6 +247,8 @@ class __$$AddCheckoutImplCopyWithImpl<$Res>
       _$AddCheckoutImpl _value, $Res Function(_$AddCheckoutImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -279,7 +287,9 @@ class _$AddCheckoutImpl implements _AddCheckout {
   @override
   int get hashCode => Object.hash(runtimeType, product);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddCheckoutImplCopyWith<_$AddCheckoutImpl> get copyWith =>
@@ -376,7 +386,10 @@ abstract class _AddCheckout implements CheckoutEvent {
   const factory _AddCheckout(final Product product) = _$AddCheckoutImpl;
 
   Product get product;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddCheckoutImplCopyWith<_$AddCheckoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -398,6 +411,8 @@ class __$$RemoveCheckoutImplCopyWithImpl<$Res>
       _$RemoveCheckoutImpl _value, $Res Function(_$RemoveCheckoutImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,7 +451,9 @@ class _$RemoveCheckoutImpl implements _RemoveCheckout {
   @override
   int get hashCode => Object.hash(runtimeType, product);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveCheckoutImplCopyWith<_$RemoveCheckoutImpl> get copyWith =>
@@ -534,7 +551,10 @@ abstract class _RemoveCheckout implements CheckoutEvent {
   const factory _RemoveCheckout(final Product product) = _$RemoveCheckoutImpl;
 
   Product get product;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveCheckoutImplCopyWith<_$RemoveCheckoutImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -556,6 +576,8 @@ class __$$RemoveProductImplCopyWithImpl<$Res>
       _$RemoveProductImpl _value, $Res Function(_$RemoveProductImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -594,7 +616,9 @@ class _$RemoveProductImpl implements _RemoveProduct {
   @override
   int get hashCode => Object.hash(runtimeType, product);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RemoveProductImplCopyWith<_$RemoveProductImpl> get copyWith =>
@@ -691,7 +715,10 @@ abstract class _RemoveProduct implements CheckoutEvent {
   const factory _RemoveProduct(final Product product) = _$RemoveProductImpl;
 
   Product get product;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveProductImplCopyWith<_$RemoveProductImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -713,6 +740,8 @@ class __$$SaveDraftOrderImplCopyWithImpl<$Res>
       _$SaveDraftOrderImpl _value, $Res Function(_$SaveDraftOrderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -761,7 +790,9 @@ class _$SaveDraftOrderImpl implements _SaveDraftOrder {
   @override
   int get hashCode => Object.hash(runtimeType, tableNumber, draftName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SaveDraftOrderImplCopyWith<_$SaveDraftOrderImpl> get copyWith =>
@@ -861,7 +892,10 @@ abstract class _SaveDraftOrder implements CheckoutEvent {
 
   int get tableNumber;
   String get draftName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SaveDraftOrderImplCopyWith<_$SaveDraftOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -883,6 +917,8 @@ class __$$LoadDraftOrderImplCopyWithImpl<$Res>
       _$LoadDraftOrderImpl _value, $Res Function(_$LoadDraftOrderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -921,7 +957,9 @@ class _$LoadDraftOrderImpl implements _LoadDraftOrder {
   @override
   int get hashCode => Object.hash(runtimeType, data);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$LoadDraftOrderImplCopyWith<_$LoadDraftOrderImpl> get copyWith =>
@@ -1020,7 +1058,10 @@ abstract class _LoadDraftOrder implements CheckoutEvent {
       _$LoadDraftOrderImpl;
 
   DraftOrderModel get data;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadDraftOrderImplCopyWith<_$LoadDraftOrderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1107,6 +1148,9 @@ class _$CheckoutStateCopyWithImpl<$Res, $Val extends CheckoutState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1123,6 +1167,9 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1249,6 +1296,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -1382,6 +1432,8 @@ class __$$SuccessImplCopyWithImpl<$Res>
       _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1460,7 +1512,9 @@ class _$SuccessImpl implements _Success {
       totalPrice,
       draftName);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
@@ -1564,7 +1618,10 @@ abstract class _Success implements CheckoutState {
   int get totalQuantity;
   int get totalPrice;
   String get draftName;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1586,6 +1643,8 @@ class __$$ErrorImplCopyWithImpl<$Res>
       _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1624,7 +1683,9 @@ class _$ErrorImpl implements _Error {
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
@@ -1721,7 +1782,10 @@ abstract class _Error implements CheckoutState {
   const factory _Error(final String message) = _$ErrorImpl;
 
   String get message;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -1740,6 +1804,9 @@ class __$$SavedDraftOrderImplCopyWithImpl<$Res>
   __$$SavedDraftOrderImplCopyWithImpl(
       _$SavedDraftOrderImpl _value, $Res Function(_$SavedDraftOrderImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CheckoutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

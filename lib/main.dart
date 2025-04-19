@@ -6,6 +6,7 @@ import 'package:megonopos/data/datasources/midtrans_remote_datasource.dart';
 import 'package:megonopos/data/datasources/order_remote_datasource.dart';
 import 'package:megonopos/data/datasources/product_local_datasource.dart';
 import 'package:megonopos/data/datasources/product_remote_datasource.dart';
+import 'package:megonopos/data/datasources/report_remote_datasource.dart';
 import 'package:megonopos/presentation/auth/bloc/login/login_bloc.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/draft_order/bloc/draft_order/draft_order_bloc.dart';
@@ -17,6 +18,8 @@ import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/order/bloc/qris/qris_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/report/product_sales/product_sales_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/report/summary/summary_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 
 void main() {
@@ -64,6 +67,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DraftOrderBloc(ProductLocalDatasource.instance),
         ),
+        BlocProvider(
+          create: (context) => SummaryBloc(ReportRemoteDataSource()),
+        ),
+        BlocProvider(
+          create: (context) => ProductSalesBloc(ReportRemoteDataSource()),
+        ),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
