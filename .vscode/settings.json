@@ -3,5 +3,6 @@
     "IDX.aI.enableCodebaseIndexing": true,
     "cSpell.words": [
         "megonopos"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "disabled"
 }

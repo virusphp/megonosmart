@@ -44,10 +44,14 @@ dependencies:
   image: ^4.2.0
   image_picker: ^1.1.2
   intl: ^0.19.0
-  open_file_plus: ^3.4.1+1
+#  open_file_plus: ^3.4.1+1
+  open_file_plus:
+    git:
+      url: https://github.com/postflow/open_file_plus.git
+      ref: main
   pdf: ^3.11.3
   permission_handler: ^11.3.1
-  print_bluetooth_thermal:
+  print_bluetooth_thermal: 
     path: plugins/print_bluetooth_thermal
   shared_preferences: ^2.3.2
   sqflite: ^2.3.3+1

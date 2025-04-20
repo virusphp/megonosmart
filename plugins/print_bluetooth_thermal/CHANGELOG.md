@@ -1,7 +1,3 @@
-## [1.1.01]
-
-1. Update readme.md
-
 ## [1.1.0]
 
 1. Add support for Windows print
