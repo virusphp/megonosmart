@@ -54,7 +54,7 @@ class Invoice {
 
     return HelperPdfService.saveDocument(
         name:
-            'FIC 11 Jilid 2 |  Report | ${DateTime.now().millisecondsSinceEpoch}.pdf',
+            'Megono Cafe |  Report | ${DateTime.now().millisecondsSinceEpoch}.pdf',
         pdf: pdf);
   }
 
@@ -66,7 +66,7 @@ class Invoice {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 1 * PdfPageFormat.cm),
-            Text('FIC 11 Jilid 2 | Report',
+            Text('Megono Cafe | Report',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -79,8 +79,8 @@ class Invoice {
         ),
         Image(
           image,
-          width: 80.0,
-          height: 80.0,
+          width: 50.0,
+          height: 50.0,
           fit: BoxFit.fill,
         ),
       ]);
@@ -142,7 +142,7 @@ class Invoice {
           SizedBox(height: 2 * PdfPageFormat.mm),
           buildSimpleText(
               title: 'Address',
-              value: 'Jalan Palagan No. 12, Sleman, DI Yogyakarta, 12345'),
+              value: 'Jalan Kanfer 2 No. 24 Perumnas Slamaran Pekalongan Utara'),
           SizedBox(height: 1 * PdfPageFormat.mm),
         ],
       );
