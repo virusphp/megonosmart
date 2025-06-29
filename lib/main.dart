@@ -18,6 +18,7 @@ import 'package:megonopos/presentation/home/bloc/product/product_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
 import 'package:megonopos/presentation/order/bloc/order/order_bloc.dart';
 import 'package:megonopos/presentation/order/bloc/qris/qris_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/report/close_cashier/close_cashier_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/report/product_sales/product_sales_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/report/summary/summary_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
@@ -73,7 +74,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ProductSalesBloc(ReportRemoteDataSource()),
         ),
-
+        BlocProvider(
+          create: (context) => CloseCashierBloc(ReportRemoteDataSource()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

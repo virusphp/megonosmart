@@ -20,18 +20,21 @@ mixin _$SyncOrderEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOrder,
+    required TResult Function() sendOrderForCloseChasier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOrder,
+    TResult? Function()? sendOrderForCloseChasier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOrder,
+    TResult Function()? sendOrderForCloseChasier,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,23 @@ mixin _$SyncOrderEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOrder value) sendOrder,
+    required TResult Function(_SendOrderForCloseChasier value)
+        sendOrderForCloseChasier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOrder value)? sendOrder,
+    TResult? Function(_SendOrderForCloseChasier value)?
+        sendOrderForCloseChasier,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOrder value)? sendOrder,
+    TResult Function(_SendOrderForCloseChasier value)? sendOrderForCloseChasier,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,7 +117,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SyncOrderEvent.started'));
+    properties..add(DiagnosticsProperty('type', 'SyncOrderEvent.started'));
   }
 
   @override
@@ -126,6 +134,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOrder,
+    required TResult Function() sendOrderForCloseChasier,
   }) {
     return started();
   }
@@ -135,6 +144,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOrder,
+    TResult? Function()? sendOrderForCloseChasier,
   }) {
     return started?.call();
   }
@@ -144,6 +154,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOrder,
+    TResult Function()? sendOrderForCloseChasier,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -157,6 +168,8 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOrder value) sendOrder,
+    required TResult Function(_SendOrderForCloseChasier value)
+        sendOrderForCloseChasier,
   }) {
     return started(this);
   }
@@ -166,6 +179,8 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOrder value)? sendOrder,
+    TResult? Function(_SendOrderForCloseChasier value)?
+        sendOrderForCloseChasier,
   }) {
     return started?.call(this);
   }
@@ -175,6 +190,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOrder value)? sendOrder,
+    TResult Function(_SendOrderForCloseChasier value)? sendOrderForCloseChasier,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -220,7 +236,7 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SyncOrderEvent.sendOrder'));
+    properties..add(DiagnosticsProperty('type', 'SyncOrderEvent.sendOrder'));
   }
 
   @override
@@ -237,6 +253,7 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() sendOrder,
+    required TResult Function() sendOrderForCloseChasier,
   }) {
     return sendOrder();
   }
@@ -246,6 +263,7 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? sendOrder,
+    TResult? Function()? sendOrderForCloseChasier,
   }) {
     return sendOrder?.call();
   }
@@ -255,6 +273,7 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? sendOrder,
+    TResult Function()? sendOrderForCloseChasier,
     required TResult orElse(),
   }) {
     if (sendOrder != null) {
@@ -268,6 +287,8 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_SendOrder value) sendOrder,
+    required TResult Function(_SendOrderForCloseChasier value)
+        sendOrderForCloseChasier,
   }) {
     return sendOrder(this);
   }
@@ -277,6 +298,8 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_SendOrder value)? sendOrder,
+    TResult? Function(_SendOrderForCloseChasier value)?
+        sendOrderForCloseChasier,
   }) {
     return sendOrder?.call(this);
   }
@@ -286,6 +309,7 @@ class _$SendOrderImpl with DiagnosticableTreeMixin implements _SendOrder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_SendOrder value)? sendOrder,
+    TResult Function(_SendOrderForCloseChasier value)? sendOrderForCloseChasier,
     required TResult orElse(),
   }) {
     if (sendOrder != null) {
@@ -300,12 +324,139 @@ abstract class _SendOrder implements SyncOrderEvent {
 }
 
 /// @nodoc
+abstract class _$$SendOrderForCloseChasierImplCopyWith<$Res> {
+  factory _$$SendOrderForCloseChasierImplCopyWith(
+          _$SendOrderForCloseChasierImpl value,
+          $Res Function(_$SendOrderForCloseChasierImpl) then) =
+      __$$SendOrderForCloseChasierImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendOrderForCloseChasierImplCopyWithImpl<$Res>
+    extends _$SyncOrderEventCopyWithImpl<$Res, _$SendOrderForCloseChasierImpl>
+    implements _$$SendOrderForCloseChasierImplCopyWith<$Res> {
+  __$$SendOrderForCloseChasierImplCopyWithImpl(
+      _$SendOrderForCloseChasierImpl _value,
+      $Res Function(_$SendOrderForCloseChasierImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SyncOrderEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendOrderForCloseChasierImpl
+    with DiagnosticableTreeMixin
+    implements _SendOrderForCloseChasier {
+  const _$SendOrderForCloseChasierImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SyncOrderEvent.sendOrderForCloseChasier()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SyncOrderEvent.sendOrderForCloseChasier'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendOrderForCloseChasierImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() sendOrder,
+    required TResult Function() sendOrderForCloseChasier,
+  }) {
+    return sendOrderForCloseChasier();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? sendOrder,
+    TResult? Function()? sendOrderForCloseChasier,
+  }) {
+    return sendOrderForCloseChasier?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? sendOrder,
+    TResult Function()? sendOrderForCloseChasier,
+    required TResult orElse(),
+  }) {
+    if (sendOrderForCloseChasier != null) {
+      return sendOrderForCloseChasier();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SendOrder value) sendOrder,
+    required TResult Function(_SendOrderForCloseChasier value)
+        sendOrderForCloseChasier,
+  }) {
+    return sendOrderForCloseChasier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SendOrder value)? sendOrder,
+    TResult? Function(_SendOrderForCloseChasier value)?
+        sendOrderForCloseChasier,
+  }) {
+    return sendOrderForCloseChasier?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SendOrder value)? sendOrder,
+    TResult Function(_SendOrderForCloseChasier value)? sendOrderForCloseChasier,
+    required TResult orElse(),
+  }) {
+    if (sendOrderForCloseChasier != null) {
+      return sendOrderForCloseChasier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendOrderForCloseChasier implements SyncOrderEvent {
+  const factory _SendOrderForCloseChasier() = _$SendOrderForCloseChasierImpl;
+}
+
+/// @nodoc
 mixin _$SyncOrderState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successForCloseChasier,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -314,6 +465,7 @@ mixin _$SyncOrderState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -322,6 +474,7 @@ mixin _$SyncOrderState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successForCloseChasier,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -331,6 +484,8 @@ mixin _$SyncOrderState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -339,6 +494,7 @@ mixin _$SyncOrderState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -347,6 +503,7 @@ mixin _$SyncOrderState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -406,7 +563,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SyncOrderState.initial'));
+    properties..add(DiagnosticsProperty('type', 'SyncOrderState.initial'));
   }
 
   @override
@@ -424,6 +581,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successForCloseChasier,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -435,6 +593,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -446,6 +605,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successForCloseChasier,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -461,6 +621,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -472,6 +634,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -483,6 +646,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -529,7 +693,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SyncOrderState.loading'));
+    properties..add(DiagnosticsProperty('type', 'SyncOrderState.loading'));
   }
 
   @override
@@ -547,6 +711,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successForCloseChasier,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -558,6 +723,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -569,6 +735,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successForCloseChasier,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -584,6 +751,8 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -595,6 +764,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -606,6 +776,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -652,7 +823,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'SyncOrderState.success'));
+    properties..add(DiagnosticsProperty('type', 'SyncOrderState.success'));
   }
 
   @override
@@ -670,6 +841,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successForCloseChasier,
     required TResult Function(String message) error,
   }) {
     return success();
@@ -681,6 +853,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
     TResult? Function(String message)? error,
   }) {
     return success?.call();
@@ -692,6 +865,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successForCloseChasier,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -707,6 +881,8 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
     required TResult Function(_Error value) error,
   }) {
     return success(this);
@@ -718,6 +894,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult? Function(_Error value)? error,
   }) {
     return success?.call(this);
@@ -729,6 +906,7 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -741,6 +919,143 @@ class _$SuccessImpl with DiagnosticableTreeMixin implements _Success {
 
 abstract class _Success implements SyncOrderState {
   const factory _Success() = _$SuccessImpl;
+}
+
+/// @nodoc
+abstract class _$$SuccessForCloseChasierImplCopyWith<$Res> {
+  factory _$$SuccessForCloseChasierImplCopyWith(
+          _$SuccessForCloseChasierImpl value,
+          $Res Function(_$SuccessForCloseChasierImpl) then) =
+      __$$SuccessForCloseChasierImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SuccessForCloseChasierImplCopyWithImpl<$Res>
+    extends _$SyncOrderStateCopyWithImpl<$Res, _$SuccessForCloseChasierImpl>
+    implements _$$SuccessForCloseChasierImplCopyWith<$Res> {
+  __$$SuccessForCloseChasierImplCopyWithImpl(
+      _$SuccessForCloseChasierImpl _value,
+      $Res Function(_$SuccessForCloseChasierImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of SyncOrderState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SuccessForCloseChasierImpl
+    with DiagnosticableTreeMixin
+    implements _SuccessForCloseChasier {
+  const _$SuccessForCloseChasierImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SyncOrderState.successForCloseChasier()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'SyncOrderState.successForCloseChasier'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessForCloseChasierImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() success,
+    required TResult Function() successForCloseChasier,
+    required TResult Function(String message) error,
+  }) {
+    return successForCloseChasier();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
+    TResult? Function(String message)? error,
+  }) {
+    return successForCloseChasier?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? success,
+    TResult Function()? successForCloseChasier,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (successForCloseChasier != null) {
+      return successForCloseChasier();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
+    required TResult Function(_Error value) error,
+  }) {
+    return successForCloseChasier(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
+    TResult? Function(_Error value)? error,
+  }) {
+    return successForCloseChasier?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (successForCloseChasier != null) {
+      return successForCloseChasier(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SuccessForCloseChasier implements SyncOrderState {
+  const factory _SuccessForCloseChasier() = _$SuccessForCloseChasierImpl;
 }
 
 /// @nodoc
@@ -822,6 +1137,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() success,
+    required TResult Function() successForCloseChasier,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -833,6 +1149,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? success,
+    TResult? Function()? successForCloseChasier,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -844,6 +1161,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? success,
+    TResult Function()? successForCloseChasier,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -859,6 +1177,8 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
+    required TResult Function(_SuccessForCloseChasier value)
+        successForCloseChasier,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -870,6 +1190,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
+    TResult? Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -881,6 +1202,7 @@ class _$ErrorImpl with DiagnosticableTreeMixin implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
+    TResult Function(_SuccessForCloseChasier value)? successForCloseChasier,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

@@ -50,7 +50,7 @@ class Result {
 
 class Summary {
     final int? totalRevenue;
-    final String? totalSoldQuantity;
+    final int? totalSoldQuantity;
     final int? totalOrder;
 
     Summary({

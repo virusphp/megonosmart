@@ -5,4 +5,5 @@ class SyncOrderEvent with _$SyncOrderEvent {
   const factory SyncOrderEvent.started() = _Started;
   //sendOrder
   const factory SyncOrderEvent.sendOrder() = _SendOrder;
+  const factory SyncOrderEvent.sendOrderForCloseChasier() = _SendOrderForCloseChasier;
 }

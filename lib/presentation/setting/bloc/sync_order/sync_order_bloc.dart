@@ -27,14 +27,6 @@ class SyncOrderBloc extends Bloc<SyncOrderEvent, SyncOrderState> {
             totalItem: order.totalQuantity,
             paymentMethod: order.paymentMethod == "Tunai" ? "cash" : "qris",
             orderItems: orderItems
-            // .map(
-            //   (e) => OrderItemModel(
-            //     productId: e.productId,
-            //     quantity: e.quantity,
-            //     totalPrice: e.quantity * e.product.price,
-            //   ),
-            // )
-            // .toList(),
             );
         final response = await orderRemoteDatasource.sendOrder(orderRequest);
         if (response) {
@@ -43,11 +35,33 @@ class SyncOrderBloc extends Bloc<SyncOrderEvent, SyncOrderState> {
         }
       }
       emit(const SyncOrderState.success());
-      // if (response) {
-      //   emit(const SyncOrderState.success());
-      // } else {
-      //   emit(const SyncOrderState.error("Gagal syncron order"));
-      // }
+    });
+
+    on<_SendOrderForCloseChasier>((event, emit) async {
+      emit(const _Loading());
+      //get ordres from local isSync is 1
+      final ordersIsSyncZero =
+          await ProductLocalDatasource.instance.getOrderByIsSync();
+      for (var order in ordersIsSyncZero) {
+        final orderItems = await ProductLocalDatasource.instance
+            .getOrderItemByIdOrderLocal(order.id!);
+        final orderRequest = OrderRequestModel(
+            transactionTime: order.transactionTime,
+            kasirId: order.idKasir,
+            totalPrice: order.totalPrice,
+            totalItem: order.totalQuantity,
+            paymentMethod: order.paymentMethod == "Tunai" ? "cash" : "qris",
+            orderItems: orderItems
+            );
+        final response = await orderRemoteDatasource.sendOrder(orderRequest);
+        if (response) {
+          await ProductLocalDatasource.instance
+              .updateIsSyncOrderById(order.id!);
+        }
+      }
+      emit(const SyncOrderState.successForCloseChasier());
     });
   }
+
+
 }

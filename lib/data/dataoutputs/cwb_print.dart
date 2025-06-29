@@ -35,7 +35,7 @@ class CwbPrint {
     final generator = Generator(PaperSize.mm58, profile);
 
     final ByteData data =
-        await rootBundle.load('assets/logo/logo_print.png');
+        await rootBundle.load('assets/logo/logo_struk.png');
     final Uint8List bytesData = data.buffer.asUint8List();
     final img.Image? orginalImage = img.decodeImage(bytesData);
     bytes += generator.reset();
@@ -56,7 +56,7 @@ class CwbPrint {
           width: PosTextSize.size1,
         ));
 
-    bytes += generator.text('Jl Kanfer II No 24',
+    bytes += generator.text('Jl Merdeka, Kraton Kidul Gang 8 no 7 Kota Pekalongan',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.text(
         'Date : ${DateFormat('dd-MM-yyyy HH:mm').format(DateTime.now())}',
@@ -226,7 +226,7 @@ class CwbPrint {
     final generator = Generator(PaperSize.mm58, profile);
 
     final ByteData data =
-        await rootBundle.load('assets/logo/logo_print.png');
+        await rootBundle.load('assets/logo/logo_struk.png');
     final Uint8List bytesData = data.buffer.asUint8List();
     final img.Image? orginalImage = img.decodeImage(bytesData);
     bytes += generator.reset();
@@ -239,7 +239,7 @@ class CwbPrint {
       bytes += generator.feed(3);
     }
 
-    bytes += generator.text('MegonoPOS',
+    bytes += generator.text('BumiSuja',
         styles: const PosStyles(
           bold: true,
           align: PosAlign.center,
@@ -247,13 +247,13 @@ class CwbPrint {
           width: PosTextSize.size1,
         ));
 
-    bytes += generator.text('Jl. Kanfer 2 no 24',
+    bytes += generator.text('Jl. Merdeka, Kraton Kidul gang 8 no 7',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.text('Kota Pekalongan',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('coffeeandfriends@gmail.com',
+    bytes += generator.text('bumisujacaffe@gmail.com',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('082220801333',
+    bytes += generator.text('08112714858/082226769550',
         styles: const PosStyles(bold: false, align: PosAlign.center));
 
     bytes += generator.feed(1);
@@ -402,12 +402,25 @@ class CwbPrint {
         styles: const PosStyles(align: PosAlign.right),
       ),
     ]);
+
+    bytes += generator.row([
+      PosColumn(
+        text: 'Kembalian',
+        width: 8,
+        styles: const PosStyles(align: PosAlign.left),
+      ),
+      PosColumn(
+        text: '${nominalBayar - totalPrice}'.currencyFormatRpV2,
+        width: 4,
+        styles: const PosStyles(align: PosAlign.right),
+      ),
+    ]);
     bytes += generator.text('================================',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('Password: smartmesem23',
+    bytes += generator.text('Password: -',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.feed(1);
-    bytes += generator.text('instagram: @coffeeandfriend',
+    bytes += generator.text('instagram: @bumi_suja_',
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.feed(1);
     bytes += generator.text(

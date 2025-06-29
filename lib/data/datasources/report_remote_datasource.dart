@@ -52,4 +52,25 @@ class ReportRemoteDataSource {
       return Left('Error: $e');
     }
   }
+
+  Future<Either<String, String>> closeCashier() async {
+    try {
+      final authData = await AuthLocalDatasource().getAuthData();
+      final response = await http.get(
+        Uri.parse('${Variables.baseUrl}/api/report/close-cashier'),
+        headers: {
+          'Authorization': 'Bearer ${authData.result?.token.toString()}',
+          'Content-Type': 'application/json',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        return const Right('Cashier closed successfully');
+      } else {
+        return Left(response.body);
+      }
+    } catch (e) {
+      return Left('Error: $e');
+    }
+  }
 }

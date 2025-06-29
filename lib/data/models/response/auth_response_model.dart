@@ -6,9 +6,9 @@ class AuthResponseModel {
     final Result? result;
 
     AuthResponseModel({
-        required this.code,
-        required this.message,
-        required this.result,
+      required this.code,
+      required this.message,
+      this.result,
     });
 
     factory AuthResponseModel.fromJson(String str) => AuthResponseModel.fromMap(json.decode(str));
@@ -16,15 +16,17 @@ class AuthResponseModel {
     String toJson() => json.encode(toMap());
 
     factory AuthResponseModel.fromMap(Map<String, dynamic> json) => AuthResponseModel(
-        code: json["code"],
-        message: json["message"],
-        result: Result.fromMap(json["result"]),
+      code: json["code"],
+      message: json["message"],
+      result: json["result"] != null && json["result"] is Map<String, dynamic>
+        ? Result.fromMap(json["result"])
+        : null,
     );
 
     Map<String, dynamic> toMap() => {
-        "code": code,
-        "message": message,
-        "result": result?.toMap(),
+      "code": code,
+      "message": message,
+      "result": result?.toMap(),
     };
 }
 

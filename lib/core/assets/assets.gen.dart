@@ -76,23 +76,23 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [
-        allCategories,
-        cash,
-        dashboard,
-        debit,
-        delete,
-        done,
-        drink,
-        food,
-        history,
-        home,
-        image,
-        orders,
-        payments,
-        print,
-        qrCode,
-        snack
-      ];
+    allCategories,
+    cash,
+    dashboard,
+    debit,
+    delete,
+    done,
+    drink,
+    food,
+    history,
+    home,
+    image,
+    orders,
+    payments,
+    print,
+    qrCode,
+    snack,
+  ];
 }
 
 class $AssetsImagesGen {
@@ -101,30 +101,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/close.png
   AssetGenImage get close => const AssetGenImage('assets/images/close.png');
 
-  /// File path: assets/images/f1.jpeg
-  AssetGenImage get f1 => const AssetGenImage('assets/images/f1.jpeg');
-
-  /// File path: assets/images/f2.jpeg
-  AssetGenImage get f2 => const AssetGenImage('assets/images/f2.jpeg');
-
-  /// File path: assets/images/f3.jpeg
-  AssetGenImage get f3 => const AssetGenImage('assets/images/f3.jpeg');
-
-  /// File path: assets/images/f4.jpeg
-  AssetGenImage get f4 => const AssetGenImage('assets/images/f4.jpeg');
-
-  /// File path: assets/images/f5.jpeg
-  AssetGenImage get f5 => const AssetGenImage('assets/images/f5.jpeg');
-
-  /// File path: assets/images/f6.jpeg
-  AssetGenImage get f6 => const AssetGenImage('assets/images/f6.jpeg');
-
-  /// File path: assets/images/f7.jpeg
-  AssetGenImage get f7 => const AssetGenImage('assets/images/f7.jpeg');
-
   /// File path: assets/images/login_ui_caffe.png
   AssetGenImage get loginUiCaffe =>
       const AssetGenImage('assets/images/login_ui_caffe.png');
+
+  /// File path: assets/images/logo.png
+  AssetGenImage get logo => const AssetGenImage('assets/images/logo.png');
 
   /// File path: assets/images/manage_printer.png
   AssetGenImage get managePrinter =>
@@ -150,49 +132,35 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        close,
-        f1,
-        f2,
-        f3,
-        f4,
-        f5,
-        f6,
-        f7,
-        loginUiCaffe,
-        managePrinter,
-        manageProduct,
-        manageQr,
-        report,
-        sync,
-        syncOld
-      ];
+    close,
+    loginUiCaffe,
+    logo,
+    managePrinter,
+    manageProduct,
+    manageQr,
+    report,
+    sync,
+    syncOld,
+  ];
 }
 
 class $AssetsLogoGen {
   const $AssetsLogoGen();
 
-  /// File path: assets/logo/login_ui_caffe.png
-  AssetGenImage get loginUiCaffe =>
-      const AssetGenImage('assets/logo/login_ui_caffe.png');
+  /// File path: assets/logo/logo_login.2.png
+  AssetGenImage get logoLogin2 =>
+      const AssetGenImage('assets/logo/logo_login.2.png');
 
-  /// File path: assets/logo/logo_pos.png
-  AssetGenImage get logoPos => const AssetGenImage('assets/logo/logo_pos.png');
+  /// File path: assets/logo/logo_login.png
+  AssetGenImage get logoLogin =>
+      const AssetGenImage('assets/logo/logo_login.png');
 
   /// File path: assets/logo/logo_print.png
   AssetGenImage get logoPrint =>
       const AssetGenImage('assets/logo/logo_print.png');
 
-  /// File path: assets/logo/logo_print_caffe.png
-  AssetGenImage get logoPrintCaffe =>
-      const AssetGenImage('assets/logo/logo_print_caffe.png');
-
-  /// File path: assets/logo/logo_print_old.png
-  AssetGenImage get logoPrintOld =>
-      const AssetGenImage('assets/logo/logo_print_old.png');
-
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [loginUiCaffe, logoPos, logoPrint, logoPrintCaffe, logoPrintOld];
+  List<AssetGenImage> get values => [logoLogin2, logoLogin, logoPrint];
 }
 
 class Assets {
@@ -205,11 +173,7 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  });
+  const AssetGenImage(this._assetName, {this.size, this.flavors = const {}});
 
   final String _assetName;
 
@@ -269,15 +233,8 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider({
-    AssetBundle? bundle,
-    String? package,
-  }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+  ImageProvider provider({AssetBundle? bundle, String? package}) {
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;
@@ -286,17 +243,11 @@ class AssetGenImage {
 }
 
 class SvgGenImage {
-  const SvgGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = false;
+  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = false;
 
-  const SvgGenImage.vec(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = true;
+  const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = true;
 
   final String _assetName;
   final Size? size;
@@ -350,7 +301,8 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      colorFilter: colorFilter ??
+      colorFilter:
+          colorFilter ??
           (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,

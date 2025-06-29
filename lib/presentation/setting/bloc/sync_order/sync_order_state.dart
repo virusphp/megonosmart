@@ -5,5 +5,6 @@ class SyncOrderState with _$SyncOrderState {
   const factory SyncOrderState.initial() = _Initial;
   const factory SyncOrderState.loading() = _Loading;
   const factory SyncOrderState.success() = _Success;
+  const factory SyncOrderState.successForCloseChasier() = _SuccessForCloseChasier;
   const factory SyncOrderState.error(String message) = _Error;
 }

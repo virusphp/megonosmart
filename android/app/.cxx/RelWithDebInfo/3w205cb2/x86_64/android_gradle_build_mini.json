@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "C:\\Users\\packe\\flutter\\packages\\flutter_tools\\gradle\\src\\main\\groovy\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\packe\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "D:\\PROJECT FLUTTER\\megonosmart\\android\\app\\.cxx\\RelWithDebInfo\\3w205cb2\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\packe\\AppData\\Local\\Android\\sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "D:\\PROJECT FLUTTER\\megonosmart\\android\\app\\.cxx\\RelWithDebInfo\\3w205cb2\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

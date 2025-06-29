@@ -7,6 +7,8 @@ import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/data/datasources/auth_local_datasource.dart';
 import 'package:megonopos/presentation/auth/pages/login_page.dart';
 import 'package:megonopos/presentation/home/bloc/logout/logout_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/report/close_cashier/close_cashier_bloc.dart';
+import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:megonopos/presentation/setting/pages/manage_print_page.dart';
 import 'package:megonopos/presentation/setting/pages/manage_product_page.dart';
 import 'package:megonopos/presentation/setting/pages/report/report_page.dart';
@@ -109,18 +111,58 @@ class _SettingPageState extends State<SettingPage> {
                 ),
                 const SpaceWidth(15.0),
                 Flexible(
-                  child: MenuButton(
-                    iconPath: Assets.images.close.path,
-                    label: "Tutup Kasir Hari ini..",
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SyncDataPage(),
-                        ),
+                  child: BlocListener<SyncOrderBloc, SyncOrderState>(
+                    listener: (context, state) {
+                      state.maybeMap(
+                        orElse: () => {},
+                        successForCloseChasier: (_) {
+                          context.read<CloseCashierBloc>().add(
+                            const CloseCashierEvent.closeCashier(),
+                          );
+                         
+                          context.pushReplacement(const LoginPage()); 
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.green,
+                              content: Text("Sync Order Success"),
+                            ),
+                          );
+                        }
                       );
                     },
-                    isImage: true,
+                    child: MenuButton(
+                      iconPath: Assets.images.close.path,
+                      label: "Tutup Kasir",
+                      onPressed: () async {
+                        showDialog(
+                          context: context, 
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text("Tutup Kasir"),
+                              content: const Text("Apakah anda yakin?"),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text("Batal"),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                     context
+                                      .read<SyncOrderBloc>()
+                                      .add(const SyncOrderEvent.sendOrderForCloseChasier());
+
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text("Ya"),
+                                ),
+                              ],
+                            );
+                          });
+                      },
+                      isImage: true,
+                    ),
                   ),
                 ),
               ],

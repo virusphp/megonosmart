@@ -139,7 +139,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ProductEvent.started'));
+    properties..add(DiagnosticsProperty('type', 'ProductEvent.started'));
   }
 
   @override
@@ -280,7 +280,7 @@ class _$FetchImpl with DiagnosticableTreeMixin implements _Fetch {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ProductEvent.fetch'));
+    properties..add(DiagnosticsProperty('type', 'ProductEvent.fetch'));
   }
 
   @override
@@ -603,7 +603,7 @@ class _$FetchLocalImpl with DiagnosticableTreeMixin implements _FetchLocal {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ProductEvent.fetchLocal'));
+    properties..add(DiagnosticsProperty('type', 'ProductEvent.fetchLocal'));
   }
 
   @override
@@ -1114,7 +1114,7 @@ class _$FetchAllFromStateImpl
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-        .add(DiagnosticsProperty('type', 'ProductEvent.fetchAllFromState'));
+      ..add(DiagnosticsProperty('type', 'ProductEvent.fetchAllFromState'));
   }
 
   @override
@@ -1330,7 +1330,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ProductState.initial'));
+    properties..add(DiagnosticsProperty('type', 'ProductState.initial'));
   }
 
   @override
@@ -1453,7 +1453,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'ProductState.loading'));
+    properties..add(DiagnosticsProperty('type', 'ProductState.loading'));
   }
 
   @override

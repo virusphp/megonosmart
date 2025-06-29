@@ -114,7 +114,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'QrisEvent.started'));
+    properties..add(DiagnosticsProperty('type', 'QrisEvent.started'));
   }
 
   @override
@@ -645,7 +645,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'QrisState.initial'));
+    properties..add(DiagnosticsProperty('type', 'QrisState.initial'));
   }
 
   @override
@@ -781,7 +781,7 @@ class _$LoadingImpl with DiagnosticableTreeMixin implements _Loading {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'QrisState.loading'));
+    properties..add(DiagnosticsProperty('type', 'QrisState.loading'));
   }
 
   @override

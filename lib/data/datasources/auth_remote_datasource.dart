@@ -13,12 +13,13 @@ class AuthRemoteDatasource {
         headers: {'accept': 'application/json'},
         body: {'email': email, 'password': password});
     if (response.statusCode == 200) {
-      return right(AuthResponseModel.fromJson(response.body));
+      return Right(AuthResponseModel.fromJson(response.body));
     } else if (response.statusCode == 202) {
       var dataResponse = AuthResponseModel.fromJson(response.body);
-      return left(dataResponse.message.toString());
+      return Left(dataResponse.message.toString());
     } else {
-      return left(response.body);
+      var dataResponse = AuthResponseModel.fromJson(response.body);
+      return Left(dataResponse.message.toString());
     }
   }
 
