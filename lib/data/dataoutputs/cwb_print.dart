@@ -251,8 +251,8 @@ class CwbPrint {
         styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.text('Kota Pekalongan',
         styles: const PosStyles(bold: false, align: PosAlign.center));
-    bytes += generator.text('bumisujacaffe@gmail.com',
-        styles: const PosStyles(bold: false, align: PosAlign.center));
+    // bytes += generator.text('bumisujacaffe@gmail.com',
+    //     styles: const PosStyles(bold: false, align: PosAlign.center));
     bytes += generator.text('08112714858/082226769550',
         styles: const PosStyles(bold: false, align: PosAlign.center));
 

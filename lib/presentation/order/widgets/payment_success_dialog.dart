@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
 import 'package:megonopos/core/extentions/date_time_ext.dart';
 import 'package:megonopos/core/extentions/int_ext.dart';
+import 'package:megonopos/core/extentions/string_ext.dart';
 import 'package:megonopos/data/dataoutputs/cwb_print.dart';
 import 'package:megonopos/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
@@ -64,7 +65,14 @@ class PaymentSuccessDialog extends StatelessWidget {
                     value: paymenType == 'Tunai'
                         ? nominal.currencyFormatRp
                         : total.currencyFormatRp,
-                  ),
+                    ),
+                    if (paymenType == 'Tunai') ...[
+                    const Divider(height: 36.0),
+                    _LabelValue(
+                      label: 'KEMBALIAN',
+                      value: '${nominal - total}'.currencyFormatRp,
+                    ),
+                    ],
                   const Divider(height: 36.0),
                   _LabelValue(
                     label: 'WAKTU PEMBAYARAN',

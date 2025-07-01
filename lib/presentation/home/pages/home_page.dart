@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   onCategoryTap(e.id!);
                                   context.read<ProductBloc>().add(
-                                      ProductEvent.fetchByCategory(e.name!));
+                                      ProductEvent.fetchByCategory(e.id!));
                                 },
                               ),
                             )),

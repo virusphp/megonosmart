@@ -25,6 +25,7 @@ class PaymentCashDialog extends StatefulWidget {
 class _PaymentCashDialogState extends State<PaymentCashDialog> {
   TextEditingController?
       priceController; // = TextEditingController(text: widget.price.currencyFormatRp);
+    String? errorMessage;
 
   @override
   void initState() {
@@ -63,11 +64,39 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const Center(
+            child: Text(
+              'Total Pembayaran',
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: AppColors.primary,
+              ),
+              ),
+          ),
+          const SpaceHeight(4.0),
+          Center(
+            child: Text(
+              widget.price.currencyFormatRp,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: AppColors.primary,
+              ),
+            ),
+          ),
           const SpaceHeight(16.0),
+          if (errorMessage != null) ...[
+            Text(
+              errorMessage!,
+              style: const TextStyle(color: Colors.red, fontSize: 12),
+            ),
+            const SpaceHeight(8.0),
+          ],
           CustomTextField(
             controller: priceController!,
-            label: '',
-            showLabel: false,
+            label: 'Nominal Pembayaran',
+            // showLabel: false,
             keyboardType: TextInputType.number,
             onChanged: (value) {
               final int priceValue = value.toIntegerFromText;
@@ -77,32 +106,67 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
             },
           ),
           const SpaceHeight(16.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
             children: [
-              Button.filled(
-                onPressed: () {},
-                label: 'Uang Pas',
-                disabled: true,
-                textColor: AppColors.primary,
-                fontSize: 13.0,
-                width: 112.0,
-                height: 50.0,
+              Row(
+                children: [
+                  Expanded(
+                    child: Button.filled(
+                      onPressed: () {
+                        // Set the priceController text to the exact price (uang pas)
+                        priceController!.text = widget.price.currencyFormatRp;
+                        priceController!.selection = TextSelection.fromPosition(
+                          TextPosition(offset: priceController!.text.length),
+                        );
+                      },
+                      label: 'Uang Pas',
+                      textColor: AppColors.primary,
+                      fontSize: 13.0,
+                      width: 112.0,
+                      height: 30.0,
+                    ),
+                  ),
+                ],
               ),
-              const SpaceWidth(4.0),
-              Flexible(
-                child: Button.filled(
-                  onPressed: () {},
-                  label: widget.price.currencyFormatRp,
-                  disabled: true,
-                  textColor: AppColors.primary,
-                  fontSize: 13.0,
-                  height: 50.0,
-                ),
+              const SpaceHeight(10.0),
+              Row(
+                children: [
+                  Expanded(
+                    child: Button.filled(
+                        onPressed: () {
+                             // Set the priceController text to the exact price (uang pas)
+                          priceController!.text =  "Rp. 50.000";
+                          priceController!.selection = TextSelection.fromPosition(
+                            TextPosition(offset: priceController!.text.length),
+                          );
+                        },
+                        label: "Rp. 50.000",
+                        textColor: AppColors.primary,
+                        fontSize: 13.0,
+                        height: 30.0,
+                    ),
+                  ),
+                  const SpaceWidth(5.0),
+                   Expanded(
+                    child: Button.filled(
+                        onPressed: () {
+                                // Set the priceController text to the exact price (uang pas)
+                          priceController!.text =  "Rp. 100.000";
+                          priceController!.selection = TextSelection.fromPosition(
+                            TextPosition(offset: priceController!.text.length),
+                          );
+                        },
+                        label: "Rp. 100.000",
+                        textColor: AppColors.primary,
+                        fontSize: 13.0,
+                        height: 30.0,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-          const SpaceHeight(30.0),
+          const SpaceHeight(16.0),
           BlocConsumer<OrderBloc, OrderState>(
             listener: (context, state) {
               state.maybeWhen(
@@ -135,16 +199,18 @@ class _PaymentCashDialogState extends State<PaymentCashDialog> {
               }, success: (data, qty, total, payment, _, idKasir, mamaKasir,
                   customerName) {
                 return Button.filled(
-                  onPressed: () {
+                    onPressed: () {
+                    final bayar = priceController!.text.toIntegerFromText;
+                      if (bayar < widget.price) {
+                        setState(() {
+                          errorMessage = 'Nominal pembayaran kurang dari total harga.';
+                        });
+                        return;
+                      }
                     context.read<OrderBloc>().add(OrderEvent.addNominalBayar(
-                          priceController!.text.toIntegerFromText,
-                        ));
-                    // context.pop();
-                    // showDialog(
-                    //   context: context,
-                    //   builder: (context) => const PaymentSuccessDialog(),
-                    // );
-                  },
+                        bayar,
+                      ));
+                    },
                   label: 'Proses',
                 );
               }, error: (message) {

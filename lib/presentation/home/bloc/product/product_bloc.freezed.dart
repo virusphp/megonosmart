@@ -20,7 +20,7 @@ mixin _$ProductEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -31,7 +31,7 @@ mixin _$ProductEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -42,7 +42,7 @@ mixin _$ProductEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -156,7 +156,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -170,7 +170,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -184,7 +184,7 @@ class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -297,7 +297,7 @@ class _$FetchImpl with DiagnosticableTreeMixin implements _Fetch {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -311,7 +311,7 @@ class _$FetchImpl with DiagnosticableTreeMixin implements _Fetch {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -325,7 +325,7 @@ class _$FetchImpl with DiagnosticableTreeMixin implements _Fetch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -395,7 +395,7 @@ abstract class _$$FetchByCategoryImplCopyWith<$Res> {
           $Res Function(_$FetchByCategoryImpl) then) =
       __$$FetchByCategoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String category});
+  $Res call({int category});
 }
 
 /// @nodoc
@@ -417,7 +417,7 @@ class __$$FetchByCategoryImplCopyWithImpl<$Res>
       null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -430,7 +430,7 @@ class _$FetchByCategoryImpl
   const _$FetchByCategoryImpl(this.category);
 
   @override
-  final String category;
+  final int category;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -471,7 +471,7 @@ class _$FetchByCategoryImpl
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -485,7 +485,7 @@ class _$FetchByCategoryImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -499,7 +499,7 @@ class _$FetchByCategoryImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -560,9 +560,9 @@ class _$FetchByCategoryImpl
 }
 
 abstract class _FetchByCategory implements ProductEvent {
-  const factory _FetchByCategory(final String category) = _$FetchByCategoryImpl;
+  const factory _FetchByCategory(final int category) = _$FetchByCategoryImpl;
 
-  String get category;
+  int get category;
 
   /// Create a copy of ProductEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -620,7 +620,7 @@ class _$FetchLocalImpl with DiagnosticableTreeMixin implements _FetchLocal {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -634,7 +634,7 @@ class _$FetchLocalImpl with DiagnosticableTreeMixin implements _FetchLocal {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -648,7 +648,7 @@ class _$FetchLocalImpl with DiagnosticableTreeMixin implements _FetchLocal {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -799,7 +799,7 @@ class _$AddProductImpl with DiagnosticableTreeMixin implements _AddProduct {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -813,7 +813,7 @@ class _$AddProductImpl with DiagnosticableTreeMixin implements _AddProduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -827,7 +827,7 @@ class _$AddProductImpl with DiagnosticableTreeMixin implements _AddProduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -979,7 +979,7 @@ class _$SearhProductImpl with DiagnosticableTreeMixin implements _SearhProduct {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -993,7 +993,7 @@ class _$SearhProductImpl with DiagnosticableTreeMixin implements _SearhProduct {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -1007,7 +1007,7 @@ class _$SearhProductImpl with DiagnosticableTreeMixin implements _SearhProduct {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,
@@ -1131,7 +1131,7 @@ class _$FetchAllFromStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
-    required TResult Function(String category) fetchByCategory,
+    required TResult Function(int category) fetchByCategory,
     required TResult Function() fetchLocal,
     required TResult Function(Product product, XFile image) addProduct,
     required TResult Function(String query) searchProduct,
@@ -1145,7 +1145,7 @@ class _$FetchAllFromStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
-    TResult? Function(String category)? fetchByCategory,
+    TResult? Function(int category)? fetchByCategory,
     TResult? Function()? fetchLocal,
     TResult? Function(Product product, XFile image)? addProduct,
     TResult? Function(String query)? searchProduct,
@@ -1159,7 +1159,7 @@ class _$FetchAllFromStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
-    TResult Function(String category)? fetchByCategory,
+    TResult Function(int category)? fetchByCategory,
     TResult Function()? fetchLocal,
     TResult Function(Product product, XFile image)? addProduct,
     TResult Function(String query)? searchProduct,

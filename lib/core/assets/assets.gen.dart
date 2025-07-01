@@ -147,20 +147,22 @@ class $AssetsImagesGen {
 class $AssetsLogoGen {
   const $AssetsLogoGen();
 
-  /// File path: assets/logo/logo_login.2.png
-  AssetGenImage get logoLogin2 =>
-      const AssetGenImage('assets/logo/logo_login.2.png');
+  /// File path: assets/logo/login.png
+  AssetGenImage get login => const AssetGenImage('assets/logo/login.png');
 
-  /// File path: assets/logo/logo_login.png
-  AssetGenImage get logoLogin =>
-      const AssetGenImage('assets/logo/logo_login.png');
+  /// File path: assets/logo/logo_login.svg
+  SvgGenImage get logoLogin => const SvgGenImage('assets/logo/logo_login.svg');
 
-  /// File path: assets/logo/logo_print.png
-  AssetGenImage get logoPrint =>
-      const AssetGenImage('assets/logo/logo_print.png');
+  /// File path: assets/logo/logo_struk.png
+  AssetGenImage get logoStruk =>
+      const AssetGenImage('assets/logo/logo_struk.png');
+
+  /// File path: assets/logo/logo_struk_default.png
+  AssetGenImage get logoStrukDefault =>
+      const AssetGenImage('assets/logo/logo_struk_default.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [logoLogin2, logoLogin, logoPrint];
+  List<dynamic> get values => [login, logoLogin, logoStruk, logoStrukDefault];
 }
 
 class Assets {

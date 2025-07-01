@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -40,7 +42,7 @@ class ProductBloc extends Bloc<ProductEvent, ProductState> {
       final newProduct = event.category == 'all'
           ? products
           : products
-              .where((element) => element.category == event.category)
+              .where((element) => element.categoryId == event.category)
               .toList();
       emit(ProductState.success(newProduct));
     });
