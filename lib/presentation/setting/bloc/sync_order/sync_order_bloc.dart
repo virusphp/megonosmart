@@ -25,7 +25,7 @@ class SyncOrderBloc extends Bloc<SyncOrderEvent, SyncOrderState> {
             kasirId: order.idKasir,
             totalPrice: order.totalPrice,
             totalItem: order.totalQuantity,
-            paymentMethod: order.paymentMethod == "Tunai" ? "cash" : "qris",
+            paymentMethod: order.paymentMethod,
             orderItems: orderItems
             );
         final response = await orderRemoteDatasource.sendOrder(orderRequest);

@@ -19,7 +19,10 @@ class _HistoryPageState extends State<HistoryPage> {
   @override
   void initState() {
     super.initState();
-    context.read<HistoryBloc>().add(const HistoryEvent.fetch());
+    // context.read<HistoryBloc>().add(const HistoryEvent.fetch());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<HistoryBloc>().add(const HistoryEvent.fetch());
+    });
   }
 
   @override
