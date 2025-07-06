@@ -134,7 +134,7 @@ class ProductLocalDatasource {
   //save draft order
   Future<int> saveDraftOrder(DraftOrderModel order) async {
     final db = await instance.database;
-    print(order.toMapForLocal());
+    // print(order.toMapForLocal());
     int id = await db.insert('draft_orders', order.toMapForLocal());
 
     for (var orderItem in order.orders) {
@@ -148,7 +148,7 @@ class ProductLocalDatasource {
   Future<List<DraftOrderModel>> getAllDraftOrder() async {
     final db = await instance.database;
     final result = await db.query('draft_orders', orderBy: 'id DESC');
-    print(result);
+    // print(result);
     List<DraftOrderModel> results = await Future.wait(result.map((item) async {
       final draftOderItem = await getDraftOrderItemByOrderId(item['id'] as int);
 
@@ -166,7 +166,7 @@ class ProductLocalDatasource {
     List<DraftOrderItem> results = await Future.wait(result.map((item) async {
       // Your asynchronous operation here
       final product = await getProductById(item['id_product'] as int);
-      print(product);
+      // print(product);
       return DraftOrderItem(
           product: product!, quantity: item['quantity'] as int);
     }));
@@ -203,15 +203,33 @@ class ProductLocalDatasource {
 
   Future<List<OrderModel>> getAllOrder() async {
      final db = await instance.database;
-  final result = await db.query(tableOrders, orderBy: 'id DESC');
-  List<OrderModel> results = await Future.wait(result.map((item) async {
-    final orderItem = await getOrderItemByOrderId(item['id'] as int);
-  
-    print(orderItem.toString());
-    return OrderModel.newFromLocalMap(item, orderItem);
-  }));
-  print(results.toString());
-  return results;
+    final result = await db.query(tableOrders, orderBy: 'id DESC');
+    List<OrderModel> results = await Future.wait(result.map((item) async {
+      final orderItem = await getOrderItemByOrderId(item['id'] as int);
+    
+      // print(orderItem.toString());
+      return OrderModel.newFromLocalMap(item, orderItem);
+    }));
+    // print(results.toString());
+    return results;
+  }
+
+  Future<List<OrderModel>> getOrderByDate(String date) async {
+    final db = await instance.database;
+    final result = await db.query(
+      tableOrders,
+      where: "substr(transaction_time, 1, 10) = ?",
+      whereArgs: [date], // kirim "2025-07-06"
+      orderBy: 'id DESC',
+    );
+    List<OrderModel> results = await Future.wait(result.map((item) async {
+      final orderItem = await getOrderItemByOrderId(item['id'] as int);
+    
+      // print(orderItem.toString());
+      return OrderModel.newFromLocalMap(item, orderItem);
+    }));
+    print(results.toString());
+    return results;
   }
 
   //getOrderItemByOrderId

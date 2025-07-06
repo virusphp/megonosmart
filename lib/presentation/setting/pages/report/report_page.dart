@@ -308,7 +308,7 @@ class _ReportPageState extends State<ReportPage> {
                                         ),
                                         const SpaceWidth(24),
                                         Text(
-                                          "$totalPrice",
+                                          "$totalPrice".toString().currencyFormatRp,
                                           style: const TextStyle(
                                               color: AppColors.primary,
                                               fontWeight: FontWeight.bold),

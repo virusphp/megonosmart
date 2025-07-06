@@ -12,6 +12,12 @@ extension StringExt on String {
     return DateFormat('dd-MM HH:mm').format(dateTime);
   }
 
+  String get toFormattedDateOnly {
+    final dateTime = DateTime.parse(this);
+    return DateFormat('dd MMMM yyyy', 'id_ID').format(dateTime);
+  }
+
+
   //currencyFormatRp
   String get currencyFormatRp {
     final parsedValue = int.tryParse(this) ?? 0;

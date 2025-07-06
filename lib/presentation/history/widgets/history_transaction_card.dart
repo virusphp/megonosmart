@@ -41,7 +41,7 @@ class HistoryTransactionCard extends StatelessWidget {
         title: Row(
           children: [
             Assets.icons.payments.svg(),
-            const SizedBox(width: 12.0),
+            const SizedBox(width: 5.0),
             Text(
               '${data.transactionTime.toFormattedTime} - ${data.paymentMethod == 'QRIS' ? 'QRIS' : 'Cash'}',
               style: const TextStyle(
@@ -65,45 +65,59 @@ class HistoryTransactionCard extends StatelessWidget {
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
               itemCount: data.orders.length + 1,
-              itemBuilder: (context, index) {
+                itemBuilder: (context, index) {
                 if (index == data.orders.length) {
                   return Padding(
-                    padding: const EdgeInsets.only(
-                        top: 4.0),
-                    child: Button.filled(
-                      onPressed: () async {
-                        // print receipt
-                        final printInt = await CwbPrint.instance.printOrderV2(
-                          data.orders,
-                          data.totalQuantity,
-                          data.totalPrice,
-                          data.paymentMethod,
-                          data.nominalBayar,
-                          data.namaKasir,
-                          'Customer',
-                        );
-                        CwbPrint.instance.printReceipt(printInt);
-                      },
-                      label: 'Print Receipt',
-                    ),
+                  padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0), // Padding diperkecil
+                  child: Button.filled(
+                    onPressed: () async {
+                    // print receipt
+                    final printInt = await CwbPrint.instance.printOrderV2(
+                      data.orders,
+                      data.totalQuantity,
+                      data.totalPrice,
+                      data.paymentMethod,
+                      data.nominalBayar,
+                      data.namaKasir,
+                      'Customer',
+                    );
+                    CwbPrint.instance.printReceipt(printInt);
+                    },
+                    label: 'Print Receipt',
+                    icon: const Icon(Icons.print)
+                  ),
                   );
                 }
                 final item = data.orders[index];
                 return ListTile(
-                  title: Text(item.product.name),
+                  dense: true,
+                  visualDensity: VisualDensity.compact,
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  minLeadingWidth: 0,
+                  minVerticalPadding: 0,
+                  title: Text(
+                  item.product.name,
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  ),
                   subtitle: Text(
-                    '${item.quantity} x ${item.product.price.currencyFormatRp}',
+                  '${item.quantity} x ${item.product.price.currencyFormatRp}',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
                   ),
                   trailing: Text(
-                    '${item.quantity * item.product.price}'.currencyFormatRp,
-                    style: const TextStyle(
-                      color: AppColors.green,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  '${item.quantity * item.product.price}'.currencyFormatRp,
+                  style: const TextStyle(
+                    color: AppColors.green,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                  ),
                   ),
                 );
-                //button print
               },
             ),
           ],

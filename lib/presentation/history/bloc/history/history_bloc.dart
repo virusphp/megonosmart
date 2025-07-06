@@ -14,5 +14,15 @@ class HistoryBloc extends Bloc<HistoryEvent, HistoryState> {
       final data = await ProductLocalDatasource.instance.getAllOrder();
       emit(HistoryState.success(data));
     });
+
+    on<_GetHistoryReport>((event, emit) async {
+      emit(const _Loading());
+      final result = await ProductLocalDatasource.instance.getOrderByDate(event.date);
+       emit(HistoryState.success(result));
+      // result.fold(
+      //   (l) => emit(_Error("Failed")),
+      //   (r) => emit(_Success(r))
+      // );
+    });
   }
 }

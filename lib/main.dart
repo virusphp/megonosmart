@@ -22,8 +22,12 @@ import 'package:megonopos/presentation/setting/bloc/report/close_cashier/close_c
 import 'package:megonopos/presentation/setting/bloc/report/product_sales/product_sales_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/report/summary/summary_bloc.dart';
 import 'package:megonopos/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initializeDateFormatting('id', null);
   runApp(const MyApp());
 }
 

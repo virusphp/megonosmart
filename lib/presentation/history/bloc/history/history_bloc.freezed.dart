@@ -20,18 +20,21 @@ mixin _$HistoryEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
+    required TResult Function(String date) getHistoryReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
+    TResult? Function(String date)? getHistoryReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
+    TResult Function(String date)? getHistoryReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$HistoryEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetHistoryReport value) getHistoryReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetHistoryReport value)? getHistoryReport,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetHistoryReport value)? getHistoryReport,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
+    required TResult Function(String date) getHistoryReport,
   }) {
     return started();
   }
@@ -129,6 +136,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
+    TResult? Function(String date)? getHistoryReport,
   }) {
     return started?.call();
   }
@@ -138,6 +146,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
+    TResult Function(String date)? getHistoryReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -151,6 +160,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetHistoryReport value) getHistoryReport,
   }) {
     return started(this);
   }
@@ -160,6 +170,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetHistoryReport value)? getHistoryReport,
   }) {
     return started?.call(this);
   }
@@ -169,6 +180,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetHistoryReport value)? getHistoryReport,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -225,6 +237,7 @@ class _$FetchImpl implements _Fetch {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() fetch,
+    required TResult Function(String date) getHistoryReport,
   }) {
     return fetch();
   }
@@ -234,6 +247,7 @@ class _$FetchImpl implements _Fetch {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? fetch,
+    TResult? Function(String date)? getHistoryReport,
   }) {
     return fetch?.call();
   }
@@ -243,6 +257,7 @@ class _$FetchImpl implements _Fetch {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? fetch,
+    TResult Function(String date)? getHistoryReport,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -256,6 +271,7 @@ class _$FetchImpl implements _Fetch {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetHistoryReport value) getHistoryReport,
   }) {
     return fetch(this);
   }
@@ -265,6 +281,7 @@ class _$FetchImpl implements _Fetch {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetHistoryReport value)? getHistoryReport,
   }) {
     return fetch?.call(this);
   }
@@ -274,6 +291,7 @@ class _$FetchImpl implements _Fetch {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetHistoryReport value)? getHistoryReport,
     required TResult orElse(),
   }) {
     if (fetch != null) {
@@ -285,6 +303,153 @@ class _$FetchImpl implements _Fetch {
 
 abstract class _Fetch implements HistoryEvent {
   const factory _Fetch() = _$FetchImpl;
+}
+
+/// @nodoc
+abstract class _$$GetHistoryReportImplCopyWith<$Res> {
+  factory _$$GetHistoryReportImplCopyWith(_$GetHistoryReportImpl value,
+          $Res Function(_$GetHistoryReportImpl) then) =
+      __$$GetHistoryReportImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String date});
+}
+
+/// @nodoc
+class __$$GetHistoryReportImplCopyWithImpl<$Res>
+    extends _$HistoryEventCopyWithImpl<$Res, _$GetHistoryReportImpl>
+    implements _$$GetHistoryReportImplCopyWith<$Res> {
+  __$$GetHistoryReportImplCopyWithImpl(_$GetHistoryReportImpl _value,
+      $Res Function(_$GetHistoryReportImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$GetHistoryReportImpl(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetHistoryReportImpl implements _GetHistoryReport {
+  const _$GetHistoryReportImpl(this.date);
+
+  @override
+  final String date;
+
+  @override
+  String toString() {
+    return 'HistoryEvent.getHistoryReport(date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetHistoryReportImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetHistoryReportImplCopyWith<_$GetHistoryReportImpl> get copyWith =>
+      __$$GetHistoryReportImplCopyWithImpl<_$GetHistoryReportImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() fetch,
+    required TResult Function(String date) getHistoryReport,
+  }) {
+    return getHistoryReport(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? fetch,
+    TResult? Function(String date)? getHistoryReport,
+  }) {
+    return getHistoryReport?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? fetch,
+    TResult Function(String date)? getHistoryReport,
+    required TResult orElse(),
+  }) {
+    if (getHistoryReport != null) {
+      return getHistoryReport(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Fetch value) fetch,
+    required TResult Function(_GetHistoryReport value) getHistoryReport,
+  }) {
+    return getHistoryReport(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Fetch value)? fetch,
+    TResult? Function(_GetHistoryReport value)? getHistoryReport,
+  }) {
+    return getHistoryReport?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Fetch value)? fetch,
+    TResult Function(_GetHistoryReport value)? getHistoryReport,
+    required TResult orElse(),
+  }) {
+    if (getHistoryReport != null) {
+      return getHistoryReport(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetHistoryReport implements HistoryEvent {
+  const factory _GetHistoryReport(final String date) = _$GetHistoryReportImpl;
+
+  String get date;
+
+  /// Create a copy of HistoryEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetHistoryReportImplCopyWith<_$GetHistoryReportImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
