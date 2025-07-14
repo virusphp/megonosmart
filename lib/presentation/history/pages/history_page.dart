@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:megonopos/core/constants/colors.dart';
 import 'package:megonopos/core/extentions/build_context_ext.dart';
+import 'package:megonopos/core/extentions/int_ext.dart';
 import 'package:megonopos/core/extentions/string_ext.dart';
 import 'package:megonopos/presentation/history/bloc/history/history_bloc.dart';
 import 'package:megonopos/presentation/home/pages/dashboard_page.dart';
@@ -114,17 +115,34 @@ class _HistoryPageState extends State<HistoryPage> {
                   itemBuilder: (context, groupIndex) {
                   final date = groupKeys[groupIndex];
                   final items = groupedData[date]!;
+                 final totalNominal = items.fold<int>(
+                    0,
+                    (sum, item) => sum + (item.totalPrice as int),
+                  );
                   return Padding(
                     padding: paddingHorizontal,
                     child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                      date,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            date,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                           Text(
+                            totalNominal.toCurrency(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: AppColors.darkYellow,
+                            ),
+                          ),
+                        ],
                       ),
                       const SpaceHeight(8.0),
                       ...List.generate(

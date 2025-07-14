@@ -12,4 +12,9 @@ extension IntegerExt on int {
         symbol: '',
         decimalDigits: 0,
       ).format(this);
+
+  String toCurrency() {
+    final formatter = NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ', decimalDigits: 0);
+    return formatter.format(this);
+  }
 }

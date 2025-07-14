@@ -187,6 +187,10 @@ class _SettingPageState extends State<SettingPage> {
                   context.read<LogoutBloc>().add(const LogoutEvent.logout());
                 },
                 child: const Text("Logout"),
+                // style: ButtonStyle(),
+                // style: ElevatedButton.styleFrom(
+                //   minimumSize: const Size.fromHeight(50),
+                // ),
               );
             },
           ),
