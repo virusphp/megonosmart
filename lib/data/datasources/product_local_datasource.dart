@@ -252,6 +252,14 @@ class ProductLocalDatasource {
     return results;
   }
 
+  //remove order by id
+  Future<void> removeOrderById(int id) async {
+    final db = await instance.database;
+    await db.delete(tableOrders, where: 'id = $id');
+    await db.delete('order_items', where: 'id_order = ?', whereArgs: [id]);
+  }
+
+
   //update isSync order by id
   Future<int> updateIsSyncOrder(int id) async {
     final db = await instance.database;

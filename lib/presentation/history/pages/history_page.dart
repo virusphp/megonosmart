@@ -43,9 +43,10 @@ class _HistoryPageState extends State<HistoryPage> {
         appBar: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {
-              context.push(const DashboardPage());
-            },
+            onPressed: () => Navigator.pop(context),
+            // onPressed: () {
+            //   context.push(const DashboardPage());
+            // },
           ),
           title: const Text('History',
               style: TextStyle(

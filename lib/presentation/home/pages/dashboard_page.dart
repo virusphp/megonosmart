@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:megonopos/core/assets/assets.gen.dart';
 import 'package:megonopos/core/constants/colors.dart';
-import 'package:megonopos/presentation/history/pages/history_page.dart';
+import 'package:megonopos/presentation/history/pages/history_page2.dart';
 import 'package:megonopos/presentation/home/pages/home_page.dart';
 import 'package:megonopos/presentation/home/widgets/nav_item.dart';
 import 'package:megonopos/presentation/order/pages/order_page.dart';
