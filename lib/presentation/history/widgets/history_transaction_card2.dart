@@ -109,7 +109,7 @@ class HistoryTransactionCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Button.filled(
-                      width: 180.0,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       height: 40.0,
                       onPressed: () async {
                         final confirm = await showDialog<bool>(
@@ -138,10 +138,11 @@ class HistoryTransactionCard extends StatelessWidget {
                         }
                       },
                       label: 'Delete',
+                      fontSize: 12.0,
                       icon: const Icon(Icons.delete, color: AppColors.white),
                     ),
                     Button.filled(
-                      width: 180.0,
+                      width: MediaQuery.of(context).size.width * 0.4,
                       height: 40.0,
                       onPressed: () async {
                         final printInt = await CwbPrint.instance.printOrderV2(
@@ -155,7 +156,8 @@ class HistoryTransactionCard extends StatelessWidget {
                         );
                         CwbPrint.instance.printReceipt(printInt);
                       },
-                      label: 'Print Receipt',
+                      label: 'Print',
+                      fontSize: 12.0,
                       icon: const Icon(Icons.print, color: AppColors.white),
                     ),
                   ],

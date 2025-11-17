@@ -138,6 +138,7 @@ class _HistoryPageState extends State<HistoryPage> {
                                 // SnackBar
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
+                                      backgroundColor: AppColors.green,
                                       content: Text('Order deleted successfully')),
                                 );
                               },
